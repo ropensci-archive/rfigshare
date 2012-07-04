@@ -46,13 +46,16 @@ setClass("FigshareCredentials", contains = "OAuthCredentials")
 library(httr)
 figshare_auth <- function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
     cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret"))){
-  myapp <- oauth_app("figshare", key = cKey)
-  sig <- sign_ouath1.0(myapp, 
-  token = "",
+  myapp <- oauth_app("figshare", key = cKey, secret=cSecret)
+
+  figshare <- oauth_endpoint("request_token", "authorize", "access_token",
+                          base_url = "http://api.figshare.com/my_data/")
+
+  token <- oauth1.0_token(figshare, myapp) 
+  sig <- sign_oauth1.0(myapp, 
+  token = ckey,
   token_secret = cSecret)
-
   GET('http://api.figshare.com/my_data/authors?search_for=John Silva', sig)
-
 }
 
 
