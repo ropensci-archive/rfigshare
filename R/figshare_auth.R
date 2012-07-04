@@ -22,7 +22,6 @@ figshare_auth <- function(cKey = getOption("FigshareKey", stop("Missing Figshare
     cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
     curl = getCurlHandle(), ...) {
     reqURL <- "http://api.figshare.com/my_data/articles" #"http://api.figshare.com/oauth/request_token/"
-
     accessURL <- reqURL #"http://api.figshare.com/oauth/access_token/"
     authURL <- reqURL #"http://api.figshare.com/oauth/authorize/"
     figshare_oa <- oauth(cKey, cSecret, reqURL, authURL, accessURL, obj = new("FigshareCredentials"))
