@@ -10,7 +10,6 @@ function(title="test", description="description of test", type="dataset", sessio
   request <- paste(base, method, sep="/")
   meta <- toJSON(list("title"=title, "description"=description,
                       "type"=type, "Content-Type" = "application/json"))
-
   POST(request, config=session, body=meta)
 }
 
