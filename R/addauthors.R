@@ -1,24 +1,15 @@
-Add authors to article
+#' Add authors to article
 
 HTTP method PUT
 PATH  /my_data/articles/{article_id}/authors
 Parameters  author_id
 Content-type  application/json
-import requests
-from oauth_hook import OAuthHook
-import json
 
+figshare_addauthors <- function(author_id, article_id, session){
+  base <- "http://api.figshare.com/v1/"
+  method <- paste("/my_data/articles", article_id, "authors", sep= "/")
+  request = paste(base, method, sep="")
+  body <- toJSON(list("author_id"=author_id, "Content-Type" = "application/json"))
+  out <- PUT(request, config=session, body=body)
+}
 
-OAuthHook.consumer_key = '123456'
-OAuthHook.consumer_secret = '65xyAzi1'
-oauth_hook = OAuthHook(header_auth=True)
-
-client = requests.session(hooks={'pre_request': oauth_hook})
-
-body = {'author_id':92130}
-headers = {'content-type':'application/json'}
-
-response = client.put('http://api.figshare.com/my_data/articles/92285/authors',
-                        data=json.dumps(body), headers=headers)
-results = json.loads(response.content)
-print results
