@@ -1,20 +1,13 @@
-Search for an author
+#' Search for an author
+#' @param author a string to search for (name, can include spaces)
+#' @param session authentication object from figshare_auth()
+figshare_author_search <- 
+  function(author, session){
+    base <- "http://api.figshare.com/v1"
+    method <- paste("my_data/authors?search_for=", author, sep="")
+    request = paste(base, method, sep="/")
+    GET(request, session)
+  }
 
-HTTP method GET
-PATH  /my_data/authors
-Parameters  search_for(mandatory), page
-Content-type   
-import requests
-from oauth_hook import OAuthHook
-import json
 
 
-OAuthHook.consumer_key = '123456'
-OAuthHook.consumer_secret = '65xyAzi1'
-oauth_hook = OAuthHook(header_auth=True)
-
-client = requests.session(hooks={'pre_request': oauth_hook})
-
-response = client.get('http://api.figshare.com/my_data/authors?search_for=John Silva')
-results = json.loads(response.content)
-print results

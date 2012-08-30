@@ -1,20 +1,8 @@
-Make the article public
-
-HTTP method PUT
-PATH  /my_data/articles/{article_id}/action/make_public
-Parameters  
-Content-type   
-import requests
-from oauth_hook import OAuthHook
-import json
+figshare_makepublic <- function(id, session){
+  base <- "http://api.figshare.com/v1"
+  method <- paste("my_data/articles", id, "action/make_public", sep="/")
+    request = paste(base, method, sep="/")
+  POST(request, session)
+}
 
 
-OAuthHook.consumer_key = '123456'
-OAuthHook.consumer_secret = '65xyAzi1'
-oauth_hook = OAuthHook(header_auth=True)
-
-client = requests.session(hooks={'pre_request': oauth_hook})
-
-response = client.post('http://api.figshare.com/my_data/articles/92285/action/make_public')
-results = json.loads(response.content)
-print results

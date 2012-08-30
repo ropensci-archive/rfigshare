@@ -25,6 +25,9 @@ function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
   require(httr)
   myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
   sig <-  httr:::sign_ouath1.0(myapp, token = token, token_secret = token_secret) 
+  #Sys.setenv(FigshareSession = sig)
+  #invisible(sig)
+  sig
 } 
 
 
