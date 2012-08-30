@@ -1,30 +1,30 @@
 # Getting Started with rfigshare
 
-![../../rfigshare.png]
+![](../../rfigshare.png)
 
 
 ## Obtaining your API keys
 
 Create a user account on [FigShare](http://figshare.com) and log in.  From your homepage, select "Applications" from the drop-down menu,
 
-![](images/applications.png)
+![](http://farm9.staticflickr.com/8460/7891184444_d95943934b_o.png)
 
 Create a new application:
 
-![](images/create_new.png)
+![](http://farm9.staticflickr.com/8176/7891184654_83ae2c7c55_o.png)
 
 
 Enter in the following information: 
 
-![](images/create_app1.png)
+![](http://farm9.staticflickr.com/8317/7891185138_de8c1b009d_o.png)
 
 Then navigate over to the permissions tab.  To get the most out of `rfigshare` you'll want to enable all permissions:
 
-![](images/create_app2.png)
+![](http://farm9.staticflickr.com/8306/7891185368_0a392bb218_o.png)
 
 Save the new settings, and then open the application again (View/Edit menu) and click on the "Access Codes" tab.
 
-![](images/smudge_keys.png)
+![](http://farm9.staticflickr.com/8040/7891185748_0cb4eb869a_o.png)
 
 Record each if the keys into R as follows.  You might want to put this bit of R code into your `.Rprofile` to avoid entering it each time in the future:
 
