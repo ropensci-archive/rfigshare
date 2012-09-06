@@ -1,0 +1,34 @@
+
+#' Get details for an article
+#'
+#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @param article_id number
+#' @param session the authentication credentials from \code{\link{figshare_auth}}
+#' @param show_versions logical, show what versions are available
+#' @param version show a given version number
+#' @seealso \code{\link{figshare_auth}}
+#' @references \url{http://api.figshare.com}
+#' @import httr
+#' @export
+#' @examples \dontrun{
+#' figshare_auth()
+#' figshare_details("138")
+#' }
+figshare_details <- 
+  function(article_id, session = fs_get_auth(),
+         show_versions=FALSE, version=NULL){
+    base <- "http://api.figshare.com/v1"
+    method <- paste("my_data/articles", article_id, sep="/")
+    if(show_versions)
+      method <- paste(method, "versions", sep="/")
+    if(!is.null(version))
+      method <- paste(method, version, sep="/")
+    request = paste(base, method, sep="/")
+    out <- GET(request, session)
+    ## TODO: add class for info and pretty print summary 
+    parsed_out <- parsed_content(out)
+    parsed_out$items[[1]]
+  }
+
+
+

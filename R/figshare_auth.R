@@ -9,12 +9,11 @@
 #' @param cKey Consumer key. can be supplied here or read from Options()
 #' @param  cSecret Consumer secret. can be supplied here or read from Options()
 #' API key creditentials can be set in .Rprofile using options("FigshareKey" = "XXXXXX-XXXX")
-#' @return OAuth credential 
+#' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
 #' @import httr 
 #' @export
 #' @examples \dontrun{
-#' sig <- figshare_auth()
-#' GET('http://api.figshare.com/v1/my_data/authors?search_for=John Silva', sig)
+#' figshare_auth()
 #' }
 
 figshare_auth <- 
@@ -22,14 +21,27 @@ function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
        cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
        token = getOption("FigshareToken", stop("Missing Figshare token")),
        token_secret = getOption("FigsharePrivateToken", stop("Missing Figshare Secret Token"))){
+
+  ## Consider switching to 'get' and using a special environment
+
   require(httr)
   myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
-  sig <-  httr:::sign_ouath1.0(myapp, token = token, token_secret = token_secret) 
-  #Sys.setenv(FigshareSession = sig)
-  #invisible(sig)
-  sig
+  oauth <-  httr:::sign_oauth1.0(myapp, token = token, token_secret = token_secret)
+  assign('oauth', oauth, envir=FigshareAuthCache)
+  invisible(oauth)
 } 
 
+
+
+#' Helper function to get authentication
+#'
+#' The authentication environment is created by new.env function in the zzz.R file.  The authentication token 'oauth' is created by the figshare_auth function.  This helper function lets all other functions load the authentication.  
+#' @keywords internal
+fs_get_auth <- function(){
+  if(!exists("oauth", envir=FigshareAuthCache))
+    stop("Requires authentication. Please run the 'figshare_auth' function first")
+  get("oauth", envir=FigshareAuthCache)
+}
 
 
 
