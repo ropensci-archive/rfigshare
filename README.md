@@ -5,7 +5,7 @@
 
 * Maintainer: Carl Boettiger, [cboettig](https://github.com/cboettig)
 * License: [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
-* Contact: Report bugs, questions, or feature requests on the [Issues Tracker](https://github.com/ropensci/rfigshare/issues), or get in touch with us at [info@ropensci.org](emailto:info@ropensci.org)
+* Contact: Report bugs, questions, or feature requests on the [Issues Tracker](https://github.com/ropensci/rfigshare/issues), or get in touch with us at [info@ropensci.org](mailto:info@ropensci.org)
 
 Installation
 ------------
