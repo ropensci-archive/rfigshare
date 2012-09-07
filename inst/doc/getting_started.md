@@ -235,11 +235,11 @@ fs_create("Test title", "description of test", "dataset")
 ```
 
 ```
-## Your article has been created! Your id number is
+## Your article has been created! Your id number is 95717
 ```
 
 ```
-## NULL
+## [1] 95717
 ```
 
 
