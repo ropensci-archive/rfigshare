@@ -8,3 +8,5 @@ Now that you have created your credentials, we are ready to start posting conten
 ### Step 1: Create a new article
 
 An article on FigShare can be a figure, poster, dataset, paper, or other media, and can contain an arbitrary number of files or attachements.  Each article has a unique ID number which we will use to interact with it.  All articles have the essential scientific metadata including a title, at least one author, and a description or abstract.  Categories can be selected from a fixed list, while articles can be assigned any tags.
+
+
