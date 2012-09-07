@@ -1,13 +1,10 @@
 #'  Upload file to an article 
 #' 
-#' Article must be a draft, i.e. created by figshare_create and not yet made public or private
-#'
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @details Article must be a draft, i.e. created by \code{\link{figshare_create}} and not yet made public or private
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param file path to file to upload
 #' @param article_id number
 #' @param session the authentication credentials from \code{\link{figshare_auth}} (optional)
-#' @param show_versions logical, show what versions are available
-#' @param version show a given version number
 #' @seealso \code{\link{figshare_auth}}
 #' @references \url{http://api.figshare.com}
 #' @export

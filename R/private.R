@@ -1,6 +1,6 @@
 #' Make an article private (draft only?)
 #' 
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param session (optional) the authentication credentials from \code{\link{figshare_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @return output of PUT request (invisibly)

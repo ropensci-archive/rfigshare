@@ -1,7 +1,7 @@
 
 #' Get details for an article
 #'
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
 #' @param session the authentication credentials from \code{\link{figshare_auth}}
 #' @param show_versions logical, show what versions are available

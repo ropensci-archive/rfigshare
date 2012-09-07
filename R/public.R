@@ -1,10 +1,10 @@
 #' Make an article public (for private or draft articles)
 #'
-#' NOTE: Public articles are assigned DOIs and cannot be deleted or made private once declared public! Public articles do not count against your quota space.  
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param session (optional) the authentication credentials from \code{\link{figshare_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @return output of PUT request (invisibly)
+#' @details NOTE: Public articles are assigned DOIs and cannot be deleted or made private once declared public! Public articles do not count against your quota space.  
 #' @seealso \code{\link{figshare_auth}}
 #' @references \url{http://api.figshare.com}
 #' @export

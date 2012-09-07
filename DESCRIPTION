@@ -14,6 +14,20 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
 Depends:
     R (>= 2.10)
 Imports:
-    XML,
-    RCurl (>= 1.6)
-
+    RJSONIO,
+    httr (>= 0.1.1)
+Collate:
+    'author.R'
+    'category.R'
+    'create.R'
+    'create_author.R'
+    'delete.R'
+    'details.R'
+    'figshare_auth.R'
+    'private.R'
+    'public.R'
+    'tag.R'
+    'update.R'
+    'upload.R'
+    'zzz.R'
+    'author_search.R'

@@ -1,6 +1,6 @@
 #' Add tags to article
 #' 
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param tag name of the tag to add
 #' @param article_id the id number of the article to create
 #' @param session the authentication credentials from \code{\link{figshare_auth}}
@@ -16,13 +16,12 @@
 figshare_tag <- 
 function(tag, article_id, session = 
          fs_get_auth()){
-  require(RJSONIO)
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "tags", sep= "/")
   request <- paste(base, method, sep="/")
   body <- toJSON(list("tag_name" = tag))
   config <- c(verbose(), session, 
-              add_headers("Content-Type" = "application/json")
+              add_headers("Content-Type" = "application/json"))
    post <- PUT(request, config=config, body=body)
   invisible(post)
 }

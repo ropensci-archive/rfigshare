@@ -1,7 +1,7 @@
 #' Update article title, description, or type 
 #'
 #' Updates the article title, description or type. If any is not specified, it will remain unchanged.  
-#' @author Carl Boettiger \email{cboettig@gmail.com}
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param title for the article (to replace original title)
 #' @param description of the article (replaces original designation)
@@ -29,14 +29,13 @@ function(article_id, title=NA, description=NA, type = NA,
   if(is.na(type))
     type <- details$defined_type
 
-  require(RJSONIO)
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, sep= "/")
   request <- paste(base, method, sep="/")
   meta <- toJSON(list("title"=title, "description"=description, 
                       "defined_type"=type))
   config <- c(verbose(), session, 
-              add_headers("Content-Type" = "application/json")
+              add_headers("Content-Type" = "application/json"))
   post <- PUT(request, config=config, body=meta)
   invisible(post)
 }
