@@ -3,17 +3,17 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article to create
 #' @param tag name of the tag to add
-#' @param session the authentication credentials from \code{\link{figshare_auth}}
+#' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{figshare_auth}}
+#' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#'  figshare_auth()
-#'  figshare_tag(138, "phylogenetics") 
+#'  fs_auth()
+#'  fs_add_tag(138, "phylogenetics") 
 #' }
-figshare_tag <- 
+fs_add_tag <- 
 function(article_id, tag, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "tags", sep= "/")

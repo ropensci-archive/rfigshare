@@ -6,22 +6,22 @@
 #' @param title for the article (to replace original title)
 #' @param description of the article (replaces original designation)
 #' @param type one of: dataset, figure, media, poster, or paper (replaces original designation)
-#' @param session (optional) the authentication credentials from \code{\link{figshare_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. 
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{figshare_auth}}
+#' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' figshare_auth()
-#' figshare_update(138, title="New title") 
+#' fs_auth()
+#' fs_update(138, title="New title") 
 #' }
-figshare_update <- 
+fs_update <- 
 function(article_id, title=NA, description=NA, type = NA,
          session = fs_get_auth()){
 
   ## grab the article details and use those as defaults
-  details <- figshare_details(article_id, session)
+  details <- fs_details(article_id, session)
   if(is.na(title))
     title <- details$title
   if(is.na(description))

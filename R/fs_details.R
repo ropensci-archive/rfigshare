@@ -3,18 +3,18 @@
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
-#' @param session the authentication credentials from \code{\link{figshare_auth}}
+#' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
-#' @seealso \code{\link{figshare_auth}}
+#' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' figshare_auth()
-#' figshare_details("138")
+#' fs_auth()
+#' fs_details("138")
 #' }
-figshare_details <- 
+fs_details <- 
   function(article_id, session = fs_get_auth(),
          show_versions=FALSE, version=NULL){
     base <- "http://api.figshare.com/v1"

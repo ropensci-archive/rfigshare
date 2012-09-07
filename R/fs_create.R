@@ -1,31 +1,31 @@
 #' Create a FigShare article (draft)
 #' 
-#' Articles must be created with \code{\link{figshare_create}}
+#' Articles must be created with \code{\link{fs_create}}
 #' with essential metadata.  Then you can add files with
-#' \code{\link{figshare_upload}}, add categories, tags or authors
-#' with \code{\link{figshare_category}} or \code{\link{figshare_tag}}
-#' \code{\link{figshare_author}}.  Authors not registered with a FigShare
-#' id can be created with \code{\link{figshare_create_author}}.  You can
-#' edit the original metadata with \code{\link{figshare_update}}.
+#' \code{\link{fs_upload}}, add categories, tags or authors
+#' with \code{\link{fs_add_category}} or \code{\link{fs_add_tag}}
+#' \code{\link{fs_add_author}}.  Authors not registered with a FigShare
+#' id can be created with \code{\link{fs_create_author}}.  You can
+#' edit the original metadata with \code{\link{fs_update}}.
 #' Finally, release the article as either private or public with
-#' \code{\link{figshare_private}} or \code{\link{figshare_public}}.
+#' \code{\link{fs_make_private}} or \code{\link{fs_make_public}}.
 #' Before creating the article, you must authenticate using
-#' \code{\link{figshare_auth}}.
+#' \code{\link{fs_auth}}.
 #' @param title for the article
 #' @param description of the article
 #' @param type one of: dataset, figure, media, poster, or paper
-#' @param session the authentication credentials from \code{\link{figshare_auth}}
+#' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param verbose print full post call return
 #' @return article id 
-#' @seealso \code{\link{figshare_auth}}
+#' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' sig <- figshare_auth()
-#' figshare_create("My Title", "A description of the object", "dataset")
+#' sig <- fs_auth()
+#' fs_create("My Title", "A description of the object", "dataset")
 #' }
-figshare_create <- 
+fs_create <- 
 function(title, description, type = 
          c("dataset", "figure", "media", "poster", "paper"),
          session = fs_get_auth(), verbose=FALSE){

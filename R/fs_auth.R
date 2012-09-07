@@ -17,10 +17,10 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @references \url{http://api.figshare.com}
 #' @examples \dontrun{
-#' figshare_auth()
+#' fs_auth()
 #' }
 
-figshare_auth <- 
+fs_auth <- 
 function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
        cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
        token = getOption("FigshareToken", stop("Missing Figshare token")),
