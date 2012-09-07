@@ -4,7 +4,7 @@
 \usage{
   figshare_create(title, description,
     type = c("dataset", "figure", "media", "poster", "paper"),
-    session = fs_get_auth())
+    session = fs_get_auth(), verbose = FALSE)
 }
 \arguments{
   \item{title}{for the article}
@@ -16,9 +16,11 @@
 
   \item{session}{the authentication credentials from
   \code{\link{figshare_auth}}}
+
+  \item{verbose}{print full post call return}
 }
 \value{
-  output of post request (invisibly)
+  article id
 }
 \description{
   Articles must be created with

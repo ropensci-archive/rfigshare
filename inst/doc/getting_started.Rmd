@@ -1,9 +1,12 @@
 # Getting Started with rfigshare
 
-![](../../rfigshare.png)
+![](figure/rfigshare.png)
 
 
 ## Obtaining your API keys
+
+Note that there is a nice video introduction to creating applications for the API on the [figshare blog](http://figshare.com/blog/figshare_API_available_to_all/48).  The following tutorial provides a simple walkthrough of how to go about getting your figshare API keys set up so that you can use the `rfigshare` package.  
+
 
 Create a user account on [FigShare](http://figshare.com) and log in.  From your homepage, select "Applications" from the drop-down menu,
 
@@ -50,8 +53,22 @@ figshare_auth()
 ````
 
 
+Try a search for an author, or get the details on a paper:
+
+``` {r }
+figshare_author_search("Boettiger")
+figshare_details("138")
+````
+
+Try creating your own content:
+
+``` {r }
+figshare_create("Test title", "description of test", "dataset")
+````
+
+This creates an article with the essential metadata information.  In the next tutorial, [Publishing on FigShare from R](https://github.com/ropensci/rfigshare/blob/master/inst/doc/publishing_on_figshare.md) we will describe how to add files, tags, categories, authors, and links to your draft, and then publish it either privately or publicly.   
 
 
 
 
-There is a nice video introduction to creating applications for the API on the [figshare blog](http://figshare.com/blog/figshare_API_available_to_all/48).
+

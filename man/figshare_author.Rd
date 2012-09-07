@@ -2,14 +2,14 @@
 \alias{figshare_author}
 \title{Add author to an article}
 \usage{
-  figshare_author(author_id, article_id,
+  figshare_author(article_id, author_id,
     session = fs_get_auth())
 }
 \arguments{
+  \item{article_id}{id number of an article on figshare}
+
   \item{author_id}{the id number of a registered figshare
   user (see figshare_search_authors)}
-
-  \item{article_id}{id number of an article on figshare}
 
   \item{session}{(optional) the authentication credentials
   from \code{\link{figshare_auth}}. If not provided, will

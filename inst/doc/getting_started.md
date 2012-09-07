@@ -1,30 +1,33 @@
 # Getting Started with rfigshare
 
-![](../../rfigshare.png)
+![](figure/rfigshare.png)
 
 
 ## Obtaining your API keys
 
+Note that there is a nice video introduction to creating applications for the API on the [figshare blog](http://figshare.com/blog/figshare_API_available_to_all/48).  The following tutorial provides a simple walkthrough of how to go about getting your figshare API keys set up so that you can use the `rfigshare` package.  
+
+
 Create a user account on [FigShare](http://figshare.com) and log in.  From your homepage, select "Applications" from the drop-down menu,
 
-![](http://farm9.staticflickr.com/8460/7891184444_d95943934b_o.png)
+![](figure/applications.png)
 
 Create a new application:
 
-![](http://farm9.staticflickr.com/8176/7891184654_83ae2c7c55_o.png)
+![](figure/createnew.png)
 
 
 Enter in the following information: 
 
-![](http://farm9.staticflickr.com/8317/7891185138_de8c1b009d_o.png)
+![](figure/create_app1.png)
 
 Then navigate over to the permissions tab.  To get the most out of `rfigshare` you'll want to enable all permissions:
 
-![](http://farm9.staticflickr.com/8306/7891185368_0a392bb218_o.png)
+![](figure/create_app2.png)
 
 Save the new settings, and then open the application again (View/Edit menu) and click on the "Access Codes" tab.
 
-![](http://farm9.staticflickr.com/8040/7891185748_0cb4eb869a_o.png)
+![](figure/smudge_keys.png)
 
 Record each if the keys into R as follows.  You might want to put this bit of R code into your `.Rprofile` to avoid entering it each time in the future:
 
@@ -47,35 +50,202 @@ Try authenticating with your credentials:
 
 ```r
 require(rfigshare)
-session <- figshare_auth()
+```
+
+```
+## Loading required package: rfigshare
+```
+
+```r
+figshare_auth()
 ```
 
 
-Methods are still in development, with some still to be added and better formatting of output still coming. Here are a few examples:
+
+Try a search for an author, or get the details on a paper:
 
 
 ```r
-figshare_author_search("Boettiger", session)
+figshare_author_search("Boettiger")
 ```
 
 ```
 ## Response [http://api.figshare.com/v1/my_data/authors?search_for=Boettiger]
 ##   Status: 200
+##   Content-type: application/json; charset=UTF-8
 ## {"pages": 0, "results": 1, "start": 0, "per_page": 10, "items": [{"id": "96387", "fname": "Carl", "lname": "Boettiger", "full_name": "Carl Boettiger", "job_title": "", "description": "", "facebook": "", "twitter": "", "active": 1}]} 
 ```
 
 ```r
-figshare_article_details("138", session)
+figshare_details("138")
 ```
 
 ```
-## Response [http://api.figshare.com/v1/my_data/articles/138]
-##   Status: 200
-## {"count": 1, "items": [{"article_id": 138, "title": "Labrid adaptive peaks", "views": 53, "downloads": 0, "shares": 0, "doi": "http://dx.doi.org/10.6084/m9.figshare.138", "defined_type": "figure", "status": "Public", "version": 1, "published_date": "13:45, Dec 30, 2011", "description": "Described in the notebook: http://openwetware.org/wiki/User:Carl_Boettiger/Notebook/Comparative_Phylogenetics/2010/03/12", "total_size": "29.71 KB", "owner": {"id": 96387, "full_name": "Carl Boettiger"}, "authors": [{"first_name": "Carl", "last_name": "Boettiger", "id": 96387, "full_name": "Carl Boettiger"}], "tags": [{"id": 277, "name": "comparative methods"}, {"id": 276, "name": "phylogenetics"}, {"id": 275, "name": "fins"}, {"id": 274, "name": "labrids"}], "categories": [{"id": 24, "name": "Evolutionary biology"}, {"id": 39, "name": "Ecology"}], "files": [{"size": "30 KB", "id": 137, "mime_type": "image/png", "name": "Labrid_fins.png"}], "links": []}]} 
+## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
+```
+
+```
+## Loading required package: rjson
+```
+
+```
+## $article_id
+## [1] 138
+## 
+## $title
+## [1] "Labrid adaptive peaks"
+## 
+## $views
+## [1] 56
+## 
+## $downloads
+## [1] 0
+## 
+## $shares
+## [1] 0
+## 
+## $doi
+## [1] "http://dx.doi.org/10.6084/m9.figshare.138"
+## 
+## $defined_type
+## [1] "figure"
+## 
+## $status
+## [1] "Public"
+## 
+## $version
+## [1] 1
+## 
+## $published_date
+## [1] "13:45, Dec 30, 2011"
+## 
+## $description
+## [1] "Described in the notebook: http://openwetware.org/wiki/User:Carl_Boettiger/Notebook/Comparative_Phylogenetics/2010/03/12"
+## 
+## $total_size
+## [1] "29.71 KB"
+## 
+## $owner
+## $owner$id
+## [1] 96387
+## 
+## $owner$full_name
+## [1] "Carl Boettiger"
+## 
+## 
+## $authors
+## $authors[[1]]
+## $authors[[1]]$first_name
+## [1] "Carl"
+## 
+## $authors[[1]]$last_name
+## [1] "Boettiger"
+## 
+## $authors[[1]]$id
+## [1] 96387
+## 
+## $authors[[1]]$full_name
+## [1] "Carl Boettiger"
+## 
+## 
+## 
+## $tags
+## $tags[[1]]
+## $tags[[1]]$id
+## [1] 277
+## 
+## $tags[[1]]$name
+## [1] "comparative methods"
+## 
+## 
+## $tags[[2]]
+## $tags[[2]]$id
+## [1] 276
+## 
+## $tags[[2]]$name
+## [1] "phylogenetics"
+## 
+## 
+## $tags[[3]]
+## $tags[[3]]$id
+## [1] 275
+## 
+## $tags[[3]]$name
+## [1] "fins"
+## 
+## 
+## $tags[[4]]
+## $tags[[4]]$id
+## [1] 274
+## 
+## $tags[[4]]$name
+## [1] "labrids"
+## 
+## 
+## 
+## $categories
+## $categories[[1]]
+## $categories[[1]]$id
+## [1] 24
+## 
+## $categories[[1]]$name
+## [1] "Evolutionary biology"
+## 
+## 
+## $categories[[2]]
+## $categories[[2]]$id
+## [1] 39
+## 
+## $categories[[2]]$name
+## [1] "Ecology"
+## 
+## 
+## 
+## $files
+## $files[[1]]
+## $files[[1]]$size
+## [1] "30 KB"
+## 
+## $files[[1]]$id
+## [1] 137
+## 
+## $files[[1]]$mime_type
+## [1] "image/png"
+## 
+## $files[[1]]$name
+## [1] "Labrid_fins.png"
+## 
+## 
+## 
+## $links
+## list()
+## 
 ```
 
 
+Try creating your own content:
+
+
+```r
+figshare_create("Test title", "description of test", "dataset")
+```
+
+```
+## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
+```
+
+```
+## Your article has been created! Your id number is
+```
+
+```
+## NULL
+```
+
+
+This creates an article with the essential metadata information.  In the next tutorial, [Publishing on FigShare from R](https://github.com/ropensci/rfigshare/blob/master/inst/doc/publishing_on_figshare.md) we will describe how to add files, tags, categories, authors, and links to your draft, and then publish it either privately or publicly.   
 
 
 
-There is a nice video introduction to creating applications for the API on the [figshare blog](http://figshare.com/blog/figshare_API_available_to_all/48).
+
+

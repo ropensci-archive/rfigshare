@@ -31,7 +31,7 @@
 \examples{
 \dontrun{
 figshare_auth()
-figshare_update(10)
+figshare_update(138, title="New title")
 }
 }
 \author{

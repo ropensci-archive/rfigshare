@@ -2,13 +2,13 @@
 \alias{figshare_upload}
 \title{Upload file to an article}
 \usage{
-  figshare_upload(file, article_id,
+  figshare_upload(article_id, file,
     session = fs_get_auth())
 }
 \arguments{
-  \item{file}{path to file to upload}
-
   \item{article_id}{number}
+
+  \item{file}{path to file to upload}
 
   \item{session}{the authentication credentials from
   \code{\link{figshare_auth}} (optional)}
