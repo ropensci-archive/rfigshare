@@ -44,7 +44,7 @@ function(title, description, type =
     message(post)
 
   p <- parsed_content(post) 
-  article_id <- p$items[[1]]$article_id
+  article_id <- p$article_id
   message(paste("Your article has been created! Your id number is", article_id))
   article_id
 }

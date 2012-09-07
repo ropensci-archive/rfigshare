@@ -49,7 +49,7 @@ Try authenticating with your credentials:
 
 ``` {r }
 require(rfigshare)
-figshare_auth()
+fs_auth()
 ````
 
 
