@@ -1,0 +1,52 @@
+\name{fs_create}
+\alias{fs_create}
+\title{Create a FigShare article (draft)}
+\usage{
+  fs_create(title, description,
+    type = c("dataset", "figure", "media", "poster", "paper"),
+    session = fs_get_auth(), verbose = FALSE)
+}
+\arguments{
+  \item{title}{for the article}
+
+  \item{description}{of the article}
+
+  \item{type}{one of: dataset, figure, media, poster, or
+  paper}
+
+  \item{session}{the authentication credentials from
+  \code{\link{fs_auth}}}
+
+  \item{verbose}{print full post call return}
+}
+\value{
+  article id
+}
+\description{
+  Articles must be created with \code{\link{fs_create}}
+  with essential metadata.  Then you can add files with
+  \code{\link{fs_upload}}, add categories, tags or authors
+  with \code{\link{fs_add_category}} or
+  \code{\link{fs_add_tag}} \code{\link{fs_add_author}}.
+  Authors not registered with a FigShare id can be created
+  with \code{\link{fs_create_author}}.  You can edit the
+  original metadata with \code{\link{fs_update}}. Finally,
+  release the article as either private or public with
+  \code{\link{fs_make_private}} or
+  \code{\link{fs_make_public}}. Before creating the
+  article, you must authenticate using
+  \code{\link{fs_auth}}.
+}
+\examples{
+\dontrun{
+sig <- fs_auth()
+fs_create("My Title", "A description of the object", "dataset")
+}
+}
+\references{
+  \url{http://api.figshare.com}
+}
+\seealso{
+  \code{\link{fs_auth}}
+}
+

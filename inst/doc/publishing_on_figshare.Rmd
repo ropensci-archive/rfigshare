@@ -1,0 +1,10 @@
+# Publishing On Figshare from R
+
+Before you can use `rfigshare` effectively, you will need to set up your authentication credentials by obtaining a set of API keys from [FigShare.org](http://fishshare.org).  See our [Getting Started with rfigshare](https://github.com/ropensci/rfigshare/blob/master/inst/doc/getting_started.md) tutorial for a step by step guide.  
+
+
+Now that you have created your credentials, we are ready to start posting content to FigShare using R.  
+
+### Step 1: Create a new article
+
+An article on FigShare can be a figure, poster, dataset, paper, or other media, and can contain an arbitrary number of files or attachements.  Each article has a unique ID number which we will use to interact with it.  All articles have the essential scientific metadata including a title, at least one author, and a description or abstract.  Categories can be selected from a fixed list, while articles can be assigned any tags.

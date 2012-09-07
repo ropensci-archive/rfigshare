@@ -1,6 +1,6 @@
 # Getting Started with rfigshare
 
-![](figure/rfigshare.png)
+![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png)
 
 
 ## Obtaining your API keys
@@ -10,24 +10,24 @@ Note that there is a nice video introduction to creating applications for the AP
 
 Create a user account on [FigShare](http://figshare.com) and log in.  From your homepage, select "Applications" from the drop-down menu,
 
-![](figure/applications.png)
+![](http://farm9.staticflickr.com/8171/7950489558_5172515057_o.png)
 
 Create a new application:
 
-![](figure/createnew.png)
+![](http://farm9.staticflickr.com/8038/7950490158_7feaf680bd_o.png)
 
 
 Enter in the following information: 
 
-![](figure/create_app1.png)
+![](http://farm9.staticflickr.com/8305/7950490562_02846cea92_o.png)
 
 Then navigate over to the permissions tab.  To get the most out of `rfigshare` you'll want to enable all permissions:
 
-![](figure/create_app2.png)
+![](http://farm9.staticflickr.com/8448/7950491064_c3820e62bd_o.png)
 
 Save the new settings, and then open the application again (View/Edit menu) and click on the "Access Codes" tab.
 
-![](figure/smudge_keys.png)
+![](http://farm9.staticflickr.com/8308/7950491470_621da9c5d1_o.png)
 
 Record each if the keys into R as follows.  You might want to put this bit of R code into your `.Rprofile` to avoid entering it each time in the future:
 
@@ -56,14 +56,14 @@ figshare_auth()
 Try a search for an author, or get the details on a paper:
 
 ``` {r }
-figshare_author_search("Boettiger")
-figshare_details("138")
+fs_author_search("Boettiger")
+fs_details("138")
 ````
 
 Try creating your own content:
 
 ``` {r }
-figshare_create("Test title", "description of test", "dataset")
+fs_create("Test title", "description of test", "dataset")
 ````
 
 This creates an article with the essential metadata information.  In the next tutorial, [Publishing on FigShare from R](https://github.com/ropensci/rfigshare/blob/master/inst/doc/publishing_on_figshare.md) we will describe how to add files, tags, categories, authors, and links to your draft, and then publish it either privately or publicly.   
