@@ -1,8 +1,8 @@
 #' Add tags to article
 #' 
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
-#' @param tag name of the tag to add
 #' @param article_id the id number of the article to create
+#' @param tag name of the tag to add
 #' @param session the authentication credentials from \code{\link{figshare_auth}}
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{figshare_auth}}
@@ -11,11 +11,10 @@
 #' @export
 #' @examples \dontrun{
 #'  figshare_auth()
-#'  figshare_tag("phylogenetics") 
+#'  figshare_tag(138, "phylogenetics") 
 #' }
 figshare_tag <- 
-function(tag, article_id, session = 
-         fs_get_auth()){
+function(article_id, tag, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "tags", sep= "/")
   request <- paste(base, method, sep="/")

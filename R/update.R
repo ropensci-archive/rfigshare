@@ -14,7 +14,7 @@
 #' @export
 #' @examples \dontrun{
 #' figshare_auth()
-#' figshare_update(10) 
+#' figshare_update(138, title="New title") 
 #' }
 figshare_update <- 
 function(article_id, title=NA, description=NA, type = NA,
