@@ -12,8 +12,15 @@
   from Options()}
 
   \item{cSecret}{Consumer secret. can be supplied here or
-  read from Options() API key creditentials can be set in
-  .Rprofile using options("FigshareKey" = "XXXXXX-XXXX")}
+  read from Options()}
+
+  \item{token}{the Figshare token. can be supplied here or
+  read from Options()}
+
+  \item{token_secret}{the Figshare secret token. can be
+  supplied here or read from Options() API key
+  creditentials can be set in .Rprofile using
+  options("FigshareKey" = "XXXXXX-XXXX")}
 }
 \value{
   OAuth credential (invisibly).  The credential is also

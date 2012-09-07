@@ -8,6 +8,8 @@
 #' If you have successfully completed this step, you should ideally save the \code{Oauth credential object} to disk for future use. There is no need to repeat this step each time.
 #' @param cKey Consumer key. can be supplied here or read from Options()
 #' @param  cSecret Consumer secret. can be supplied here or read from Options()
+#' @param token the Figshare token. can be supplied here or read from Options()
+#' @param token_secret the Figshare secret token. can be supplied here or read from Options()
 #' API key creditentials can be set in .Rprofile using options("FigshareKey" = "XXXXXX-XXXX")
 #' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
 #' @import httr 
