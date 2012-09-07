@@ -1,8 +1,7 @@
-rfigshare 
-=========
+![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png) rfigshare 
+=============================================================================
 
-![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png)
-*Programmatic interface for [FigShare](http://figshare.com)*
+*An R interface to [FigShare](http://figshare.com)*
 
 * Maintainer: Carl Boettiger, [cboettig](https://github.com/cboettig)
 * License: [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
