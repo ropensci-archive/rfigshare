@@ -15,7 +15,8 @@
 #' @param description of the article
 #' @param type one of: dataset, figure, media, poster, or paper
 #' @param session the authentication credentials from \code{\link{figshare_auth}}
-#' @return output of post request (invisibly)
+#' @param verbose print full post call return
+#' @return article id 
 #' @seealso \code{\link{figshare_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
@@ -27,7 +28,7 @@
 figshare_create <- 
 function(title, description, type = 
          c("dataset", "figure", "media", "poster", "paper"),
-         session = fs_get_auth()){
+         session = fs_get_auth(), verbose=FALSE){
 # TODO: Return (or at least message) the article ID number.  Error handling for types?
 
   type <- match.arg(type)
@@ -38,8 +39,14 @@ function(title, description, type =
                       "defined_type"=type))
   config <- c(verbose(), session, 
               add_headers("Content-Type" = "application/json"))
-   post <- POST(request, config=config, body=meta)
-  invisible(post)
+  post <- POST(request, config=config, body=meta)
+  if(verbose)
+    message(post)
+
+  p <- parsed_content(post) 
+  article_id <- p$items[[1]]$article_id
+  message(paste("Your article has been created! Your id number is" article_id))
+  article_id
 }
 
 

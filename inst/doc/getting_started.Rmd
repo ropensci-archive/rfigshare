@@ -46,15 +46,10 @@ Try authenticating with your credentials:
 
 ``` {r }
 require(rfigshare)
-session <- figshare_auth()
+figshare_auth()
 ````
 
-Methods are still in development, with some still to be added and better formatting of output still coming. Here are a few examples:
 
-``` {r }
-figshare_author_search("Boettiger", session)
-figshare_article_details("138", session)
-``` 
 
 
 
