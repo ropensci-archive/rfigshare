@@ -1,42 +1,12 @@
 \name{fs_search}
 \alias{fs_search}
-\title{Browse articles}
+\title{Advanced Search}
 \usage{
-  fs_search(query, author = NA, title = NA,
-    description = NA, tag = NA, category = NA,
-    from_date = NA, to_date = NA, session = fs_get_auth())
-
   fs_search(query, author = NA, title = NA,
     description = NA, tag = NA, category = NA,
     from_date = NA, to_date = NA, session = fs_get_auth())
 }
 \arguments{
-  \item{mine}{Logical, show only my (authenticated user's)
-  articles. Defaults to FALSE, browse all public articles.}
-
-  \item{author}{Show only results by this author}
-
-  \item{title}{Show only results matching or partially
-  matching this title}
-
-  \item{description}{Show only results matching or
-  partially matching this description}
-
-  \item{tag}{Show only results matching this tag}
-
-  \item{category}{Show only results matching this category}
-
-  \item{from_date}{Start time window for search. Date
-  format is YYYY-MM-DD}
-
-  \item{to_date}{Ending time window for search. Date format
-  is YYYY-MM-DD}
-
-  \item{session}{(optional) the authentication credentials
-  from \code{\link{fs_auth}}. If not provided, will attempt
-  to load from cache as long as figshare_auth has been
-  run.}
-
   \item{query}{the search query}
 
   \item{author}{Show only results by this author}
@@ -64,15 +34,8 @@
 }
 \value{
   output of PUT request (invisibly)
-
-  output of PUT request (invisibly)
 }
 \description{
-  Browse can be set to all public articles, the users own
-  articles, Browse can filter on matching timestamp,
-  author, title, description, tag, category, and date
-  range.
-
   Search function that will filter on matching timestamp,
   author, title, description, tag, category, and date
   range.  Query searches against matches in any metadata
@@ -83,24 +46,14 @@
 fs_auth()
 fs_search("Higgs", from_date="2012-04-01")
 }
-\dontrun{
-fs_auth()
-fs_search("Higgs", from_date="2012-04-01")
-}
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
-
   Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
   \url{http://api.figshare.com/docs/howto.html#q-search}
-
-  \url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
-  \code{\link{fs_auth}}
-
   \code{\link{fs_auth}}
 }
 

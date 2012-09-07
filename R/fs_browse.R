@@ -11,6 +11,10 @@
 #' @param category Show only results matching this category
 #' @param from_date Start time window for search. Date format is YYYY-MM-DD
 #' @param to_date Ending time window for search. Date format is YYYY-MM-DD
+#' @param mine Browse only articles owned by user. default is FALSE
+#' @param public_only (for use with mine=TRUE only) browse only my public articles. default is FALSE
+#' @param private_only (for use with mine=TRUE only) browse only my private articles. default is FALSE
+#' @param drafts_only (for use with mine=TRUE only) browse only my draft articles. default is FALSE
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
@@ -19,9 +23,9 @@
 #' @export
 #' @examples \dontrun{
 #' fs_auth()
-#' fs_search("Higgs", from_date="2012-04-01") 
+#' fs_browse(mine=TRUE) 
 #' } 
-fs_search <- 
+fs_browse <- 
   function(author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth()){
 
     base <- "http://api.figshare.com/v1"
