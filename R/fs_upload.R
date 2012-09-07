@@ -1,6 +1,6 @@
 #'  Upload file to an article 
 #' 
-#' @details Article must be a draft, i.e. created by \code{\link{fs_create}} and not yet made public or private
+#' @details Article must be a draft, i.e. created by \code{\link{fs_create}} and not yet made public or private. Only articles of type "fileset" can have multiple files uploaded.  
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
 #' @param file path to file to upload

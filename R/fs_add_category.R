@@ -10,8 +10,8 @@
 #' @import RJSONIO httr
 #' @export
 #' @examples \dontrun{
-#' figshare_auth()
-#' figshare_category(138, 10) 
+#' fs_auth()
+#' fs_category(138, 10) 
 #' }
 fs_add_category <- 
 function(article_id, category_id, session = fs_get_auth()){

@@ -13,21 +13,21 @@
 #' \code{\link{fs_auth}}.
 #' @param title for the article
 #' @param description of the article
-#' @param type one of: dataset, figure, media, poster, or paper
+#' @param type one of: dataset, figure, media, poster, paper or fileset. (Only filesets can have multiple uploaded files attached).  
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param verbose print full post call return
 #' @return article id 
-#' @seealso \code{\link{fs_auth}}
+#' @seealso \code{\link{fs_auth}}, \code{\link{fs_upload}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' sig <- fs_auth()
+#' fs_auth()
 #' fs_create("My Title", "A description of the object", "dataset")
 #' }
 fs_create <- 
 function(title, description, type = 
-         c("dataset", "figure", "media", "poster", "paper"),
+         c("dataset", "figure", "media", "poster", "paper", "fileset"),
          session = fs_get_auth(), verbose=FALSE){
 # TODO: Return (or at least message) the article ID number.  Error handling for types?
 
