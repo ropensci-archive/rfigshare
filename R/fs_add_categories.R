@@ -15,7 +15,7 @@
 #' }
 fs_add_categories <- 
 function(article_id, categories, session = fs_get_auth()){
-  sapply(categories, function(category) fs_add_category(article_id, category, session)
+  sapply(categories, function(category) fs_add_category(article_id, category, session))
 }
 
 

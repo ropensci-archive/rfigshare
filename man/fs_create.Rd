@@ -3,7 +3,7 @@
 \title{Create a FigShare article (draft)}
 \usage{
   fs_create(title, description,
-    type = c("dataset", "figure", "media", "poster", "paper"),
+    type = c("dataset", "figure", "media", "poster", "paper", "fileset"),
     session = fs_get_auth(), verbose = FALSE)
 }
 \arguments{
@@ -11,8 +11,9 @@
 
   \item{description}{of the article}
 
-  \item{type}{one of: dataset, figure, media, poster, or
-  paper}
+  \item{type}{one of: dataset, figure, media, poster, paper
+  or fileset. (Only filesets can have multiple uploaded
+  files attached).}
 
   \item{session}{the authentication credentials from
   \code{\link{fs_auth}}}
@@ -39,7 +40,7 @@
 }
 \examples{
 \dontrun{
-sig <- fs_auth()
+fs_auth()
 fs_create("My Title", "A description of the object", "dataset")
 }
 }
@@ -47,6 +48,6 @@ fs_create("My Title", "A description of the object", "dataset")
   \url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+  \code{\link{fs_auth}}, \code{\link{fs_upload}}
 }
 
