@@ -18,7 +18,8 @@
 \details{
   Article must be a draft, i.e. created by
   \code{\link{fs_create}} and not yet made public or
-  private
+  private. Only articles of type "fileset" can have
+  multiple files uploaded.
 }
 \author{
   Carl Boettiger \email{cboettig@gmail.com}

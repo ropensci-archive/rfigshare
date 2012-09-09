@@ -1,15 +1,16 @@
-\name{fs_add_category}
-\alias{fs_add_category}
-\title{Add a category to article}
+\name{fs_add_categories}
+\alias{fs_add_categories}
+\title{Add categories to article}
 \usage{
-  fs_add_category(article_id, category_id,
+  fs_add_categories(article_id, categories,
     session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}
 
-  \item{category_id}{Must be a category id number.  Support
-  for actual category names coming soon.}
+  \item{categories}{a list of categories.  Either the
+  category names or numeric codes must be supplied, see
+  \code{\link{fs_show_categories}})}
 
   \item{session}{(optional) the authentication credentials
   from \code{\link{fs_auth}}. If not provided, will attempt
@@ -20,7 +21,7 @@
   output of PUT request (invisibly)
 }
 \description{
-  Add a category to article
+  Add categories to article
 }
 \examples{
 \dontrun{
