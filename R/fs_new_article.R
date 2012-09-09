@@ -23,7 +23,7 @@ fs_new_article <- function(title, description, type =
          c("dataset", "figure", "media", "poster", "paper", "fileset"),
          categories = NA, tags = NA, authors = NA,
          links = NA, files = NA, 
-         visibility = c("draft", "private", "public")
+         visibility = c("draft", "private", "public"),
          session = fs_get_auth(), verbose=FALSE){
 
   article_id <- fs_create(title=title, description=description, 
