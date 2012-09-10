@@ -1,6 +1,6 @@
 #' Add a category to article
 #' 
-#' @author Edmund Hart \email{edmundm.h.hart@@gmail.com}
+#' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param category_id is a vector of integers corresponding to categories or a vector of category names  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
@@ -13,8 +13,7 @@
 #' fs_auth()
 #' }
 fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
-  options(warn=-1) # turns off warnings(?) should be function option
-  my_ids <- as.numeric(category_id)
+  suppressWarnings(my_ids <- as.numeric(category_id))
   if(sum(is.na(my_ids)) > 0){
     category_id <- fs_cat_to_id(category_id)
   }
@@ -37,7 +36,7 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
 
 #'  Helper function that matches string categories to id's
 #' 
-#' @author Edmund Hart \email{edmundm.h.hart@@gmail.com}
+#' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param category_id Must be a valid category string, regardless of case 
 #' @return a vector of integers corresponding to valid figshare categories
 #' @references \url{http://api.figshare.com}
@@ -47,7 +46,7 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
 #' }
 fs_cat_to_id <- function(category_id){
   if(!exists("cat_names")) 
-    cat_names <<- content(GET("http://api.figshare.com/v1/categories"), as="parsed")
+    cat_names <- content(GET("http://api.figshare.com/v1/categories"), as="parsed")
   name_db <- ldply(cat_names$items, data.frame)  
   name_db$name <- tolower(name_db$name)
   my_matches <- match(tolower(category_id), name_db$name)
