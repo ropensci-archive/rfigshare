@@ -3,7 +3,7 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param full_name full name of the author to create
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
-#' @return output of PUT request (invisibly)
+#' @return author ID numbers
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO

@@ -1,0 +1,81 @@
+#' Add author to an article
+#' 
+#' @author Carl Boettiger \email{cboettig@@gmail.com}
+#' @param article_id id number of an article on figshare 
+#' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
+#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+#' @return adds the requested author to the given article
+#' @import RJSONIO
+#' @export
+#' @examples \dontrun{
+#'  fs_auth()
+#'  fs_add_author("123", "456")
+#' } 
+fs_add_authors  <- function(article_id, authors, 
+                            session = fs_get_auth(), create_missing=FALSE){
+
+  # Get the IDs of the authors given
+  ids <- fs_author_ids(authors, session)
+  absent <- sapply(ids, is.null)
+  missing_authors <- authors[absent]
+  # Register an ID for any missing authors
+  if(create_missing){
+    missing_ids <- sapply(, 
+         function(author) fs_create_author(author, session))
+    ids[absent] <- missing_ids
+  } else {
+    warning(paste0("Cannot find accounts for", 
+                   missing_authors, 
+                   "so they cannot be added", collapse="\n"))
+  ids <- ids[!absent]
+  }
+
+  ## add the authors by ID number
+  sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
+}
+
+
+#' fs_author_ids
+#' Take an author list, search for each author and return their FigShare ID.  
+#' If no author is found, call fs_create_author and return the ID.
+#' If multiple matches are found, allow user to choose interactively
+fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
+  authors_info <- lapply(authors, function(author){
+                         matches <- fs_author_search(author, session)
+                         if(length(matches) == 0){
+                           out <- list("author not found") 
+                         } else if(length(matches) > 1){
+                           opts <- c(sapply(matches, `[[`, "full_name"), "None of these")
+                           a <- select.list(opts, 
+                                  title = paste("Multiple matches found for", author, 
+                                         "select which one you want"),
+                                            graphics=graphics)
+                           i <- which(opts == a)
+                           if(i>length(matches))
+                              out <- list("author not found")
+                           else 
+                             out <- matches[[i]]
+                         } else if(length(matches) == 1){
+                           out <- matches[[1]] 
+                        }
+                        out 
+                  })
+  ids <- sapply(authors_info, `[[`, "id")
+}
+
+
+
+ 
+#' @param article_id id number of an article on figshare 
+#' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
+#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+fs_add_author_id <- function(article_id, author_id, session = fs_get_auth()){
+  base <- "http://api.figshare.com/v1"
+  method <- paste("my_data/articles", article_id, "authors", sep= "/")
+  request = paste(base, method, sep="/")
+  body <- toJSON(list("author_id"=author_id))
+  config <- c(verbose(), session, 
+              add_headers("Content-Type" = "application/json"))
+  out <- PUT(request, config=config,  body=body)
+}
+
