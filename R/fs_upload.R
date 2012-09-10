@@ -9,7 +9,7 @@
 #' @references \url{http://api.figshare.com}
 #' @export
 fs_upload <- function(article_id, file, session = fs_get_auth()){
-  base <- "http://api.figshare.com/v1/"
+  base <- "http://api.figshare.com/v1"
   method <- paste("/my_data/articles", article_id, "files", sep= "/")
   request = paste(base, method, sep="")
   body = toJSON(list(filedata = upload_file(file)))
