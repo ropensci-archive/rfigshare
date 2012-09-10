@@ -7,22 +7,42 @@
     categories = NA, tags = NA, authors = NA, links = NA,
     files = NA,
     visibility = c("draft", "private", "public"),
-    session = fs_get_auth(), verbose = FALSE)
+    session = fs_get_auth())
 }
 \arguments{
-  \item{title}{for the article}
+  \item{title}{for the article, see \code{\link{fs_create}}
+  for details.}
 
-  \item{description}{of the article}
+  \item{description}{of the article, see
+  \code{\link{fs_create}} for details.}
 
   \item{type}{one of: dataset, figure, media, poster, or
-  paper}
+  paper, see \code{\link{fs_create}} for details.}
 
   \item{session}{the authentication credentials from
   \code{\link{fs_auth}}}
 
-  \item{verbose}{print full post call return}
+  \item{authors}{Orded list of authors for the article, see
+  \code{\link{fs_add_authors}} for details}
 
-  \item{authors}{Orded list of authors for the article}
+  \item{categories}{list of categories or category id
+  numbers, see \code{\link{fs_add_categories}} for
+  details.}
+
+  \item{tags}{list of tags, see \code{\link{fs_add_tags}}
+  for details.}
+
+  \item{links}{list of links to add, see
+  \code{\link{fs_add_links}} for details}
+
+  \item{visibility}{one of "draft", "private" or "public".
+  A draft document can still be edited and modified.  A
+  public document is visible to everyone and cannot be
+  deleted (though additional authors to the work can still
+  "claim" their authorship).}
+
+  \item{session}{(optional) credentials, see
+  \code{link{fs_auth}}}
 }
 \value{
   article id
@@ -41,6 +61,8 @@ fs_
   \url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+  \code{\link{fs_auth}}, \code{\link{fs_add_categories}},
+  \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}},
+  \code{\link{fs_add_links}}
 }
 

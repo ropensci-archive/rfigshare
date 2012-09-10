@@ -2,7 +2,7 @@
 #' 
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article to create
-#' @param tag name of the tag to add
+#' @param tag name of the tag to add (or list of tags)
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}

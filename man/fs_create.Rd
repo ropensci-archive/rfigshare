@@ -27,8 +27,8 @@
   Articles must be created with \code{\link{fs_create}}
   with essential metadata.  Then you can add files with
   \code{\link{fs_upload}}, add categories, tags or authors
-  with \code{\link{fs_add_category}} or
-  \code{\link{fs_add_tag}} \code{\link{fs_add_author}}.
+  with \code{\link{fs_add_categories}} or
+  \code{\link{fs_add_tags}} \code{\link{fs_add_authors}}.
   Authors not registered with a FigShare id can be created
   with \code{\link{fs_create_author}}.  You can edit the
   original metadata with \code{\link{fs_update}}. Finally,

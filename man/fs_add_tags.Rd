@@ -1,13 +1,13 @@
 \name{fs_add_tags}
 \alias{fs_add_tags}
-\title{Add tags to article}
+\title{Add a tag to an article}
 \usage{
-  fs_add_tags(article_id, tags, session = fs_get_auth())
+  fs_add_tags(article_id, tag, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article to create}
 
-  \item{tag}{name of the tag to add}
+  \item{tag}{name of the tag to add (or list of tags)}
 
   \item{session}{the authentication credentials from
   \code{\link{fs_auth}}}
@@ -16,7 +16,7 @@
   output of PUT request (invisibly)
 }
 \description{
-  Add tags to article
+  Add a tag to an article
 }
 \examples{
 \dontrun{
@@ -33,4 +33,5 @@
 \seealso{
   \code{\link{fs_auth}}
 }
+\keyword{internal}
 

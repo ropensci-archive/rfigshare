@@ -14,11 +14,11 @@ Depends:
     R (>= 2.15)
 Imports:
     RJSONIO,
-    httr (>= 0.1.1)
+    httr (>= 0.1.1),
+    plyr
 Collate:
     'fs_add_authors.R'
     'fs_add_categories.R'
-    'fs_add_link.R'
     'fs_add_tags.R'
     'fs_auth.R'
     'fs_author_search.R'
@@ -36,3 +36,4 @@ Collate:
     'fs_update.R'
     'fs_upload.R'
     'zzz.R'
+    'fs_add_links.R'
