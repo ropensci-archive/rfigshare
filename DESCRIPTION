@@ -31,8 +31,12 @@ Collate:
     'fs_make_private.R'
     'fs_make_public.R'
     'fs_search.R'
+<<<<<<< HEAD
     'fs_get_auth.R'
     'fs_add_categories.R'
     'fs_add_tags.R'
     'fs_ids.R'
     'fs_new_article.R'
+=======
+    'fs_get_auth.R'
+>>>>>>> t
