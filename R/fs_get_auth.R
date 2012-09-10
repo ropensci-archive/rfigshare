@@ -4,7 +4,10 @@
 #' @keywords internal
 fs_get_auth <- function(){
   if(!exists("oauth", envir=FigshareAuthCache))
-    stop("Requires authentication. Please run the 'fs_auth' function first")
+    tryCatch(fs_auth(), error= function(e) 
+      stop("Requires authentication. 
+      Are your credentials stored in options? 
+      See fs_auth function for details."))
   get("oauth", envir=FigshareAuthCache)
 }
 
