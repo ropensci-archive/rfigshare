@@ -48,8 +48,8 @@ function(article_id, category_id, session = fs_get_auth()){
     config <- c(verbose(), session, 
                 add_headers("Content-Type" = "application/json"))
     
-   post <- PUT(request, config=config, body=body)
-   invisible(post)
+     post <- PUT(request, config=config, body=body)
+     invisible(post)
   }
 }
 

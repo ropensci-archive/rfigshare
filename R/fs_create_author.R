@@ -17,11 +17,13 @@ function(full_name, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- "my_data/authors"
   request <- paste(base, method, sep="/")
-  body <- toJSON(list("full_name"=full_name))
-  config <- c(verbose(), session, 
+  for(i in 1:length(full_name)){ 
+    body <- toJSON(list("full_name"=full_name[i]))
+    config <- c(verbose(), session, 
               add_headers("Content-Type" = "application/json"))
-   post <- PUT(request, config=config, body=body)
-  invisible(post)
+    post <- PUT(request, config=config, body=body)
+    invisible(post)
+  }
 }
 
 

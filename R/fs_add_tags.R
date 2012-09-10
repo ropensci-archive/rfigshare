@@ -38,11 +38,14 @@ function(article_id, tag, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "tags", sep= "/")
   request <- paste(base, method, sep="/")
-  body <- toJSON(list("tag_name" = tag))
-  config <- c(verbose(), session, 
+  
+  for(i in 1:length(tag)){
+   body <- toJSON(list("tag_name" = tag[i]))
+   config <- c(verbose(), session, 
               add_headers("Content-Type" = "application/json"))
-   post <- PUT(request, config=config, body=body)
-  invisible(post)
+    post <- PUT(request, config=config, body=body)
+   invisible(post)
+  }
 }
 
 
