@@ -13,7 +13,7 @@
   run.}
 }
 \value{
-  output of PUT request (invisibly)
+  author ID numbers
 }
 \description{
   Creates a figshare author

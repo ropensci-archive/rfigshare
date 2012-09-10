@@ -1,4 +1,4 @@
-export(fs_add_author)
+export(fs_add_authors)
 export(fs_add_categories)
 export(fs_add_category)
 export(fs_add_link)

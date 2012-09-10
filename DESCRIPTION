@@ -18,7 +18,6 @@ Imports:
 Collate:
     'zzz.R'
     'fs_auth.R'
-    'fs_author.R'
     'fs_author_search.R'
     'fs_create.R'
     'fs_create_author.R'
@@ -36,3 +35,4 @@ Collate:
     'fs_add_tags.R'
     'fs_ids.R'
     'fs_new_article.R'
+    'fs_add_authors.R'
