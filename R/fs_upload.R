@@ -12,7 +12,7 @@ fs_upload <- function(article_id, file, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1/"
   method <- paste("/my_data/articles", article_id, "files", sep= "/")
   request = paste(base, method, sep="")
-  body = list(y = upload_file(file))
+  body = list(filedata = upload_file(file))
   config = c(verbose(), session)
-  out <- POST(request, config=config, body=body)
+  out <- PUT(request, config=config, body=body)
 }

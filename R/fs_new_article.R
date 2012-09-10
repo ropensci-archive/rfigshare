@@ -25,13 +25,13 @@
 
 fs_new_article <- function(title, description, type = 
          c("dataset", "figure", "media", "poster", "paper", "fileset"),
-         categories = NA, tags = NA, authors = NA,
+         authors = NA, categories = NA, tags = NA, 
          links = NA, files = NA, 
          visibility = c("draft", "private", "public"),
          session = fs_get_auth()){
 
   article_id <- fs_create(title=title, description=description, 
-              type=type, session=session, verbose=verbose)
+              type=type, session=session)
   visibility <- match.arg(visibility)
   if(!is.na(authors))
     fs_add_authors(article_id, authors, session)

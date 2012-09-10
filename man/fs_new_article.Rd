@@ -4,7 +4,7 @@
 \usage{
   fs_new_article(title, description,
     type = c("dataset", "figure", "media", "poster", "paper", "fileset"),
-    categories = NA, tags = NA, authors = NA, links = NA,
+    authors = NA, categories = NA, tags = NA, links = NA,
     files = NA,
     visibility = c("draft", "private", "public"),
     session = fs_get_auth())
