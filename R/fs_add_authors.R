@@ -2,8 +2,9 @@
 #' 
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id id number of an article on figshare 
-#' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
+#' @param  authors a list/vector of authors (not a character string)
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+#' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added).  
 #' @return adds the requested authors to the given article
 #' @export
 #' @examples \dontrun{
@@ -42,7 +43,8 @@ fs_add_authors  <- function(article_id, authors,
 #' @param authors a list/vector of authors (not a character string)
 #' @param graphics logical (default False) use graphic input to disambiguate?
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache. 
-#' @return a list of author id numbers, or NULLS where ids cannot be found.   
+#' @return a list of author id numbers, or NULLS where ids cannot be found.  
+#' @keywords internal
 fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
   authors_info <- lapply(authors, function(author){
                          matches <- fs_author_search(author, session)
@@ -69,11 +71,13 @@ fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
 
 
 
- 
+#' Add an author to an article by ID number
+#'
 #' @param article_id id number of an article on figshare 
 #' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache.  
 #' @import RJSONIO
+#' @keywords internal
 fs_add_author_id <- function(article_id, author_id, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "authors", sep= "/")

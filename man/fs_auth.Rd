@@ -32,7 +32,7 @@
 \description{
   User specific API methods require obtaining access keys
   from Figshare.com. To do so, first sign up at the
-  Figshare \href{http://apidocs.mendeley.com/}{developer
+  Figshare \href{http://api.figshare.com/docs}{developer
   site} and obtain Figshare API keys. Ideally you should
   store these keys in your \code{.rprofile} like so:
   \code{options(FigshareKey="Your_Key")}
