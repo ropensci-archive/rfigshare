@@ -27,13 +27,17 @@ fs_add_authors  <- function(article_id, authors,
     warning(paste0("Cannot find accounts for ", 
                    missing_authors, 
                    " so they cannot be added", collapse="\n"))
-  ids <- ids[!absent]
+    ids <- ids[!absent]
   } else {
     message("found ids for all authors")
   }
-
+  
+  if (length(ids) == 0){
+    warning(paste0("No matches found for authors", authors, collapse="\n"))
+  }
   ## add the authors by ID number
   sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
+  invisible(ids)
 }
 
 
