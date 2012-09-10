@@ -23,11 +23,13 @@ fs_add_authors  <- function(article_id, authors,
     missing_ids <- sapply(, 
          function(author) fs_create_author(author, session))
     ids[absent] <- missing_ids
-  } else {
-    warning(paste0("Cannot find accounts for", 
+  } else if(any(absent)) {
+    warning(paste0("Cannot find accounts for ", 
                    missing_authors, 
-                   "so they cannot be added", collapse="\n"))
+                   " so they cannot be added", collapse="\n"))
   ids <- ids[!absent]
+  } else {
+    message("found ids for all authors")
   }
 
   ## add the authors by ID number
@@ -78,7 +80,7 @@ fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache.  
 #' @import RJSONIO
 #' @keywords internal
-fs_add_author_id <- function(article_id, author_id, session = fs_get_auth()){
+fs_add_author <- function(article_id, author_id, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "authors", sep= "/")
   request = paste(base, method, sep="/")
