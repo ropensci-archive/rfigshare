@@ -27,7 +27,7 @@ id <- fs_new_article(title = "A Test of rfigshare", description = "This is a tes
 ```
 
 ```
-Your article has been created! Your id number is 95801
+Your article has been created! Your id number is 95802
 ```
 
 ```
@@ -48,7 +48,7 @@ fs_details(id)
 
 ```
 $article_id
-[1] 95801
+[1] 95802
 
 $title
 [1] "A Test of rfigshare"
@@ -63,7 +63,7 @@ $shares
 [1] 0
 
 $doi
-[1] "http://dx.doi.org/10.6084/m9.figshare.95801"
+[1] "http://dx.doi.org/10.6084/m9.figshare.95802"
 
 $defined_type
 [1] "figure"
@@ -169,7 +169,7 @@ $files[[1]]$size
 [1] "18 KB"
 
 $files[[1]]$id
-[1] 98323
+[1] 98324
 
 $files[[1]]$mime_type
 [1] "image/png"
@@ -189,17 +189,13 @@ $links[[1]]$id
 
 ```
 
-Note that the submitter is automatically added as an author, though it will not hurt to specify them in the author list if you want anyway.  Note also the extra metadata we get, such as filesize and article views.  (And hopefully we'll format that output to a pretty-printing version soon)
+Note that the submitter is automatically added as an author, though it will not hurt to specify them in the author list if you want anyway.  Note also the extra metadata we get, such as filesize and article views. (And hopefully we'll format that output to a pretty-printing version soon). 
 
 If there is something we need to change, we can edit our article accordingly.  The `fs_update` function to modifies the title, description, and type, while `fs_add_tags`, `fs_add_categories`, `fs_add_authors` etc, can add missing data.  If we upload a new figure, it will overwrite this one.
 
 
 ```r
-fs_update(title = "An awesome test of rfigshare")
-```
-
-```
-Error: argument "article_id" is missing, with no default
+fs_update(id, title = "An awesome test of rfigshare")
 ```
 
 
@@ -213,7 +209,7 @@ fs_make_private(id)
 ```
 
 ```
-Response [http://api.figshare.com/v1/my_data/articles/95801/action/make_private]
+Response [http://api.figshare.com/v1/my_data/articles/95802/action/make_private]
   Status: 200
   Content-type: application/json; charset=UTF-8
 {"success": "Article status changed to Private"} 
