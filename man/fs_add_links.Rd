@@ -1,11 +1,12 @@
-\name{fs_add_link}
-\alias{fs_add_link}
-\title{Add a link to article}
+\name{fs_add_links}
+\alias{fs_add_links}
+\title{Add link to article}
 \usage{
-  fs_add_link(article_id, link, session = fs_get_auth())
+  fs_add_links(article_id, link, session = fs_get_auth())
 }
 \arguments{
-  \item{link}{the url you wish to add}
+  \item{link}{the url you wish to add (can be list of
+  urls)}
 
   \item{article_id}{the id number of the article}
 
@@ -18,12 +19,12 @@
   output of PUT request (invisibly)
 }
 \description{
-  Adds a url link to the metadata of an article
+  Adds url links to the metadata of an article
 }
 \examples{
 \dontrun{
 fs_auth()
-fs_add_link(138, "http://carlboettiger.info")
+fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
 }
 }
 \author{
