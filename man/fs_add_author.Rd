@@ -1,0 +1,22 @@
+\name{fs_add_author}
+\alias{fs_add_author}
+\title{Add an author to an article by ID number}
+\usage{
+  fs_add_author(article_id, author_id,
+    session = fs_get_auth())
+}
+\arguments{
+  \item{article_id}{id number of an article on figshare}
+
+  \item{author_id}{the id number of a registered figshare
+  user (see \code{\link{fs_author_search}})}
+
+  \item{session}{(optional) the authentication credentials
+  from \code{\link{fs_auth}}. If not provided, will attempt
+  to load from cache.}
+}
+\description{
+  Add an author to an article by ID number
+}
+\keyword{internal}
+
