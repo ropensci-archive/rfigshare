@@ -28,7 +28,7 @@ fs_auth()
 }
 }
 \author{
-  Edmund Hart \email{edmundm.h.hart@gmail.com}
+  Edmund Hart \email{edmund.m.hart@gmail.com}
 }
 \references{
   \url{http://api.figshare.com}

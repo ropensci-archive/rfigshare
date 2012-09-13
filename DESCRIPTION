@@ -37,3 +37,4 @@ Collate:
     'fs_upload.R'
     'zzz.R'
     'fs_add_links.R'
+    'startup.R'
