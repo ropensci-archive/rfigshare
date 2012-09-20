@@ -16,6 +16,9 @@
 #' }
 fs_add_tags <- 
   function(article_id, tag, session = fs_get_auth()){
+    if(is.list(tag)){
+      tag <- unlist(tag)
+    }
     base <- "http://api.figshare.com/v1"
     method <- paste("my_data/articles", article_id, "tags", sep= "/")
     request <- paste(base, method, sep="/")

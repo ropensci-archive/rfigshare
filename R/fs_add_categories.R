@@ -13,6 +13,10 @@
 #' fs_auth()
 #' }
 fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
+  
+  if(is.list(category_id)){
+    category_id <- unlist(category_id)
+  }
   suppressWarnings(my_ids <- as.numeric(category_id))
   if(sum(is.na(my_ids)) > 0){
     category_id <- fs_cat_to_id(category_id)

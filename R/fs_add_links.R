@@ -16,6 +16,11 @@
 #' }
 fs_add_links <- 
 function(article_id, link, session = fs_get_auth()){
+  
+  if(is.list(link)){
+    link <- unlist(link)
+  }
+  
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "links", sep= "/")
   request <- paste(base, method, sep="/")
