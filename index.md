@@ -1,3 +1,10 @@
+---
+layout: default
+title: rFigshare
+author: Carl Boettiger
+
+---
+
 ![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png) rfigshare 
 =============================================================================
 
