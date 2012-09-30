@@ -41,8 +41,20 @@ fs_search <-
       method <- paste(method, "&from_date=", from_date, sep="")
     if(!is.na(to_date))
       method <- paste(method, "&to_date=", to_date, sep="")
+
     request = paste(base, method, sep="/")
-    GET(request, session)
+    out <- GET(request, session)
+    parsed <- parsed_content(out)
+
+    total_pages <- ceiling(parsed$items_found / 10)
+    all <- lapply(1:total_pages, function(i){
+      method_ <- paste(method, "&page=", i, sep="")
+      request = paste(base, method_, sep="/")
+      out <- GET(request, session)
+      parsed <- parsed_content(out)
+      parsed$items
+    })
+    all
   }
 
 
