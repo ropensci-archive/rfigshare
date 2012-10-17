@@ -14,7 +14,7 @@ Depends:
     R (>= 2.15)
 Imports:
     RJSONIO,
-    httr (>= 0.1.1),
+    httr (>= 0.2),
     plyr
 Collate:
     'fs_add_authors.R'
