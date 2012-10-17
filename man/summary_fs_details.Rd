@@ -1,0 +1,26 @@
+\name{summary_fs_details}
+\alias{summary_fs_details}
+\title{Collect metadata from details call}
+\usage{
+  summary_fs_details(fs_details_obj)
+}
+\arguments{
+  \item{fs_details}{object}
+}
+\description{
+  Collect metadata from details call
+}
+\examples{
+\dontrun{
+fs_auth()
+my_article <- fs_details("138")
+summary_fs_details(my_article)
+}
+}
+\author{
+  Edmund Hart \email{edmund.m.hart@gmail.com}
+}
+\references{
+  \url{http://api.figshare.com}
+}
+
