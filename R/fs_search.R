@@ -21,12 +21,25 @@
 #' fs_search("Higgs", from_date="2012-04-01") 
 #' } 
 fs_search <- 
-  function(query, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, session = fs_get_auth()){
-    base <- "http://api.figshare.com/v1"
+  function(query=NA, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1"){
+
+
 
     ## Fine assembling queries this way, but would be prettier
     ## using parameters to RCurl as in RMendeley...
-    method <- paste("articles/search?search_for=", query, sep="")
+    method <- "articles"
+    if(mine)
+      method <- "my_data/articles"
+    if(public_only)
+      method <- paste(method, "/public", sep="")  # visibility only works in my_data
+    if(private_only)
+      method <- paste(method, "/private", sep="") # visibility only works in my_data
+    if(drafts_only)
+      method <- paste(method, "/drafts", sep="")  # visibility only works in my_data
+    if(!is.na(query)) # Can search work in my_data ?  
+      method <- paste(method, "/search?search_for=", query, sep="")
+
+
     if(!is.na(author))
       method <- paste(method, "&has_author=", author, sep="")
     if(!is.na(title))
@@ -35,8 +48,11 @@ fs_search <-
       method <- paste(method, "&has_description=", description, sep="")
     if(!is.na(tag))
       method <- paste(method, "&has_tag=", tag, sep="")
-    if(!is.na(category))
+    if(!is.na(category)){
+      if(!is.numeric(category))
+        category <- fs_cat_to_id(category)
       method <- paste(method, "&has_category=", category, sep="")
+    } 
     if(!is.na(from_date))
       method <- paste(method, "&from_date=", from_date, sep="")
     if(!is.na(to_date))
@@ -44,18 +60,31 @@ fs_search <-
 
     request = paste(base, method, sep="/")
     out <- GET(request, session)
-    parsed <- parsed_content(out)
 
-    total_pages <- ceiling(parsed$items_found / 10)
-    all <- lapply(1:total_pages, function(i){
-      method_ <- paste(method, "&page=", i, sep="")
-      request = paste(base, method_, sep="/")
-      out <- GET(request, session)
-      parsed <- parsed_content(out)
-      parsed$items
-    })
-    all
+    parsed <- parsed_content(out)
+    parsed$count <- parsed$items_found
+    out <- parsed$items
+
+
+
+    if(parsed$count > 10){
+      total_pages <- ceiling(parsed$count / 10)
+      all <- lapply(1:total_pages, function(i){
+        method_ <- paste(method, "&page=", i, sep="")
+        request = paste(base, method_, sep="/")
+        out <- GET(request, session)
+        parsed <- parsed_content(out)
+        parsed$items
+      })
+      out <- unlist(all, recursive = FALSE)
+    }
+    class(out) = "fs_object"
+    out
   }
 
 
+
+
+# @method print fs_object 
+print.fs_object <- function(object) invisible(sapply(object, summary_fs_details))
 
