@@ -6,7 +6,8 @@
     tag = NA, category = NA, from_date = NA, to_date = NA,
     mine = FALSE, public_only = FALSE,
     private_only = FALSE, drafts_only = FALSE,
-    session = fs_get_auth())
+    session = fs_get_auth(),
+    base = "http://api.figshare.com/v1", query = NA)
 }
 \arguments{
   \item{mine}{Logical, show only my (authenticated user's)
