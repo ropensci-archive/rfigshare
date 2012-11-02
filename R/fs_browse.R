@@ -25,39 +25,7 @@
 #' fs_auth()
 #' fs_browse(mine=TRUE) 
 #' } 
-fs_browse <- 
-  function(author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth()){
+fs_browse <- function(author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1", query=NA){
 
-    base <- "http://api.figshare.com/v1"
-  
-    ## Fine assembling queries this way, but would be prettier
-    ## using parameters to RCurl as in RMendeley...
-    method <- "articles"
-    if(mine)
-      method <- "my_data/articles"
-    if(public_only)
-      method <- paste(method, "public", sep="/")
-    if(private_only)
-      method <- paste(method, "private", sep="/")
-    if(drafts_only)
-      method <- paste(method, "drafts", sep="/")
-    if(!is.na(author))
-      method <- paste(method, "&has_author=", author, sep="")
-    if(!is.na(title))
-      method <- paste(method, "&has_title=", title, sep="")
-    if(!is.na(description))
-      method <- paste(method, "&has_description=", description, sep="")
-    if(!is.na(tag))
-      method <- paste(method, "&has_tag=", tag, sep="")
-    if(!is.na(category))
-      method <- paste(method, "&has_category=", category, sep="")
-    if(!is.na(from_date))
-      method <- paste(method, "&from_date=", from_date, sep="")
-    if(!is.na(to_date))
-      method <- paste(method, "&to_date=", to_date, sep="")
-    request = paste(base, method, sep="/")
-    GET(request, session)
-  }
-
-
-
+  fs_search(query, author, title, description, tag, category, from_date, to_date, mine, public_only, private_only, drafts_only, session = fs_get_auth(), base = "http://api.figshare.com/v1")  
+}
