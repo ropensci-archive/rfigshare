@@ -10,7 +10,6 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
 #' fs_author_search("Boettiger") 
 #' } 
 fs_author_search <- 

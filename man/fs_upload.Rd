@@ -21,6 +21,12 @@
   private. Only articles of type "fileset" can have
   multiple files uploaded.
 }
+\examples{
+\dontrun{
+id <- fs_create("Title", "description", "figure")
+fs_upload(id, "file.png")
+}
+}
 \author{
   Carl Boettiger \email{cboettig@gmail.com}
 }

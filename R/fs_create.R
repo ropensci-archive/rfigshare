@@ -22,7 +22,6 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
 #' fs_create("My Title", "A description of the object", "dataset")
 #' }
 fs_create <- 

@@ -8,7 +8,6 @@
 #' @return adds the requested authors to the given article
 #' @export
 #' @examples \dontrun{
-#'  fs_auth()
 #'  fs_add_authors("138", list("Scott Chamberlain", "Karthik Ram"))
 #' } 
 fs_add_authors  <- function(article_id, authors, 

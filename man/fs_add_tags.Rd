@@ -20,7 +20,6 @@
 }
 \examples{
 \dontrun{
- fs_auth()
  fs_add_tag(138, "phylogenetics")
 }
 }

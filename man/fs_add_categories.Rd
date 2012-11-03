@@ -24,7 +24,7 @@
 }
 \examples{
 \dontrun{
-fs_auth()
+fs_add_categories(138, "Ecology")
 }
 }
 \author{

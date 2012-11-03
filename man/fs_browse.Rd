@@ -31,9 +31,6 @@
   \item{to_date}{Ending time window for search. Date format
   is YYYY-MM-DD}
 
-  \item{mine}{Browse only articles owned by user. default
-  is FALSE}
-
   \item{public_only}{(for use with mine=TRUE only) browse
   only my public articles. default is FALSE}
 
@@ -47,6 +44,11 @@
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as figshare_auth has been
   run.}
+
+  \item{base}{the API access url}
+
+  \item{query}{a search query tern (equivalent to calling
+  fs_search)}
 }
 \value{
   output of PUT request (invisibly)
@@ -59,7 +61,6 @@
 }
 \examples{
 \dontrun{
-fs_auth()
 fs_browse(mine=TRUE)
 }
 }

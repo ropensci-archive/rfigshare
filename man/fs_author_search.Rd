@@ -21,7 +21,6 @@
 }
 \examples{
 \dontrun{
-fs_auth()
 fs_author_search("Boettiger")
 }
 }

@@ -11,8 +11,7 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
-#' fs_details("138")
+#' fs_details(138)
 #' }
 fs_details <- 
   function(article_id, session = fs_get_auth(),
@@ -27,13 +26,15 @@ fs_details <-
     out <- GET(request, session)
     ## TODO: add class for info and pretty print summary 
     parsed_out <- parsed_content(out)
-    parsed_out$items[[1]]
+    output <- parsed_out$items[[1]]
+    class(output) <- "fs_object"
+    output
   }
 
 #' Collect metadata from details call
 #'
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
-#' @param fs_details object
+#' @param fs_details_obj object
 #' @references \url{http://api.figshare.com}
 #' @export
 #' @examples \dontrun{
@@ -41,8 +42,6 @@ fs_details <-
 #' my_article <- fs_details("138")
 #' summary_fs_details(my_article)
 #' }
-
-
 summary_fs_details <- function(fs_details_obj){
   fs_details_vec <- unlist(fs_details_obj)
   fs_summary <- split(fs_details_vec,names(fs_details_vec))

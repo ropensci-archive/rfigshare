@@ -5,7 +5,7 @@
   summary_fs_details(fs_details_obj)
 }
 \arguments{
-  \item{fs_details}{object}
+  \item{fs_details_obj}{object}
 }
 \description{
   Collect metadata from details call

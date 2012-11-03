@@ -19,9 +19,6 @@
   \item{type}{one of: dataset, figure, media, poster, or
   paper, see \code{\link{fs_create}} for details.}
 
-  \item{session}{the authentication credentials from
-  \code{\link{fs_auth}}}
-
   \item{authors}{Orded list of authors for the article, see
   \code{\link{fs_add_authors}} for details}
 
@@ -34,6 +31,9 @@
 
   \item{links}{list of links to add, see
   \code{\link{fs_add_links}} for details}
+
+  \item{files}{path to the files to add, see
+  \code{\link{fs_upload}} for details}
 
   \item{visibility}{one of "draft", "private" or "public".
   A draft document can still be edited and modified.  A
@@ -53,8 +53,15 @@
 }
 \examples{
 \dontrun{
-fs_auth()
-fs_
+id <- fs_new_article(title="A Test of rfigshare",
+                    description="This is a test of the fs_new_aricle function and related methods",
+                    type="figure",
+                    authors=c("Karthik Ram", "Scott Chamberlain"),
+                    tags=c("ecology", "openscience"),
+                    categories="Ecology",
+                    links="http://ropensci.org",
+                    files="figure/rfigshare.png",
+                    visibility="private")
 }
 }
 \references{

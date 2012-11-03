@@ -11,7 +11,6 @@
 #' @import RJSONIO httr
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
 #' fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 
 #' }
 fs_add_links <- 

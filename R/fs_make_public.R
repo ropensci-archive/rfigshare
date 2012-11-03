@@ -9,7 +9,6 @@
 #' @references \url{http://api.figshare.com}
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
 #' fs_make_public(123)
 #' }
 fs_make_public <- function(article_id, session = fs_get_auth()){

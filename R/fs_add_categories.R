@@ -10,7 +10,7 @@
 #' @import RJSONIO httr
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
+#' fs_add_categories(138, "Ecology")
 #' }
 fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
   

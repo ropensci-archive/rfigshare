@@ -21,8 +21,7 @@
 }
 \examples{
 \dontrun{
-fs_auth()
-fs_details("138")
+fs_details(138)
 }
 }
 \author{

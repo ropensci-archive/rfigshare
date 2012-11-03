@@ -28,7 +28,6 @@
 }
 \examples{
 \dontrun{
- fs_auth()
  fs_add_authors("138", list("Scott Chamberlain", "Karthik Ram"))
 }
 }

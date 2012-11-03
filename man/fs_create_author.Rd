@@ -20,7 +20,6 @@
 }
 \examples{
 \dontrun{
-sig <- figshare_auth()
 figshare_create_author("Benjamin Franklin")
 }
 }

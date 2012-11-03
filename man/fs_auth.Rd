@@ -43,7 +43,7 @@
   \code{options(FigshareToken="Your_secret_key")}
 
   If this is not possible (assuming you are on a public
-  machine), then you can spefify both inline. Calling
+  machine), then you can specify both inline. Calling
   \code{fs_auth()} with the right keys will launch your
   default browser and take you to Figshare.com to authorize
   this application. If you are not logged in, you will

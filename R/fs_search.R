@@ -10,15 +10,19 @@
 #' @param category Show only results matching this category
 #' @param from_date Start time window for search. Date format is YYYY-MM-DD
 #' @param to_date Ending time window for search. Date format is YYYY-MM-DD
+#' @param mine Browse only articles owned by user. default is FALSE
+#' @param public_only (for use with mine=TRUE only) browse only my public articles. default is FALSE
+#' @param private_only (for use with mine=TRUE only) browse only my private articles. default is FALSE
+#' @param drafts_only (for use with mine=TRUE only) browse only my draft articles. default is FALSE
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+#' @param base the API access url
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com/docs/howto.html#q-search}
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
-#' fs_search("Higgs", from_date="2012-04-01") 
+#' fs_search("Fish", category="Ecology") 
 #' } 
 fs_search <- 
   function(query=NA, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1"){
@@ -62,7 +66,10 @@ fs_search <-
     out <- GET(request, session)
 
     parsed <- parsed_content(out)
-    parsed$count <- parsed$items_found
+    if(is.null(parsed$count))
+      parsed$count <- parsed$items_found
+    if(is.null(parsed$count))
+      parsed$count <- length(parsed$items)
     out <- parsed$items
 
 
@@ -84,7 +91,11 @@ fs_search <-
 
 
 
-
+# S3 method for printing object
+#
+# @param object anything of class fs_object, such as returned by fs_search or fs_browse.  
+# @return pretty formatted printing of metadata on a figshare entry 
+# @S3method print fs_object 
 # @method print fs_object 
 print.fs_object <- function(object) invisible(sapply(object, summary_fs_details))
 

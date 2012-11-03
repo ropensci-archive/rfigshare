@@ -11,7 +11,6 @@
 #' @export
 #' @keywords internal
 #' @examples \dontrun{
-#'  fs_auth()
 #'  fs_add_tag(138, "phylogenetics") 
 #' }
 fs_add_tags <- 

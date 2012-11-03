@@ -28,7 +28,6 @@
 }
 \examples{
 \dontrun{
-fs_auth()
 fs_update(138, title="New title")
 }
 }

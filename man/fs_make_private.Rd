@@ -20,7 +20,6 @@
 }
 \examples{
 \dontrun{
-fs_auth()
 fs_make_private(123)
 }
 }

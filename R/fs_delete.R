@@ -9,7 +9,6 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
 #' fs_delete(123)
 #' }
 fs_delete <- 

@@ -6,11 +6,11 @@
 #' @param title for the article, see \code{\link{fs_create}} for details.
 #' @param description of the article, see \code{\link{fs_create}} for details.
 #' @param type one of: dataset, figure, media, poster, or paper, see \code{\link{fs_create}} for details. 
-#' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param authors Orded list of authors for the article, see \code{\link{fs_add_authors}} for details
 #' @param categories list of categories or category id numbers, see \code{\link{fs_add_categories}} for details.   
 #' @param tags list of tags, see \code{\link{fs_add_tags}} for details.   
 #' @param links list of links to add, see \code{\link{fs_add_links}} for details
+#' @param files path to the files to add, see \code{\link{fs_upload}} for details
 #' @param visibility one of "draft", "private" or "public".  A draft document can still be edited and modified.  A public document is visible to everyone and cannot be deleted (though additional authors to the work can still "claim" their authorship).  
 #' @param session (optional) credentials, see \code{link{fs_auth}}
 #' @return article id 
@@ -19,8 +19,15 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' fs_auth()
-#' fs_
+#'id <- fs_new_article(title="A Test of rfigshare", 
+#'                     description="This is a test of the fs_new_aricle function and related methods", 
+#'                     type="figure", 
+#'                     authors=c("Karthik Ram", "Scott Chamberlain"), 
+#'                     tags=c("ecology", "openscience"), 
+#'                     categories="Ecology", 
+#'                     links="http://ropensci.org", 
+#'                     files="figure/rfigshare.png",
+#'                     visibility="private")
 #' }
 
 fs_new_article <- function(title, description, type = 

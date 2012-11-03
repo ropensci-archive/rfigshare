@@ -23,7 +23,6 @@
 }
 \examples{
 \dontrun{
-fs_auth()
 fs_make_public(123)
 }
 }

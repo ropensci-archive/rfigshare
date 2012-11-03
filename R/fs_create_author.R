@@ -9,7 +9,6 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' sig <- figshare_auth()
 #' figshare_create_author("Benjamin Franklin") 
 #' } 
 fs_create_author <- 
