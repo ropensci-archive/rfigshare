@@ -3,7 +3,6 @@
 #' Browse can be set to all public articles, the users own articles, 
 #' Browse can filter on matching timestamp, author, title, description, tag, category, and date range.    
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
-#' @param total_pages number of pages to go through in browsing (has to be specified) 100
 #' @param mine Logical, show only my (authenticated user's) articles. Defaults to FALSE, browse all public articles.  
 #' @param public_only (for use with mine=TRUE only) browse only my public articles. default is FALSE
 #' @param private_only (for use with mine=TRUE only) browse only my private articles. default is FALSE

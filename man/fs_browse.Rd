@@ -8,9 +8,6 @@
     base = "http://api.figshare.com/v1", query = NA)
 }
 \arguments{
-  \item{total_pages}{number of pages to go through in
-  browsing (has to be specified) 100}
-
   \item{mine}{Logical, show only my (authenticated user's)
   articles. Defaults to FALSE, browse all public articles.}
 
