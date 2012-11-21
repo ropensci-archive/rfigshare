@@ -9,9 +9,19 @@
 #' @export
 #' @examples \dontrun{
 #'  fs_add_authors("138", list("Scott Chamberlain", "Karthik Ram"))
+#'  fs_add_authors("138", c("Scott Chamberlain", "Karthik Ram"))
+#'  fs_add_authors("138", list("Scott Chamberlain", "97306"))
+#'  fs_add_authors("138", list("Scott Chamberlain", 97306))
 #' } 
 fs_add_authors  <- function(article_id, authors, 
                             session = fs_get_auth(), create_missing=FALSE){
+
+  # See if any authors have been given as numeric id numbers instead of names:
+  already_numeric <- sapply(authors, function(author) supressWarnings(!is.na(as.numeric(author))) )
+  # Go ahead and add those authors
+  sapply(authors[already_numeric], function(author_id) fs_add_author(article_id, author_id, session))
+
+
 
   # Get the IDs of the authors given
   ids <- fs_author_ids(authors, session)
