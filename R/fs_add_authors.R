@@ -24,7 +24,7 @@ fs_add_authors  <- function(article_id, authors,
 
 
   # Get the IDs of the authors given
-  ids <- fs_author_ids(authors, session)
+  ids <- fs_author_ids(authors[!already_numeric],  session)
   absent <- sapply(ids, is.null)
   missing_authors <- authors[absent]
   # Register an ID for any missing authors
