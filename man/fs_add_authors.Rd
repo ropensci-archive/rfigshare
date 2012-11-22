@@ -29,6 +29,9 @@
 \examples{
 \dontrun{
  fs_add_authors("138", list("Scott Chamberlain", "Karthik Ram"))
+ fs_add_authors("138", c("Scott Chamberlain", "Karthik Ram"))
+ fs_add_authors("138", list("Scott Chamberlain", "97306"))
+ fs_add_authors("138", list("Scott Chamberlain", 97306))
 }
 }
 \author{
