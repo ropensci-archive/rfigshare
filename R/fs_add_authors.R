@@ -2,7 +2,7 @@
 #' 
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id id number of an article on figshare 
-#' @param  authors a list/vector of authors (not a character string)
+#' @param  authors a list or character string of authors or author id numbers (or mixed).  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added).  
 #' @return adds the requested authors to the given article
