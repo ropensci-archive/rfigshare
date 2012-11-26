@@ -4,7 +4,7 @@
 #' @param article_id id number of an article on figshare 
 #' @param  authors a list or character string of authors or author id numbers (or mixed).  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
-#' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added).  
+#' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added). Not currently supported by the API(?)   
 #' @return adds the requested authors to the given article
 #' @export
 #' @examples \dontrun{
@@ -12,6 +12,7 @@
 #'  fs_add_authors("138", c("Scott Chamberlain", "Karthik Ram"))
 #'  fs_add_authors("138", list("Scott Chamberlain", "97306"))
 #'  fs_add_authors("138", list("Scott Chamberlain", 97306))
+#'  fs_add_authors(138, 97306)
 #' } 
 fs_add_authors  <- function(article_id, authors, 
                             session = fs_get_auth(), create_missing=FALSE){
@@ -20,33 +21,35 @@ fs_add_authors  <- function(article_id, authors,
   already_numeric <- sapply(authors, function(author) suppressWarnings(!is.na(as.numeric(author))) )
   # Go ahead and add those authors
   sapply(authors[already_numeric], function(author_id) fs_add_author(article_id, author_id, session))
-
-
-
   # Get the IDs of the authors given
-  ids <- fs_author_ids(authors[!already_numeric],  session)
-  absent <- sapply(ids, is.null)
-  missing_authors <- authors[absent]
-  # Register an ID for any missing authors
-  if(create_missing){
-    missing_ids <- sapply(, 
-         function(author) fs_create_author(author, session))
-    ids[absent] <- missing_ids
-  } else if(any(absent)) {
-    warning(paste0("Cannot find accounts for ", 
-                   missing_authors, 
-                   " so they cannot be added", collapse="\n"))
-    ids <- ids[!absent]
+  remaining_authors <- authors[!already_numeric]
+  if(length(remaining_authors)>0){ # don't try if all authors were given as ID numbers already 
+    ids <- fs_author_ids(remaining_authors,  session)
+    absent <- sapply(ids, is.null)
+    missing_authors <- authors[absent]
+    # Register an ID for any missing authors
+    if(create_missing){
+      missing_ids <- sapply(, 
+           function(author) fs_create_author(author, session))
+      ids[absent] <- missing_ids
+    } else if(any(absent)) {
+      warning(paste0("Cannot find accounts for ", 
+                     missing_authors, 
+                     " so they cannot be added", collapse="\n"))
+      ids <- ids[!absent]
+    } else {
+      message("found ids for all authors")
+    }
+    
+    if (length(ids) == 0){
+      warning(paste0("No matches found for authors", authors, collapse="\n"))
+    }
+    ## add the authors by ID number
+    sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
+    invisible(ids)
   } else {
-    message("found ids for all authors")
+    invisible(authors)
   }
-  
-  if (length(ids) == 0){
-    warning(paste0("No matches found for authors", authors, collapse="\n"))
-  }
-  ## add the authors by ID number
-  sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
-  invisible(ids)
 }
 
 

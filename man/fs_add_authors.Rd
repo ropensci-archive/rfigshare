@@ -8,8 +8,8 @@
 \arguments{
   \item{article_id}{id number of an article on figshare}
 
-  \item{authors}{a list/vector of authors (not a character
-  string)}
+  \item{authors}{a list or character string of authors or
+  author id numbers (or mixed).}
 
   \item{session}{(optional) the authentication credentials
   from \code{\link{fs_auth}}. If not provided, will attempt
@@ -18,7 +18,8 @@
 
   \item{create_missing}{(logical) Attempt to create authors
   not already registered on FigShare? (default is False and
-  such authors will not be added).}
+  such authors will not be added). Not currently supported
+  by the API(?)}
 }
 \value{
   adds the requested authors to the given article
@@ -32,6 +33,7 @@
  fs_add_authors("138", c("Scott Chamberlain", "Karthik Ram"))
  fs_add_authors("138", list("Scott Chamberlain", "97306"))
  fs_add_authors("138", list("Scott Chamberlain", 97306))
+ fs_add_authors(138, 97306)
 }
 }
 \author{
