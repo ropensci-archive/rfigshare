@@ -15,7 +15,8 @@ Depends:
 Imports:
     RJSONIO,
     httr (>= 0.2),
-    plyr
+    plyr,
+    XML
 Collate:
     'fs_add_authors.R'
     'fs_add_categories.R'
