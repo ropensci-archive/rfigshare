@@ -6,6 +6,11 @@ title: rfigshare - Share and explore figures, data, and publications on FigShare
 ![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png)
 
 
+```{r include=FALSE}
+opts_chunk$set(comment=NA, tidy=FALSE, warning=FALSE)
+```
+
+
 
 # Obtaining your API keys
 
@@ -90,6 +95,24 @@ Not that we must pass the id number of our the newly created figshare object as 
 fs_add_tags(id, "demo")
 ```
 
+
+Minimal metadata includes title, description, type, and at least one tag and one category.  We can add categories using either the category id or the name of the category, but it must be one of the preset categories available.  We can ask the API for a list of all the categories:
+
+``` {r results="hide"}
+fs_category_list()
+```
+
+``` {r results="asis", echo=FALSE}
+print(xtable::xtable(fs_category_list()), type="html")
+```
+
+And we can add the category or categories we like,
+
+``` {r }
+fs_add_categories(id, c("Education", "Software Engineering"))
+```
+
+
 The file we have created remains saved as a draft until we publish it, either publicly or privately.  Note that once a file is declared public, it cannot be made private or deleted.  Let's release this dataset privately:
 
 ``` {r }
@@ -104,7 +127,7 @@ The `rfigshare` package will let you create a new figshare article with addition
 
 ``` {r tidy=FALSE}
 id <- fs_new_article(title="A Test of rfigshare", 
-                     description="This is a test of the fs_new_aricle function and related methods", 
+                     description="This is a test", 
                      type="figure", 
                      authors=c("Karthik Ram", "Scott Chamberlain"), 
                      tags=c("ecology", "openscience"), 
@@ -116,10 +139,10 @@ id <- fs_new_article(title="A Test of rfigshare",
 
 # Examining Data on Figshare
 
-We can view all available metadata of a figshare object
+We can view all available metadata of a figshare object.  If the object is not public (e.g. draft or private), we have to add the `mine=TRUE` option
 
 ``` {r }
-fs_details(id)
+fs_details(id, mine=TRUE)
 ```
 
 You can see all of the files you have:
@@ -128,5 +151,17 @@ You can see all of the files you have:
 fs_browse(mine=TRUE)
 ```
 
+Note that we can easily grab the ids with the wrapper function `fs_ids`:
 
 
+``` {r }
+fs_ids(all_mine)
+```
+
+
+
+We can delete unwanted files that are not public with `fs_delete`:  
+
+``` {r }
+fs_delete(id)
+```

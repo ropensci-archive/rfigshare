@@ -15,11 +15,6 @@
 \description{
   Helper function that matches string categories to id's
 }
-\examples{
-\dontrun{
-fs_auth()
-}
-}
 \author{
   Edmund Hart \email{edmund.m.hart@gmail.com}
 }
