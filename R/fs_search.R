@@ -92,11 +92,3 @@ fs_search <-
 
 
 
-# S3 method for printing object
-#
-# @param object anything of class fs_object, such as returned by fs_search or fs_browse.  
-# @return pretty formatted printing of metadata on a figshare entry 
-# @S3method print fs_object 
-# @method print fs_object 
-print.fs_object <- function(object) invisible(sapply(object, summary_fs_details))
-
