@@ -1,0 +1,52 @@
+\name{fs_download}
+\alias{fs_download}
+\title{Get details for an article}
+\usage{
+  fs_download(article_id, urls_only = TRUE, mine = FALSE,
+    session = fs_get_auth(), show_versions = FALSE,
+    version = NULL, ...)
+}
+\arguments{
+  \item{article_id}{number}
+
+  \item{urls_only}{logical (default TRUE) to only return
+  the URLs to the downloadable objects but do not call
+  download.file.  If FALSE, will download files}
+
+  \item{mine}{logical (default FALSE). Set to true to see
+  article details for your own non-public articles}
+
+  \item{session}{the authentication credentials from
+  \code{\link{fs_auth}}}
+
+  \item{show_versions}{logical, show what versions are
+  available}
+
+  \item{version}{show a given version number}
+
+  \item{...}{additional arguments to
+  \code{\link{download.file}}}
+}
+\description{
+  Get details for an article
+}
+\examples{
+\dontrun{
+url <- fs_download(90818)
+data <- read.csv(url)
+articles <- fs_search("SciFund")
+ids <- fs_ids(articles)
+fs_download(ids, urls_only=FALSE)
+}
+}
+\author{
+  Carl Boettiger \email{cboettig@gmail.com}
+}
+\references{
+  \url{http://api.figshare.com}
+  \url{https://github.com/ropensci/rfigshare}
+}
+\seealso{
+  \code{\link{fs_auth}} \code{\link{download.file}}
+}
+
