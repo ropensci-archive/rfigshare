@@ -37,6 +37,18 @@ fs_details <-
     output
   }
 
+
+#' @S3method print fs_object
+print.fs_object <- function(x){
+  summary_fs_details(x)
+}
+
+#' @S3method summary fs_object
+summary.fs_object <- function(x){
+  summary_fs_details(x)
+}
+
+
 #' Collect metadata from details call
 #'
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}

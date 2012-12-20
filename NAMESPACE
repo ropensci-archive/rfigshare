@@ -1,3 +1,5 @@
+S3method(print,fs_object)
+S3method(summary,fs_object)
 export(fs_add_authors)
 export(fs_add_categories)
 export(fs_add_links)
