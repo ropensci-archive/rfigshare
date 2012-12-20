@@ -25,9 +25,10 @@
 #' fs_search("Fish", category="Ecology") 
 #' } 
 fs_search <- 
-  function(query=NA, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1"){
+  function(query, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1"){
 
-
+    # resolve name conflict?
+    the_title <- title
 
     ## Fine assembling queries this way, but would be prettier
     ## using parameters to RCurl as in RMendeley...
@@ -46,8 +47,8 @@ fs_search <-
 
     if(!is.na(author))
       method <- paste(method, "&has_author=", author, sep="")
-    if(!is.na(title))
-      method <- paste(method, "&has_title=", title, sep="")
+    if(!is.na(the_title))
+      method <- paste(method, "&has_title=", the_title, sep="")
     if(!is.na(description))
       method <- paste(method, "&has_description=", description, sep="")
     if(!is.na(tag))

@@ -40,3 +40,4 @@ Collate:
     'fs_add_links.R'
     'startup.R'
     'fs_embed.R'
+    'fs_download.R'

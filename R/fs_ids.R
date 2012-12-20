@@ -10,6 +10,7 @@
 #' figshare_category() 
 #' }
 fs_ids <- function(object){
-  a <- parsed_content(object)
-  sapply(a$items, `[[`, "article_id")
+#  a <- parsed_content(object)
+#  sapply(a$items, `[[`, "article_id")
+  sapply(object, `[[`,  "article_id")
 }
