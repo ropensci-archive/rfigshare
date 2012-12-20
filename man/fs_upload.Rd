@@ -5,9 +5,11 @@
   fs_upload(article_id, file, session = fs_get_auth())
 }
 \arguments{
-  \item{article_id}{number}
+  \item{article_id}{an article id number or a character
+  string (or list) of numbers}
 
-  \item{file}{path to file to upload}
+  \item{file}{path to file to upload, or character string
+  (or list) of files (paths)}
 
   \item{session}{the authentication credentials from
   \code{\link{fs_auth}} (optional)}
