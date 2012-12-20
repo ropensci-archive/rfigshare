@@ -3,6 +3,7 @@
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
+#' @param mine logical (default FALSE). Set to true to see article details for your own non-public articles
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
@@ -14,10 +15,15 @@
 #' fs_details(138)
 #' }
 fs_details <- 
-  function(article_id, session = fs_get_auth(),
+  function(article_id, mine=FALSE, session = fs_get_auth(),
          show_versions=FALSE, version=NULL){
     base <- "http://api.figshare.com/v1"
-    method <- paste("my_data/articles", article_id, sep="/")
+
+    if(mine)
+      method <- paste("my_data/articles", article_id, sep="/")
+    else if(!mine)
+      method <- paste("articles", article_id, sep="/")
+
     if(show_versions)
       method <- paste(method, "versions", sep="/")
     if(!is.null(version))
