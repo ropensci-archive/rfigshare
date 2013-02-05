@@ -1,7 +1,11 @@
----
-title: rfigshare - Share and explore figures, data, and publications on FigShare using R
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{A Markdown Vignette with knitr}
+-->
 
----
+
+# rfigshare - Share and explore figures, data, and publications on FigShare using R
+
 
 ![](http://farm9.staticflickr.com/8180/7950489358_ea902bdaae_o.png)
 

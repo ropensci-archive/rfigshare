@@ -10,6 +10,9 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
     "cboettig@gmail.com"), person("Scott", "Chamberlain", role = "aut"),
     person("Karthik", "Ram", role = "aut"), person("Edmund", "Hart",
     role="aut"))
+VignetteBuilder: knitr
+Suggests: 
+    knitr
 Depends:
     R (>= 2.15)
 Imports:

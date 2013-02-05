@@ -1,3 +1,9 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{A Markdown Vignette with knitr}
+-->
+
+
 `ro warning=FALSE, comment=NA or`
 
 # Publishing On Figshare from R

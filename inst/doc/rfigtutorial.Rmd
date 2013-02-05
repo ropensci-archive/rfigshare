@@ -1,3 +1,9 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{A Markdown Vignette with knitr}
+-->
+
+
 rOpenSci, Figshare and knitr.
 ========================================================
 
