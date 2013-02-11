@@ -54,7 +54,7 @@
 \examples{
 \dontrun{
 id <- fs_new_article(title="A Test of rfigshare",
-                    description="This is a test of the fs_new_aricle function and related methods",
+                    description="This is a test of the fs_new_article function and related methods",
                     type="figure",
                     authors=c("Karthik Ram", "Scott Chamberlain"),
                     tags=c("ecology", "openscience"),
