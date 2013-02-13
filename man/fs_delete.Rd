@@ -26,6 +26,12 @@
 \examples{
 \dontrun{
 fs_delete(123)
+
+## Delete all attachments in the second-most-recent entry in my library
+my_lib <- fs_browse(mine=TRUE)
+article_id <- my_lib[[2]]$article_id
+file_ids <- sapply(my_lib[[2]]$files, `[[`, "id")
+sapply(file_ids, function(id) fs_delete(article_id, id))
 }
 }
 \author{
