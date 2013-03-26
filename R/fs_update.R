@@ -16,7 +16,7 @@
 #' fs_update(138, title="New title") 
 #' }
 fs_update <- 
-function(article_id, title=NA, description=NA, type = NA,
+function(article_id, title=NA, description=NA, type = NA, mine=T
          session = fs_get_auth()){
 
   ## grab the article details and use those as defaults

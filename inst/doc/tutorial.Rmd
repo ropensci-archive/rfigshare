@@ -45,8 +45,11 @@ options(FigsharePrivateToken = "yqXXXXXXXXXXXXXXXXXXXX")
 
 ## Installing the R package
 
-Now that we have the API credentials in place, actually using `rfigshare` is pretty easy.  Install the latest version of package directly from Github using: 
-
+Now that we have the API credentials in place, actually using `rfigshare` is pretty easy.  Install the latest version of package via CTAN:  
+```r
+install.packages("rfigshare")
+```
+or install the latest version directly from Github using (you previously need to install devtools):
 ```r
 require(devtools)
 install_github("rfigshare", "ropensci")
