@@ -1,0 +1,36 @@
+\name{plot_to_filename}
+\alias{plot_to_filename}
+\title{Convienence function to save a ggplot2 plot, and return its filename.}
+\usage{
+  plot_to_filename(plotobj, filename, path = ".")
+}
+\arguments{
+  \item{plotobj}{ggplot2 plot object (should add support
+  for base plots too)}
+
+  \item{filename}{Filename, don't include the file type
+  extension.}
+
+  \item{path}{Path where you want to save the file.}
+}
+\value{
+  A file name, to use in fs_upload
+}
+\description{
+  Convienence function to save a ggplot2 plot, and return
+  its filename.
+}
+\examples{
+\dontrun{
+# include in your fs_upload call
+library(ggplot2)
+p <- qplot(mpg, wt, data=mtcars)
+plott <- fs_create(title="my title", description="some description", type="figure")
+fs_add_categories(plott, "Ecology")
+fs_upload(plott, plot_to_filename(p, "myfilename", "~"))
+}
+}
+\seealso{
+  \code{\link{fs_upload}}
+}
+

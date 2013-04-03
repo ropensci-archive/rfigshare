@@ -46,3 +46,4 @@ Collate:
     'fs_object_methods.R'
     'summary_fs_details.R'
     'fs_category_list.R'
+    'plot_to_filename.R'
