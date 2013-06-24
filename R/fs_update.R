@@ -21,7 +21,8 @@ function(article_id, title=NA, description=NA, type = NA, mine=TRUE,
          session = fs_get_auth()){
 
   ## grab the article details and use those as defaults
-  details <- fs_details(article_id, session)
+  details <- fs_details(article_id, mine = mine, 
+                        session = session)
   if(is.na(title))
     title <- details$title
   if(is.na(description))
