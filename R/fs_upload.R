@@ -54,6 +54,6 @@ fs_upload_one  <- function(article_id, file, session = fs_get_auth()){
   method <- paste("/my_data/articles", article_id, "files", sep= "/")
   request = paste(base, method, sep="")
   body = list(filedata = upload_file(file))
-  config = c(verbose(), session, add_headers("Content-Type" = "multipart/form-data"))
+  config = c( session, add_headers("Content-Type" = "multipart/form-data"))
   out <- PUT(request, config=config, body=body)
 }

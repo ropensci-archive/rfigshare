@@ -35,7 +35,7 @@ function(article_id, title=NA, description=NA, type = NA, mine=TRUE,
   request <- paste(base, method, sep="/")
   meta <- toJSON(list("title"=title, "description"=description, 
                       "defined_type"=type))
-  config <- c(verbose(), session, 
+  config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   post <- PUT(request, config=config, body=meta)
   invisible(post)

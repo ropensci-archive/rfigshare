@@ -28,7 +28,7 @@ function(article_id, file_id = NULL, session = fs_get_auth()){
   if(!is.null(file_id))
     method <- paste(method, "files", file_id, sep="/")
   request <- paste(base, method, sep="/")
-  config = c(verbose(), session)
+  config = c( session)
   del <- DELETE(request, config=config)
   invisible(del)
 }

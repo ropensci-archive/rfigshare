@@ -101,7 +101,7 @@ fs_add_author <- function(article_id, author_id, session = fs_get_auth()){
   method <- paste("my_data/articles", article_id, "authors", sep= "/")
   request = paste(base, method, sep="/")
   body <- toJSON(list("author_id"=author_id))
-  config <- c(verbose(), session, 
+  config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   out <- PUT(request, config=config,  body=body)
 }

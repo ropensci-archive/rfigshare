@@ -22,7 +22,7 @@
 #' write.csv(mtcars, "mtcars.csv")
 #' id <- fs_new_article(title="A Test of rfigshare", 
 #'                     description="This is a test of the fs_new_article function and related methods", 
-#'                     type="figure", 
+#'                     type="dataset", 
 #'                     authors=c("Karthik Ram", "Scott Chamberlain"), 
 #'                     tags=c("ecology", "openscience"), 
 #'                     categories="Ecology", 

@@ -26,7 +26,7 @@ function(article_id, link, session = fs_get_auth()){
 
   for(i in 1:length(link)){
     body <- toJSON(list("link"=link[i]))
-    config <- c(verbose(), session, 
+    config <- c( session, 
                 add_headers("Content-Type" = "application/json"))
      post <- PUT(request, config=config, body=body)
   }

@@ -23,7 +23,7 @@ fs_add_tags <-
     request <- paste(base, method, sep="/")
     for(i in 1:length(tag)){
       body <- toJSON(list("tag_name" = tag[i]))
-      config <- c(verbose(), session, 
+      config <- c( session, 
                   add_headers("Content-Type" = "application/json"))
       
       post <- PUT(request, config=config, body=body)

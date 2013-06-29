@@ -36,7 +36,7 @@ function(title, description, type =
   request <- paste(base, method, sep="/")
   meta <- toJSON(list("title"=title, "description"=description, 
                       "defined_type"=type))
-  config <- c(verbose(), session, 
+  config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config=config, body=meta)
   if(verbose)
