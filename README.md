@@ -1,4 +1,4 @@
-105131rfigshare
+rfigshare
 ==========
 
 *An R interface to [FigShare](http://figshare.com)*
