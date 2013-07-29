@@ -29,6 +29,8 @@ fs_upload <- function(article_id, file, session = fs_get_auth()){
     sapply(1:length(article_id), function(i) fs_upload_one(article_id[i], file[i], session))
   if(length(article_id) == 1 && length(file) > 1)
     sapply(file, function(f) fs_upload_one(article_id, f, session))
+
+
 }
 
 
@@ -56,4 +58,6 @@ fs_upload_one  <- function(article_id, file, session = fs_get_auth()){
   body = list(filedata = upload_file(file))
   config = c( session, add_headers("Content-Type" = "multipart/form-data"))
   out <- PUT(request, config=config, body=body)
+  fs_tag_as_rfigshare(article_id)
+  out
 }

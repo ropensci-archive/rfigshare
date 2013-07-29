@@ -56,6 +56,7 @@ fs_new_article <- function(title, description, type =
   if(visibility == "public")
     fs_make_public(article_id, session)
 
+#   fs_tag_as_rfigshare(article_id) # performed by fs_upload
   article_id
 }
 

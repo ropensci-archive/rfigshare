@@ -39,13 +39,17 @@ function(title, description, type =
   config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config=config, body=meta)
-  if(verbose)
-    message(post)
-
   p <- parsed_content(post) 
   article_id <- p$article_id
-  message(paste("Your article has been created! Your id number is", article_id))
-  article_id
+
+
+  if(is.numeric(article_id))
+    message(paste("Your article has been created! Your id number is", article_id))
+
+  if(verbose)
+    post
+  else
+    article_id
 }
 
 

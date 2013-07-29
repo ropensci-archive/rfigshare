@@ -28,6 +28,6 @@ fs_add_tags <-
       
       post <- PUT(request, config=config, body=body)
       invisible(post)
-      
     }
+    fs_tag_as_rfigshare(article_id)
   }

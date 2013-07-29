@@ -12,7 +12,8 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
     role="aut"))
 VignetteBuilder: knitr
 Suggests:
-    knitr
+    knitr,
+    testthat
 Depends:
     R (>= 2.15)
 Imports:
@@ -47,3 +48,4 @@ Collate:
     'summary_fs_details.R'
     'fs_category_list.R'
     'plot_to_filename.R'
+    'fs_tag_as_rfigshare.R'
