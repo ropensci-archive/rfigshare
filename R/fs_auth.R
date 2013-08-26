@@ -16,7 +16,7 @@
 #' @param token_secret the Figshare secret token. can be supplied here or read from Options()
 #' API key creditentials can be set in .Rprofile using options("FigshareKey" = "XXXXXX-XXXX")
 #' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
-#' @import httr 
+#' @import httr
 #' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @references \url{http://api.figshare.com}
@@ -30,7 +30,7 @@ function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
        token = getOption("FigshareToken", stop("Missing Figshare token")),
        token_secret = getOption("FigsharePrivateToken", stop("Missing Figshare Secret Token"))){
   myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
-  oauth <-  httr:::sign_oauth1.0(myapp, token = token, token_secret = token_secret)
+  oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
   assign('oauth', oauth, envir=FigshareAuthCache)
   invisible(oauth)
 } 
