@@ -1606,3 +1606,5 @@ We can delete unwanted files that are not public with `fs_delete`:
 fs_delete(id)
 ```
 
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
