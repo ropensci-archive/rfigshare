@@ -1606,5 +1606,23 @@ We can delete unwanted files that are not public with `fs_delete`:
 fs_delete(id)
 ```
 
+To cite package ‘rfigshare’ in publications use:
+
+```coffee
+  Carl Boettiger, Scott Chamberlain, Karthik Ram and Edmund Hart
+  (2013). rfigshare: an R interface to figshare.com.. R package version
+  0.2-6. http://CRAN.R-project.org/package=rfigshare
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {rfigshare: an R interface to figshare.com.},
+    author = {Carl Boettiger and Scott Chamberlain and Karthik Ram and Edmund Hart},
+    year = {2013},
+    note = {R package version 0.2-6},
+    url = {http://CRAN.R-project.org/package=rfigshare},
+  }
+```
+
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
