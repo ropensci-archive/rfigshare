@@ -31,7 +31,7 @@ fs_details <-
     request = paste(base, method, sep="/")
     out <- GET(request, session)
     ## TODO: add class for info and pretty print summary 
-    parsed_out <- parsed_content(out)
+    parsed_out <- content(out, as = "parsed")
     output <- parsed_out$items[[1]]
     class(output) <- "fs_object"
     output
