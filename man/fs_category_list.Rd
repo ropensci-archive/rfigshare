@@ -2,13 +2,13 @@
 \alias{fs_category_list}
 \title{List all categories}
 \usage{
-  fs_category_list()
+fs_category_list()
 }
 \value{
-  a table of all the categories
+a table of all the categories
 }
 \description{
-  List all categories
+List all categories
 }
 \examples{
 \dontrun{
@@ -16,6 +16,6 @@ fs_categories_list()
 }
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 

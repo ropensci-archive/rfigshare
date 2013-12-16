@@ -2,8 +2,7 @@
 \alias{fs_delete}
 \title{Delete article (private or drafts only) or attached file}
 \usage{
-  fs_delete(article_id, file_id = NULL,
-    session = fs_get_auth())
+fs_delete(article_id, file_id = NULL, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}
@@ -18,10 +17,10 @@
   run.}
 }
 \value{
-  output of DELETE request (invisibly)
+output of DELETE request (invisibly)
 }
 \description{
-  Delete article (private or drafts only) or attached file
+Delete article (private or drafts only) or attached file
 }
 \examples{
 \dontrun{
@@ -35,12 +34,12 @@ sapply(file_ids, function(id) fs_delete(article_id, id))
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

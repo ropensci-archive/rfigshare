@@ -2,7 +2,7 @@
 \alias{plot_to_filename}
 \title{Convienence function to save a ggplot2 plot, and return its filename.}
 \usage{
-  plot_to_filename(plotobj, filename, path = ".")
+plot_to_filename(plotobj, filename, path = ".")
 }
 \arguments{
   \item{plotobj}{ggplot2 plot object (should add support
@@ -14,11 +14,11 @@
   \item{path}{Path where you want to save the file.}
 }
 \value{
-  A file name, to use in fs_upload
+A file name, to use in fs_upload
 }
 \description{
-  Convienence function to save a ggplot2 plot, and return
-  its filename.
+Convienence function to save a ggplot2 plot, and return its
+filename.
 }
 \examples{
 \dontrun{
@@ -31,6 +31,6 @@ fs_upload(plott, plot_to_filename(p, "myfilename", "~"))
 }
 }
 \seealso{
-  \code{\link{fs_upload}}
+\code{\link{fs_upload}}
 }
 

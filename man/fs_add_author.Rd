@@ -2,8 +2,7 @@
 \alias{fs_add_author}
 \title{Add an author to an article by ID number}
 \usage{
-  fs_add_author(article_id, author_id,
-    session = fs_get_auth())
+fs_add_author(article_id, author_id, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{id number of an article on figshare}
@@ -16,7 +15,7 @@
   to load from cache.}
 }
 \description{
-  Add an author to an article by ID number
+Add an author to an article by ID number
 }
 \keyword{internal}
 

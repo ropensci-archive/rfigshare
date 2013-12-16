@@ -2,8 +2,8 @@
 \alias{fs_add_authors}
 \title{Add author to an article}
 \usage{
-  fs_add_authors(article_id, authors,
-    session = fs_get_auth(), create_missing = FALSE)
+fs_add_authors(article_id, authors, session = fs_get_auth(),
+  create_missing = FALSE)
 }
 \arguments{
   \item{article_id}{id number of an article on figshare}
@@ -22,10 +22,10 @@
   by the API(?)}
 }
 \value{
-  adds the requested authors to the given article
+adds the requested authors to the given article
 }
 \description{
-  Add author to an article
+Add author to an article
 }
 \examples{
 \dontrun{
@@ -37,6 +37,6 @@
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 

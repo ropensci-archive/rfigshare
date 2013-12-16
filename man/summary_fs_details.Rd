@@ -2,13 +2,13 @@
 \alias{summary_fs_details}
 \title{Collect metadata from details call}
 \usage{
-  summary_fs_details(fs_details_obj)
+summary_fs_details(fs_details_obj)
 }
 \arguments{
   \item{fs_details_obj}{object}
 }
 \description{
-  Collect metadata from details call
+Collect metadata from details call
 }
 \examples{
 \dontrun{
@@ -18,9 +18,9 @@ summary_fs_details(my_article)
 }
 }
 \author{
-  Edmund Hart \email{edmund.m.hart@gmail.com}
+Edmund Hart \email{edmund.m.hart@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 

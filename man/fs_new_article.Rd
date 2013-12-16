@@ -2,12 +2,10 @@
 \alias{fs_new_article}
 \title{Create a FigShare article.}
 \usage{
-  fs_new_article(title, description,
-    type = c("dataset", "figure", "media", "poster", "paper", "fileset"),
-    authors = NA, categories = NA, tags = NA, links = NA,
-    files = NA,
-    visibility = c("draft", "private", "public"),
-    session = fs_get_auth())
+fs_new_article(title, description, type = c("dataset", "figure", "media",
+  "poster", "paper", "fileset"), authors = NA, categories = NA, tags = NA,
+  links = NA, files = NA, visibility = c("draft", "private", "public"),
+  session = fs_get_auth())
 }
 \arguments{
   \item{title}{for the article, see \code{\link{fs_create}}
@@ -45,11 +43,11 @@
   \code{link{fs_auth}}}
 }
 \value{
-  article id
+article id
 }
 \description{
-  fs_new_article is a wrapper around many other rfigshare
-  commands to provide convenient posting.
+fs_new_article is a wrapper around many other rfigshare
+commands to provide convenient posting.
 }
 \examples{
 \dontrun{
@@ -66,11 +64,11 @@ id <- fs_new_article(title="A Test of rfigshare",
 }
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}, \code{\link{fs_add_categories}},
-  \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}},
-  \code{\link{fs_add_links}}
+\code{\link{fs_auth}}, \code{\link{fs_add_categories}},
+\code{\link{fs_add_authors}}, \code{\link{fs_add_tags}},
+\code{\link{fs_add_links}}
 }
 

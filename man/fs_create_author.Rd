@@ -2,7 +2,7 @@
 \alias{fs_create_author}
 \title{Creates a figshare author}
 \usage{
-  fs_create_author(full_name, session = fs_get_auth())
+fs_create_author(full_name, session = fs_get_auth())
 }
 \arguments{
   \item{full_name}{full name of the author to create}
@@ -13,10 +13,10 @@
   run.}
 }
 \value{
-  author ID numbers
+author ID numbers
 }
 \description{
-  Creates a figshare author
+Creates a figshare author
 }
 \examples{
 \dontrun{
@@ -24,12 +24,12 @@ figshare_create_author("Benjamin Franklin")
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 
