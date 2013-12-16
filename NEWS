@@ -1,4 +1,11 @@
 
+v0.2-8
+-----
+* Minor bugfix. Replaced text_content with content()
+* Improved documentation and added ggplot2 to Imports list
+
+
+
 v0.2-7
 -----
 * Bugfix following changes to API in `fs_update`
