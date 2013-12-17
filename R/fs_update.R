@@ -4,6 +4,7 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param title for the article (to replace original title)
+#' @param mine Set to \code{TRUE} if it refers to an item on your own account
 #' @param description of the article (replaces original designation)
 #' @param type one of: dataset, figure, media, poster, or paper (replaces original designation)
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. 
@@ -14,10 +15,10 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' fs_update(138, title="New title") 
+#' fs_update(138, title = "New title") 
 #' }
 fs_update <- 
-function(article_id, title=NA, description=NA, type = NA, mine=TRUE,
+function(article_id, title = NA, description = NA, type  =  NA, mine = TRUE,
          session = fs_get_auth()){
 
   ## grab the article details and use those as defaults
@@ -37,7 +38,7 @@ function(article_id, title=NA, description=NA, type = NA, mine=TRUE,
                       "defined_type"=type))
   config <- c( session, 
               add_headers("Content-Type" = "application/json"))
-  post <- PUT(request, config=config, body=meta)
+  post <- PUT(request, config = config, body = meta)
   invisible(post)
 }
 

@@ -2,7 +2,7 @@
 \alias{fs_add_tags}
 \title{Add a tag to an article}
 \usage{
-  fs_add_tags(article_id, tag, session = fs_get_auth())
+fs_add_tags(article_id, tag, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article to create}
@@ -13,10 +13,10 @@
   \code{\link{fs_auth}}}
 }
 \value{
-  output of PUT request (invisibly)
+output of PUT request (invisibly)
 }
 \description{
-  Add a tag to an article
+Add a tag to an article
 }
 \examples{
 \dontrun{
@@ -24,13 +24,13 @@
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 \keyword{internal}
 

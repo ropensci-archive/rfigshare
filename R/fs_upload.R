@@ -16,7 +16,7 @@
 #' fs_upload(id, "file.png")
 #' } 
 #' @export
-fs_upload <- function(article_id, file, session = fs_get_auth()){
+fs_upload <- function(article_id, file, session = fs_get_auth()) {
   # handle lists by converting to expected type.  
   if(is(article_id, "list"))
     article_id <- as.character(article_id)
@@ -51,13 +51,13 @@ fs_upload <- function(article_id, file, session = fs_get_auth()){
 #' id <- fs_create("Title", "description", "figure")
 #' fs_upload(id, "file.png")
 #' } 
-fs_upload_one  <- function(article_id, file, session = fs_get_auth()){
+fs_upload_one  <- function(article_id, file, session = fs_get_auth()) {
   base <- "http://api.figshare.com/v1"
   method <- paste("/my_data/articles", article_id, "files", sep= "/")
-  request = paste(base, method, sep="")
-  body = list(filedata = upload_file(file))
-  config = c( session, add_headers("Content-Type" = "multipart/form-data"))
-  out <- PUT(request, config=config, body=body)
+  request <- paste(base, method, sep="")
+  body <- list(filedata = upload_file(file))
+  config <- c( session, add_headers("Content-Type" = "multipart/form-data"))
+  out <- PUT(request, config = config, body = body)
   fs_tag_as_rfigshare(article_id)
   out
 }

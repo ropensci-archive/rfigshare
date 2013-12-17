@@ -16,9 +16,10 @@ fs_author_search <-
   function(author, session = fs_get_auth()){
     base <- "http://api.figshare.com/v1"
     method <- paste("my_data/authors?search_for=", author, sep="")
-    request = paste(base, method, sep="/")
+    request <- paste(base, method, sep="/")
     output <- GET(request, session)
-    parsed_content(output)$items
+    x <- content(output, as = "parsed")
+    return(x$items)
   }
 
 

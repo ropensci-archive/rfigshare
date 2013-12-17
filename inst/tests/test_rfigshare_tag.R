@@ -14,9 +14,9 @@ test_that("articles are tagged as 'Published using rfigshare'", {
                          files="mtcars.csv",
                          visibility="private")
 
-  details <- fs_details(id, mine=TRUE)
+  details <- fs_details(id, mine = TRUE)
 
-  expect_match("Published using rfigshare", sapply(details$tags, `[[`, "name"))
+  expect_match("Published using rfigshare", sapply(details$tags, `[[`, "name")[[1]])
 
   fs_delete(id)
   unlink("mtcars.csv")

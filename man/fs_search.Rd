@@ -2,12 +2,10 @@
 \alias{fs_search}
 \title{Advanced Search}
 \usage{
-  fs_search(query, author = NA, title = NA,
-    description = NA, tag = NA, category = NA,
-    from_date = NA, to_date = NA, mine = FALSE,
-    public_only = FALSE, private_only = FALSE,
-    drafts_only = FALSE, session = fs_get_auth(),
-    base = "http://api.figshare.com/v1")
+fs_search(query, author = NA, title = NA, description = NA, tag = NA,
+  category = NA, from_date = NA, to_date = NA, mine = FALSE,
+  public_only = FALSE, private_only = FALSE, drafts_only = FALSE,
+  session = fs_get_auth(), base = "http://api.figshare.com/v1")
 }
 \arguments{
   \item{query}{the search query}
@@ -50,13 +48,13 @@
   \item{base}{the API access url}
 }
 \value{
-  output of PUT request (invisibly)
+output of PUT request (invisibly)
 }
 \description{
-  Search function that will filter on matching timestamp,
-  author, title, description, tag, category, and date
-  range.  Query searches against matches in any metadata
-  field.  Full-text searches coming soon.
+Search function that will filter on matching timestamp,
+author, title, description, tag, category, and date range.
+Query searches against matches in any metadata field.
+Full-text searches coming soon.
 }
 \examples{
 \dontrun{
@@ -64,12 +62,12 @@ fs_search("Fish", category="Ecology")
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com/docs/howto.html#q-search}
+\url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

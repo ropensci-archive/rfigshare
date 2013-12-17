@@ -1,5 +1,5 @@
 
-fs_tag_as_rfigshare <- function(article_id){
+fs_tag_as_rfigshare <- function(article_id) {
 # Check if tagged yet
   o <- fs_details(article_id, mine=TRUE)
   tag <- "Published using rfigshare"

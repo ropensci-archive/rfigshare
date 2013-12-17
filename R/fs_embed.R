@@ -5,13 +5,14 @@
 #' @return a url to the image file
 #' @details this is currently an unstable hack of html parsing
 #' @import XML httr
-fs_image_url <- function(id){
+fs_image_url <- function(id) {
   a <- fs_details(id)
   b <- GET(a$doi)
-  tt <- unlist(xmlToList(parsed_content(b, type="text/html")$children$html))
-  imgs <- grep("\\.png", tt)
-  m <- grep("figshare.com/media", tt[imgs])
-  out <- tt[imgs][m]
+  b_parsed <- content(b, as = "parsed", type = "text/html")
+  img_url <- unlist(xmlToList(b_parsed$children$html))
+  imgs <- grep("\\.png", img_url)
+  m <- grep("figshare.com/media", img_url[imgs])
+  out <- img_url[imgs][m]
   out
 }
 
@@ -22,11 +23,11 @@ fs_image_url <- function(id){
 #' @return a url to the image file
 #' @details use with opts_knit$set(upload.fn = fs_embed)
 #' @export
-fs_embed <- function(file){
+fs_embed <- function(file) {
   ## Read in title, and details from an environment?  from chunk? 
   title <- file 
   description <- "embedded file automatically uploaded to figshare from R"
-  id <- fs_new_article(title, description, type="figure", visibility="public")
+  id <- fs_new_article(title, description, type = "figure", visibility = "public")
   fs_image_url(id)
 }
 
