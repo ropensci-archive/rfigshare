@@ -33,7 +33,7 @@ fs_browse <- function(mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_
 
     request = paste(base, method, sep="/")
     out <- GET(request, session)
-    parsed <- content(out, as = "parsed")
+    parsed <- content(out, as = "parsed", type="application/json")
     parsed$items
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.  

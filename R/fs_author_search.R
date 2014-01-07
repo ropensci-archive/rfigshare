@@ -18,7 +18,7 @@ fs_author_search <-
     method <- paste("my_data/authors?search_for=", author, sep="")
     request <- paste(base, method, sep="/")
     output <- GET(request, session)
-    x <- content(output, as = "parsed")
+    x <- content(output, as = "parsed", type="application/json")
     return(x$items)
   }
 

@@ -9,7 +9,7 @@
 #' fs_categories_list()
 #' }
 fs_category_list <- function(){
-    a <- content(GET("http://api.figshare.com/v1/categories"), as="parsed")
+    a <- content(GET("http://api.figshare.com/v1/categories"), as = "parsed", type="application/json")
     b <- t(sapply(a$items, function(d) c(id = d$id, name = d$name)))
     b <- as.table(b)
     rownames(b) <- NULL

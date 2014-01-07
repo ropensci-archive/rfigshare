@@ -38,7 +38,7 @@ function(title, description, type =
   config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config=config, body=meta)
-  p <- content(post, as = "parsed")
+  p <- content(post, as = "parsed", type="application/json")
   article_id <- p$article_id
 
 

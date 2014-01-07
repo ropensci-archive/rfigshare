@@ -8,7 +8,7 @@
 fs_image_url <- function(id) {
   a <- fs_details(id)
   b <- GET(a$doi)
-  b_parsed <- content(b, as = "parsed", type = "text/html")
+  b_parsed <- content(b, as = "parsed", type="text/html")
   img_url <- unlist(xmlToList(b_parsed$children$html))
   imgs <- grep("\\.png", img_url)
   m <- grep("figshare.com/media", img_url[imgs])
