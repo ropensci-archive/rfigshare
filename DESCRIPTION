@@ -1,7 +1,7 @@
 Package: rfigshare
 Description: an R interface to figshare.com.
 Title: an R interface to figshare.com.
-Version: 0.2-7
+Version: 0.2-8
 License: CC0
 URL: https://github.com/ropensci/rfigshare
 BugReports: https://github.com/ropensci/rfigshare/issues
@@ -21,32 +21,5 @@ Imports:
     httr (>= 0.2),
     plyr,
     XML,
-    yaml
-Collate:
-    'fs_add_authors.R'
-    'fs_add_categories.R'
-    'fs_add_tags.R'
-    'fs_auth.R'
-    'fs_author_search.R'
-    'fs_browse.R'
-    'fs_create.R'
-    'fs_create_author.R'
-    'fs_delete.R'
-    'fs_details.R'
-    'fs_get_auth.R'
-    'fs_ids.R'
-    'fs_make_private.R'
-    'fs_make_public.R'
-    'fs_new_article.R'
-    'fs_search.R'
-    'fs_update.R'
-    'fs_upload.R'
-    'zzz.R'
-    'fs_add_links.R'
-    'fs_embed.R'
-    'fs_download.R'
-    'fs_object_methods.R'
-    'summary_fs_details.R'
-    'fs_category_list.R'
-    'plot_to_filename.R'
-    'fs_tag_as_rfigshare.R'
+    yaml,
+    ggplot2

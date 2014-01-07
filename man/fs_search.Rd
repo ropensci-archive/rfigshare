@@ -2,12 +2,10 @@
 \alias{fs_search}
 \title{Advanced Search}
 \usage{
-  fs_search(query, author = NA, title = NA,
-    description = NA, tag = NA, category = NA,
-    from_date = NA, to_date = NA, mine = FALSE,
-    public_only = FALSE, private_only = FALSE,
-    drafts_only = FALSE, session = fs_get_auth(),
-    base = "http://api.figshare.com/v1")
+fs_search(query, author = NA, title = NA, description = NA, tag = NA,
+  category = NA, from_date = NA, to_date = NA, mine = FALSE,
+  public_only = FALSE, private_only = FALSE, drafts_only = FALSE,
+  session = fs_get_auth(), base = "http://api.figshare.com/v1")
 }
 \arguments{
   \item{query}{the search query}

@@ -25,7 +25,7 @@
 #' fs_search("Fish", category="Ecology") 
 #' } 
 fs_search <- 
-  function(query, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1"){
+  function(query, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1") {
 
     # resolve name conflict?
     the_title <- title
@@ -66,7 +66,7 @@ fs_search <-
     request = paste(base, method, sep="/")
     out <- GET(request, session)
 
-    parsed <- parsed_content(out)
+    parsed <- content(out, as = "parsed")
     if(is.null(parsed$count))
       parsed$count <- parsed$items_found
     if(is.null(parsed$count))
@@ -75,7 +75,7 @@ fs_search <-
 
 
 
-    if(parsed$count > 10){
+    if(parsed$count > 10) {
       total_pages <- ceiling(parsed$count / 10)
       all <- lapply(1:total_pages, function(i){
         method_ <- paste(method, "&page=", i, sep="")

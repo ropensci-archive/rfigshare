@@ -2,7 +2,7 @@
 \alias{fs_author_search}
 \title{Search for an author}
 \usage{
-  fs_author_search(author, session = fs_get_auth())
+fs_author_search(author, session = fs_get_auth())
 }
 \arguments{
   \item{author}{a string to search for (name, can include

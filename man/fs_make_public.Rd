@@ -2,7 +2,7 @@
 \alias{fs_make_public}
 \title{Make an article public (for private or draft articles)}
 \usage{
-  fs_make_public(article_id, session = fs_get_auth())
+fs_make_public(article_id, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}

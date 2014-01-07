@@ -2,7 +2,7 @@
 \alias{fs_image_url}
 \title{get image url}
 \usage{
-  fs_image_url(id)
+fs_image_url(id)
 }
 \arguments{
   \item{id}{a figshare article id number}

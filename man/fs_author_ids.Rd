@@ -2,8 +2,7 @@
 \alias{fs_author_ids}
 \title{Get Author IDs from names}
 \usage{
-  fs_author_ids(authors, session = fs_get_auth(),
-    graphics = FALSE)
+fs_author_ids(authors, session = fs_get_auth(), graphics = FALSE)
 }
 \arguments{
   \item{authors}{a list/vector of authors (not a character

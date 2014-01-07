@@ -2,12 +2,10 @@
 \alias{fs_new_article}
 \title{Create a FigShare article.}
 \usage{
-  fs_new_article(title, description,
-    type = c("dataset", "figure", "media", "poster", "paper", "fileset"),
-    authors = NA, categories = NA, tags = NA, links = NA,
-    files = NA,
-    visibility = c("draft", "private", "public"),
-    session = fs_get_auth())
+fs_new_article(title, description, type = c("dataset", "figure", "media",
+  "poster", "paper", "fileset"), authors = NA, categories = NA, tags = NA,
+  links = NA, files = NA, visibility = c("draft", "private", "public"),
+  session = fs_get_auth())
 }
 \arguments{
   \item{title}{for the article, see \code{\link{fs_create}}

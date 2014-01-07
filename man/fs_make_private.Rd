@@ -2,7 +2,7 @@
 \alias{fs_make_private}
 \title{Make an article private (draft only?)}
 \usage{
-  fs_make_private(article_id, session = fs_get_auth())
+fs_make_private(article_id, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}

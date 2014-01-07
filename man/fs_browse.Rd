@@ -2,10 +2,9 @@
 \alias{fs_browse}
 \title{Browse articles}
 \usage{
-  fs_browse(mine = FALSE, public_only = FALSE,
-    private_only = FALSE, drafts_only = FALSE,
-    session = fs_get_auth(),
-    base = "http://api.figshare.com/v1", query = NA)
+fs_browse(mine = FALSE, public_only = FALSE, private_only = FALSE,
+  drafts_only = FALSE, session = fs_get_auth(),
+  base = "http://api.figshare.com/v1", query = NA)
 }
 \arguments{
   \item{mine}{Logical, show only my (authenticated user's)

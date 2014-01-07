@@ -23,7 +23,7 @@
 #' }
 fs_download <- 
   function(article_id, urls_only = TRUE, mine=FALSE, session = fs_get_auth(),
-         show_versions=FALSE, version=NULL, ...){
+         show_versions=FALSE, version=NULL, ...) {
     details <- lapply(article_id, fs_details, mine = mine, session = session,
            show_versions = show_versions, version = NULL)
 

@@ -2,7 +2,7 @@
 \alias{fs_ids}
 \title{Get a list of article id numbers from a search return}
 \usage{
-  fs_ids(object)
+fs_ids(object)
 }
 \arguments{
   \item{object}{the output of a search}

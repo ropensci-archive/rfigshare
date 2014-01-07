@@ -2,10 +2,13 @@
 \alias{fs_auth}
 \title{Figshare authentication via httr}
 \usage{
-  fs_auth(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
-    cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
-    token = getOption("FigshareToken", stop("Missing Figshare token")),
-    token_secret = getOption("FigsharePrivateToken", stop("Missing Figshare Secret Token")))
+fs_auth(cKey = getOption("FigshareKey",
+  stop("Missing Figshare consumer key")),
+  cSecret = getOption("FigsharePrivateKey",
+  stop("Missing Figshare app secret")), token = getOption("FigshareToken",
+  stop("Missing Figshare token")),
+  token_secret = getOption("FigsharePrivateToken",
+  stop("Missing Figshare Secret Token")))
 }
 \arguments{
   \item{cKey}{Consumer key. can be supplied here or read

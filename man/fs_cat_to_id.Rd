@@ -2,7 +2,7 @@
 \alias{fs_cat_to_id}
 \title{Helper function that matches string categories to id's}
 \usage{
-  fs_cat_to_id(category_id)
+fs_cat_to_id(category_id)
 }
 \arguments{
   \item{category_id}{Must be a valid category string,

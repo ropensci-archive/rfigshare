@@ -2,7 +2,7 @@
 \alias{fs_upload_one}
 \title{Upload file to an article}
 \usage{
-  fs_upload_one(article_id, file, session = fs_get_auth())
+fs_upload_one(article_id, file, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{number}

@@ -27,9 +27,8 @@
 fs_create <- 
 function(title, description, type = 
          c("dataset", "figure", "media", "poster", "paper", "fileset"),
-         session = fs_get_auth(), verbose=FALSE){
+         session = fs_get_auth(), verbose = FALSE) {
 # TODO: Return (or at least message) the article ID number.  Error handling for types?
-
   type <- match.arg(type)
   base <- "http://api.figshare.com/v1"
   method <- "my_data/articles"
@@ -39,7 +38,7 @@ function(title, description, type =
   config <- c( session, 
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config=config, body=meta)
-  p <- parsed_content(post) 
+  p <- content(post, as = "parsed")
   article_id <- p$article_id
 
 

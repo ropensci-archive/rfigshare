@@ -2,7 +2,7 @@
 \alias{fs_embed}
 \title{Upload a figure to figshare and return the url}
 \usage{
-  fs_embed(file)
+fs_embed(file)
 }
 \arguments{
   \item{file}{path to an image file}

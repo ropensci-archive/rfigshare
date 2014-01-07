@@ -2,9 +2,8 @@
 \alias{fs_details}
 \title{Get details for an article}
 \usage{
-  fs_details(article_id, mine = FALSE,
-    session = fs_get_auth(), show_versions = FALSE,
-    version = NULL)
+fs_details(article_id, mine = FALSE, session = fs_get_auth(),
+  show_versions = FALSE, version = NULL)
 }
 \arguments{
   \item{article_id}{number}

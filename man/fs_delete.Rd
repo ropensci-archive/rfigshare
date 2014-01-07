@@ -2,8 +2,7 @@
 \alias{fs_delete}
 \title{Delete article (private or drafts only) or attached file}
 \usage{
-  fs_delete(article_id, file_id = NULL,
-    session = fs_get_auth())
+fs_delete(article_id, file_id = NULL, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}

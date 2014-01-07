@@ -2,10 +2,10 @@ context("authentication")
 
 test_that("We can authenticate with dummy credentials", {
 
-  fs_auth(cKey = getOption("TestFigshareKey"), 
-          cSecret = getOption("TestFigsharePrivateKey"), 
-          token = getOption("TestFigshareToken"), 
-          token_secret = getOption("TestFigsharePrivateToken"))
+  fs_auth(cKey = getOption("FigshareKey"), 
+          cSecret = getOption("FigsharePrivateKey"), 
+          token = getOption("FigshareToken"), 
+          token_secret = getOption("FigsharePrivateToken"))
 
   id <- fs_create("Test Title", "Test Description", "dataset")
   expect_is(id, "numeric")

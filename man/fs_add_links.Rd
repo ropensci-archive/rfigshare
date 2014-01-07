@@ -2,7 +2,7 @@
 \alias{fs_add_links}
 \title{Add link to article}
 \usage{
-  fs_add_links(article_id, link, session = fs_get_auth())
+fs_add_links(article_id, link, session = fs_get_auth())
 }
 \arguments{
   \item{link}{the url you wish to add (can be list of

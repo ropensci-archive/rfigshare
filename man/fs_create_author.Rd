@@ -2,7 +2,7 @@
 \alias{fs_create_author}
 \title{Creates a figshare author}
 \usage{
-  fs_create_author(full_name, session = fs_get_auth())
+fs_create_author(full_name, session = fs_get_auth())
 }
 \arguments{
   \item{full_name}{full name of the author to create}

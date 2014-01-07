@@ -2,7 +2,7 @@
 \alias{fs_get_auth}
 \title{Helper function to get authentication}
 \usage{
-  fs_get_auth()
+fs_get_auth()
 }
 \description{
   The authentication environment is created by new.env

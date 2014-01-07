@@ -2,13 +2,16 @@
 \alias{fs_update}
 \title{Update article title, description, or type}
 \usage{
-  fs_update(article_id, title = NA, description = NA,
-    type = NA, mine = TRUE, session = fs_get_auth())
+fs_update(article_id, title = NA, description = NA, type = NA,
+  mine = TRUE, session = fs_get_auth())
 }
 \arguments{
   \item{article_id}{the id number of the article}
 
   \item{title}{for the article (to replace original title)}
+
+  \item{mine}{Set to \code{TRUE} if it refers to an item on
+  your own account}
 
   \item{description}{of the article (replaces original
   designation)}
@@ -31,7 +34,7 @@
 }
 \examples{
 \dontrun{
-fs_update(138, title="New title")
+fs_update(138, title = "New title")
 }
 }
 \author{

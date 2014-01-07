@@ -2,7 +2,7 @@
 \alias{summary_fs_details}
 \title{Collect metadata from details call}
 \usage{
-  summary_fs_details(fs_details_obj)
+summary_fs_details(fs_details_obj)
 }
 \arguments{
   \item{fs_details_obj}{object}
