@@ -20,7 +20,8 @@ Imports:
     RJSONIO,
     httr (>= 0.2),
     plyr,
-    XML
+    XML,
+    yaml
 Collate:
     'fs_add_authors.R'
     'fs_add_categories.R'
