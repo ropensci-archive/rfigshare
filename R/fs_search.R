@@ -22,10 +22,10 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_search("Fish", category="Ecology") 
+#' fs_search("Fish", category = "Ecology") 
 #' } 
 fs_search <- 
-  function(query, author=NA, title=NA, description=NA, tag=NA, category=NA, from_date=NA, to_date=NA, mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1") {
+  function(query, author = NA, title = NA, description = NA, tag = NA, category = NA, from_date = NA, to_date = NA, mine = FALSE, public_only = FALSE, private_only = FALSE, drafts_only = FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1") {
 
     # resolve name conflict?
     the_title <- title
@@ -81,12 +81,12 @@ fs_search <-
         method_ <- paste(method, "&page=", i, sep="")
         request = paste(base, method_, sep="/")
         out <- GET(request, session)
-        parsed <- parsed_content(out)
+        parsed <- content(out, as = "parsed")
         parsed$items
       })
       out <- unlist(all, recursive = FALSE)
     }
-    class(out) = "fs_object"
+    class(out) <- "fs_object"
     out
   }
 
