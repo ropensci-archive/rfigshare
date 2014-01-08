@@ -32,6 +32,13 @@ function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
   myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
   oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
   assign('oauth', oauth, envir=FigshareAuthCache)
+
+  # Test that we have authenticated
+  if(GET("http://api.figshare.com/v1/my_data/articles", oauth)$status_code != 200){
+    stop("Authentication failed, please check your credentials")
+  } else {
+    message("Authentication successful")
+  }
   invisible(oauth)
 } 
 
