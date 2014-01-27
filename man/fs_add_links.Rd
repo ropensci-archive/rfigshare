@@ -16,10 +16,10 @@ fs_add_links(article_id, link, session = fs_get_auth())
   run.}
 }
 \value{
-  output of PUT request (invisibly)
+output of PUT request (invisibly)
 }
 \description{
-  Adds url links to the metadata of an article
+Adds url links to the metadata of an article
 }
 \examples{
 \dontrun{
@@ -27,12 +27,12 @@ fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

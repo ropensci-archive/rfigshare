@@ -8,12 +8,12 @@ fs_image_url(id)
   \item{id}{a figshare article id number}
 }
 \value{
-  a url to the image file
+a url to the image file
 }
 \description{
-  get image url
+get image url
 }
 \details{
-  this is currently an unstable hack of html parsing
+this is currently an unstable hack of html parsing
 }
 

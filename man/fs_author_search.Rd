@@ -14,10 +14,10 @@ fs_author_search(author, session = fs_get_auth())
   run.}
 }
 \value{
-  output of PUT request (invisibly)
+output of PUT request (invisibly)
 }
 \description{
-  Function to search for authors
+Function to search for authors
 }
 \examples{
 \dontrun{
@@ -25,12 +25,12 @@ fs_author_search("Boettiger")
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

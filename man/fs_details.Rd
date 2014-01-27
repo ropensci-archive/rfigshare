@@ -20,7 +20,7 @@ fs_details(article_id, mine = FALSE, session = fs_get_auth(),
   \item{version}{show a given version number}
 }
 \description{
-  Get details for an article
+Get details for an article
 }
 \examples{
 \dontrun{
@@ -28,12 +28,12 @@ fs_details(138)
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

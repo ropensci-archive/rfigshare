@@ -13,13 +13,13 @@ fs_upload_one(article_id, file, session = fs_get_auth())
   \code{\link{fs_auth}} (optional)}
 }
 \description{
-  Upload file to an article
+Upload file to an article
 }
 \details{
-  Article must be a draft, i.e. created by
-  \code{\link{fs_create}} and not yet made public or
-  private. Only articles of type "fileset" can have
-  multiple files uploaded.
+Article must be a draft, i.e. created by
+\code{\link{fs_create}} and not yet made public or private.
+Only articles of type "fileset" can have multiple files
+uploaded.
 }
 \examples{
 \dontrun{
@@ -28,13 +28,13 @@ fs_upload(id, "file.png")
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 \keyword{internal}
 

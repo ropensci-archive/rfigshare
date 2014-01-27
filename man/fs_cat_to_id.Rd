@@ -9,16 +9,16 @@ fs_cat_to_id(category_id)
   regardless of case}
 }
 \value{
-  a vector of integers corresponding to valid figshare
-  categories
+a vector of integers corresponding to valid figshare
+categories
 }
 \description{
-  Helper function that matches string categories to id's
+Helper function that matches string categories to id's
 }
 \author{
-  Edmund Hart \email{edmund.m.hart@gmail.com}
+Edmund Hart \email{edmund.m.hart@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 

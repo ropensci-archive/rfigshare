@@ -30,17 +30,16 @@ fs_browse(mine = FALSE, public_only = FALSE, private_only = FALSE,
   fs_search)}
 }
 \value{
-  output of PUT request (invisibly)
+output of PUT request (invisibly)
 }
 \description{
-  Browse can be set to all public articles, the users own
-  articles, Browse can filter on matching timestamp,
-  author, title, description, tag, category, and date
-  range.
+Browse can be set to all public articles, the users own
+articles, Browse can filter on matching timestamp, author,
+title, description, tag, category, and date range.
 }
 \details{
-  NOTE: CURRENTLY FILTERING IN BROWSE MODE IS NOT SUPPORTED
-  BY THE API, other than mine, public, private, drafts_only
+NOTE: CURRENTLY FILTERING IN BROWSE MODE IS NOT SUPPORTED
+BY THE API, other than mine, public, private, drafts_only
 }
 \examples{
 \dontrun{
@@ -48,12 +47,12 @@ fs_browse(mine=TRUE)
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
-  \url{http://api.figshare.com/docs/howto.html#q-search}
+\url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
-  \code{\link{fs_auth}}
+\code{\link{fs_auth}}
 }
 

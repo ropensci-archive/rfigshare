@@ -8,12 +8,12 @@ fs_embed(file)
   \item{file}{path to an image file}
 }
 \value{
-  a url to the image file
+a url to the image file
 }
 \description{
-  Upload a figure to figshare and return the url
+Upload a figure to figshare and return the url
 }
 \details{
-  use with opts_knit$set(upload.fn = fs_embed)
+use with opts_knit$set(upload.fn = fs_embed)
 }
 

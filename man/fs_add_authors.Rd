@@ -22,10 +22,10 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
   by the API(?)}
 }
 \value{
-  adds the requested authors to the given article
+adds the requested authors to the given article
 }
 \description{
-  Add author to an article
+Add author to an article
 }
 \examples{
 \dontrun{
@@ -37,6 +37,6 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
 }
 }
 \author{
-  Carl Boettiger \email{cboettig@gmail.com}
+Carl Boettiger \email{cboettig@gmail.com}
 }
 

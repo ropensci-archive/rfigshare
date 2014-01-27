@@ -20,22 +20,21 @@ fs_create(title, description, type = c("dataset", "figure", "media", "poster",
   \item{verbose}{print full post call return}
 }
 \value{
-  article id
+article id
 }
 \description{
-  Articles must be created with \code{\link{fs_create}}
-  with essential metadata.  Then you can add files with
-  \code{\link{fs_upload}}, add categories, tags or authors
-  with \code{\link{fs_add_categories}} or
-  \code{\link{fs_add_tags}} \code{\link{fs_add_authors}}.
-  Authors not registered with a FigShare id can be created
-  with \code{\link{fs_create_author}}.  You can edit the
-  original metadata with \code{\link{fs_update}}. Finally,
-  release the article as either private or public with
-  \code{\link{fs_make_private}} or
-  \code{\link{fs_make_public}}. Before creating the
-  article, you must authenticate using
-  \code{\link{fs_auth}}.
+Articles must be created with \code{\link{fs_create}} with
+essential metadata.  Then you can add files with
+\code{\link{fs_upload}}, add categories, tags or authors
+with \code{\link{fs_add_categories}} or
+\code{\link{fs_add_tags}} \code{\link{fs_add_authors}}.
+Authors not registered with a FigShare id can be created
+with \code{\link{fs_create_author}}.  You can edit the
+original metadata with \code{\link{fs_update}}. Finally,
+release the article as either private or public with
+\code{\link{fs_make_private}} or
+\code{\link{fs_make_public}}. Before creating the article,
+you must authenticate using \code{\link{fs_auth}}.
 }
 \examples{
 \dontrun{
@@ -43,9 +42,9 @@ fs_create("My Title", "A description of the object", "dataset")
 }
 }
 \references{
-  \url{http://api.figshare.com}
+\url{http://api.figshare.com}
 }
 \seealso{
-  \code{\link{fs_auth}}, \code{\link{fs_upload}}
+\code{\link{fs_auth}}, \code{\link{fs_upload}}
 }
 
