@@ -1,3 +1,8 @@
+[![Build Status](https://api.travis-ci.org/ropensci/rfigshare.png)](https://travis-ci.org/ropensci/rfigshare)
+
+
+
+
 rfigshare
 ==========
 
