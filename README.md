@@ -24,9 +24,6 @@ install_github("rfigshare", "ropensci")
 Getting Started
 ---------------
 
-
-
-
 # Obtaining your API keys
 
 There is a nice video introduction to creating applications for the API on the [figshare blog](http://figshare.com/blog/figshare_API_available_to_all/48).  The following tutorial provides a simple walkthrough of how to go about getting your figshare API keys set up so that you can use the `rfigshare` package.  
