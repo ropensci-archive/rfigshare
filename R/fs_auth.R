@@ -29,7 +29,16 @@ function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
        cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
        token = getOption("FigshareToken", stop("Missing Figshare token")),
        token_secret = getOption("FigsharePrivateToken", stop("Missing Figshare Secret Token"))){
+
+  request <- "request_token"
+  authorize <- "authorize" 
+  access <- "access_token"
+  base_url <- "http://api.figshare.com/v1/pbl/oauth"
+  endpoint <- oauth_endpoint(request, authorize, access, base_url=base_url)
+  endpoint <- oauth_endpoint(NULL, authorize, access, base_url=base_url)
   myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
+  token <- oauth1.0_token(endpoint, myapp)
+
   oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
   assign('oauth', oauth, envir=FigshareAuthCache)
 
