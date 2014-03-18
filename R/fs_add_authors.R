@@ -94,7 +94,7 @@ fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
 #' @param article_id id number of an article on figshare 
 #' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache.  
-#' @import RJSONIO
+#' @import jsonlite
 #' @keywords internal
 fs_add_author <- function(article_id, author_id, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"

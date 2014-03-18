@@ -7,7 +7,7 @@
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import RJSONIO httr
+#' @import jsonlite httr
 #' @export
 #' @examples \dontrun{
 #' fs_add_categories(138, "Ecology")
@@ -44,7 +44,7 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
 #' @param category_id Must be a valid category string, regardless of case 
 #' @return a vector of integers corresponding to valid figshare categories
 #' @references \url{http://api.figshare.com}
-#' @import RJSONIO httr plyr
+#' @import jsonlite httr plyr
 fs_cat_to_id <- function(category_id){
   if(!exists("cat_names")) 
     cat_names <- content(GET("http://api.figshare.com/v1/categories"), as = "parsed", type="application/json")

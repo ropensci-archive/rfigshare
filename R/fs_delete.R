@@ -9,7 +9,7 @@
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
  
-#' @import RJSONIO
+#' @import jsonlite
 #' @export
 #' @examples \dontrun{
 #' fs_delete(123)

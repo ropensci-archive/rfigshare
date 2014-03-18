@@ -6,7 +6,7 @@
 #' @return author ID numbers
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import RJSONIO
+#' @import jsonlite
 #' @export
 #' @examples \dontrun{
 #' figshare_create_author("Benjamin Franklin") 

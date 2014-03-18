@@ -4,7 +4,7 @@
 #' @param fs_details_obj object
 #' @references \url{http://api.figshare.com}
 #' @export
-#' @import rjson 
+#' @import jsonlite 
 #' @examples \dontrun{
 #' fs_auth()
 #' my_article <- fs_details("138")

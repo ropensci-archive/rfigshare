@@ -8,7 +8,7 @@
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import RJSONIO httr
+#' @import jsonlite httr
 #' @export
 #' @examples \dontrun{
 #' fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 

@@ -12,7 +12,7 @@
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_tags}}
 #' @references \url{http://api.figshare.com}
 #' @details Updates the title, description, and type of an article.  
-#' @import RJSONIO
+#' @import jsonlite
 #' @export
 #' @examples \dontrun{
 #' fs_update(138, title = "New title") 

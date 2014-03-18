@@ -7,7 +7,7 @@
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import RJSONIO
+#' @import jsonlite
 #' @export
 #' @keywords internal
 #' @examples \dontrun{
