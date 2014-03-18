@@ -19,14 +19,14 @@ fs_add_tags <-
       tag <- unlist(tag)
     }
     base <- "http://api.figshare.com/v1"
-    method <- paste("my_data/articles", article_id, "tags", sep= "/")
+    method <- paste("my_data/articles", article_id, "tags", sep = "/")
     request <- paste(base, method, sep="/")
     for(i in 1:length(tag)){
       body <- toJSON(list("tag_name" = tag[i]))
-      config <- c( session, 
+      config <- c(config(token = session), 
                   add_headers("Content-Type" = "application/json"))
       
-      post <- PUT(request, config=config, body=body)
+      post <- PUT(request, config = config, body = body)
       invisible(post)
     }
   #  fs_tag_as_rfigshare(article_id)

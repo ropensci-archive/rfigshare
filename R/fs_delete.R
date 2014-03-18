@@ -24,12 +24,12 @@
 fs_delete <- 
 function(article_id, file_id = NULL, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"
-  method <- paste("my_data/articles", article_id, sep= "/")
+  method <- paste("my_data/articles", article_id, sep = "/")
   if(!is.null(file_id))
-    method <- paste(method, "files", file_id, sep="/")
-  request <- paste(base, method, sep="/")
-  config = c( session)
-  del <- DELETE(request, config=config)
+    method <- paste(method, "files", file_id, sep = "/")
+  request <- paste(base, method, sep = "/")
+  config <- config(token = session)
+  del <- DELETE(request, config = config)
   invisible(del)
 }
 

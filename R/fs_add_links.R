@@ -22,13 +22,13 @@ function(article_id, link, session = fs_get_auth()){
   
   base <- "http://api.figshare.com/v1"
   method <- paste("my_data/articles", article_id, "links", sep= "/")
-  request <- paste(base, method, sep="/")
+  request <- paste(base, method, sep = "/")
 
   for(i in 1:length(link)){
-    body <- toJSON(list("link"=link[i]))
-    config <- c( session, 
+    body <- toJSON(list("link"= link[i]))
+    config <- c(config(token = session), 
                 add_headers("Content-Type" = "application/json"))
-     post <- PUT(request, config=config, body=body)
+     post <- PUT(request, config = config, body = body)
   }
   invisible(post)
 }

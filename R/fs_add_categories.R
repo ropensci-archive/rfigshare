@@ -28,7 +28,7 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
   
   for(i in 1:length(category_id)){
     body <- toJSON(list("category_id" = category_id[i]))
-    config <- c( session, 
+    config <- c(config(token=session), 
                 add_headers("Content-Type" = "application/json"))
     
     post <- PUT(request, config = config, body = body)

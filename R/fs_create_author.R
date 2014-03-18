@@ -18,9 +18,9 @@ function(full_name, session = fs_get_auth()){
   request <- paste(base, method, sep="/")
   for(i in 1:length(full_name)){ 
     body <- toJSON(list("full_name"=full_name[i]))
-    config <- c( session, 
+    config <- c(config(token = session), 
               add_headers("Content-Type" = "application/json"))
-    post <- PUT(request, config=config, body=body)
+    post <- PUT(request, config = config, body = body)
     invisible(post)
   }
 }

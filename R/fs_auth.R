@@ -3,10 +3,8 @@
 #'
 #' User specific API methods require obtaining access keys from Figshare.com. To do so, first sign up at the Figshare \href{http://api.figshare.com/docs}{developer site} and obtain Figshare API keys. Ideally you should store these keys in your \code{.rprofile} like so:
 #'
-#' \code{options(FigsharePrivateKey="Your_Key")}
-#' \code{options(FigsharePrivateToken="Your_secret_key")}
-#' \code{options(FigshareSecret="Your_secret_key")}
-#' \code{options(FigshareToken="Your_secret_key")}
+#' \code{options(FigshareKey="Your_Key")}
+#' \code{options(FigsharePrivateKey="Your_privatet_key")}
 #'
 #' If this is not possible (assuming you are on a public machine), then you can specify both inline. Calling \code{fs_auth()} with the right keys will launch your default browser and take you to Figshare.com to authorize this application. If you are not logged in, you will first be prompted to login with your Figshare user/pass. Next, click accept to see a pin. At that point, copy the pin and paste it back at the R prompt. If you assign this to a R object, then you can use that as the first argument in all functions that require authentication.
 #' If you have successfully completed this step, you should ideally save the \code{Oauth credential object} to disk for future use. There is no need to repeat this step each time.
@@ -24,17 +22,28 @@
 #' fs_auth()
 #' }
 
+# cKey = getOption("FigshareKey"); cSecret = getOption("FigsharePrivateKey")
 fs_auth <- 
-function(cKey = getOption("FigshareKey", stop("Missing Figshare consumer key")),
-       cSecret = getOption("FigsharePrivateKey", stop("Missing Figshare app secret")),
-       token = getOption("FigshareToken", stop("Missing Figshare token")),
-       token_secret = getOption("FigsharePrivateToken", stop("Missing Figshare Secret Token"))){
-  myapp <- oauth_app("rfigshare", key = cKey, secret=cSecret)
-  oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
+function(){
+
+  endpoint <- 
+    oauth_endpoint("request_token", 
+                   "authorize", 
+                   "access_token", 
+                   base_url = "http://api.figshare.com/v1/pbl/oauth")
+  myapp <- oauth_app("rfigshare", 
+                     key = "Kazwg91wCdBB9ggypFVVJg", 
+                     secret = "izgO06p1ymfgZTsdsZQbcA")
+  oauth <- oauth1.0_token(endpoint, myapp)
+
+# Old way 
+#  oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
   assign('oauth', oauth, envir=FigshareAuthCache)
 
   # Test that we have authenticated
-  if(GET("http://api.figshare.com/v1/my_data/articles", oauth)$status_code != 200){
+  if(GET("http://api.figshare.com/v1/my_data/articles", 
+         config(token = oauth)
+         )$status_code != 200){
     stop("Authentication failed, please check your credentials")
   } else {
     message("Authentication successful")

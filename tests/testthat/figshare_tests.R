@@ -2,18 +2,6 @@
 context("Authentication, creating authors, and content")
 
 test_that("We are able to create objects on figshare", {
-# Make sure we cannot authenticate with bad credentials	
-	  expect_error(fs_auth(cKey = "a",
-          cSecret = "b",
-          token = "c",
-          token_secret = "d"))
-# fs_auth 
-# Note: These keys are for the rOpenSciDemo account. All content gets wiped nightly.
-# Please do not use these in production. Create new keys from your own account
-	  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 
 # fs_create
 	  new_object <- fs_create("My Title", "A description of the object", "dataset")
@@ -28,10 +16,6 @@ test_that("We are able to create objects on figshare", {
 context("Data Retrieval")
 
 test_that("Downloads work correctly", {
-  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 
 	# Downloading a csv file
 	url <- fs_download(90818)
@@ -55,10 +39,6 @@ context("Metadata to/from existing objects")
 # fs_add_tags
 # fs_update
 test_that("We are able to add metadata to existing objects", {
-	  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 	  data <- head(iris)
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 # fs_add_authors	  
@@ -97,10 +77,6 @@ test_that("articles are tagged as 'Published using rfigshare'", {
 })
 
 test_that("We can browse our own files", {
-	  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")	
 	expect_is(fs_browse(mine = TRUE), "list")
 })
 
@@ -111,10 +87,6 @@ context("Searching figshare")
 # fs_browse
 # fs_category_list
 test_that("We are able to perform search correctly", {
-	  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 	  # fs_search
 	  # skipping this for now because the search function is broken
 	  # expect_is(fs_author_search("Karthik Ram"), "list")
@@ -129,10 +101,6 @@ context("Manipulating objects on figshare")
 # fs_make_private
 # fs_delete (delete second)
 test_that("We are able to change visibility of objects", {
-	  fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 	  data <- head(iris)
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 	  write.csv(data, file = "iris_data.csv")
@@ -145,10 +113,6 @@ test_that("We are able to change visibility of objects", {
 })
 
 test_that("We can make articles public", {
-fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 	  data <- head(iris)
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 	  write.csv(data, file = "iris_data.csv")
@@ -165,10 +129,6 @@ context("We can obtain summaries")
 # plot_to_filename
 # summary_fs_details
 test_that("We can make articles public", {
-fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")
 		my_article <- fs_details("138")
 		summary_fs_details(my_article)
 	  expect_that(summary_fs_details(my_article), prints_text("Article ID"))
@@ -180,10 +140,6 @@ fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
 # ----------------------------------------------------------------
 context("Testing miscellaneous functions")
 test_that("We can save plots to disk while uploading", {
-fs_auth(cKey = "kCV1UF2V1Bjw01TybvzDCg",
-          cSecret = "dGLFrnXeBjXi6qdsO6vwAg",
-          token = "QsqBaOrTBI0wuotW7cTDwAgFvSV1bmNouEoqYdWoYbZAQsqBaOrTXI0wuotW7cTDwA",
-          token_secret = "2gz16wL1Tszh4TY2z6opcQ")	
 	  library(ggplot2)
 	  p <- qplot(mpg, wt, data = mtcars)
 	  plot_to_filename(p, "myfilename", ".")

@@ -33,12 +33,13 @@ function(title, description, type =
   base <- "http://api.figshare.com/v1"
   method <- "my_data/articles"
   request <- paste(base, method, sep="/")
-  meta <- toJSON(list("title"=title, "description"=description, 
-                      "defined_type"=type))
-  config <- c( session, 
+  meta <- toJSON(list("title" = title, 
+                      "description" = description, 
+                      "defined_type" = type))
+  config <- c(config(token = session), 
               add_headers("Content-Type" = "application/json"))
-  post <- POST(request, config=config, body=meta)
-  p <- content(post, as = "parsed", type="application/json")
+  post <- POST(request, config = config, body = meta)
+  p <- content(post, as = "parsed", type = "application/json")
   article_id <- p$article_id
 
 
