@@ -19,10 +19,11 @@ fs_details <-
          show_versions=FALSE, version=NULL){
     base <- "http://api.figshare.com/v1"
 
-    if(mine)
+    if(mine){
       method <- paste("my_data/articles", article_id, sep="/")
-    else if(!mine)
+    } else if(!mine) {
       method <- paste("articles", article_id, sep="/")
+    }
 
     if(show_versions)
       method <- paste(method, "versions", sep="/")
@@ -32,6 +33,8 @@ fs_details <-
     out <- GET(request, session)
     ## TODO: add class for info and pretty print summary 
     parsed_out <- content(out, as = "parsed", type="application/json")
+
+
     output <- parsed_out$items[[1]]
     class(output) <- "fs_object"
     output
