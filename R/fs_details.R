@@ -30,7 +30,7 @@ fs_details <-
     if(!is.null(version))
       method <- paste(method, version, sep="/")
     request = paste(base, method, sep="/")
-    out <- GET(request, session)
+    out <- GET(request, config(token=session))
     ## TODO: add class for info and pretty print summary 
     parsed_out <- content(out, as = "parsed", type="application/json")
 

@@ -64,7 +64,7 @@ fs_search <-
       method <- paste(method, "&to_date=", to_date, sep="")
 
     request = paste(base, method, sep="/")
-    out <- GET(request, session)
+    out <- GET(request, config(token = session))
 
     parsed <- content(out, as = "parsed", type="application/json")
     if(is.null(parsed$count))
@@ -80,7 +80,7 @@ fs_search <-
       all <- lapply(1:total_pages, function(i){
         method_ <- paste(method, "&page=", i, sep="")
         request = paste(base, method_, sep="/")
-        out <- GET(request, session)
+        out <- GET(request, config(token = session))
         parsed <- content(out, as = "parsed")
         parsed$items
       })

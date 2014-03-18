@@ -32,7 +32,7 @@ fs_browse <- function(mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_
       method <- paste(method, "/drafts", sep="")  # visibility only works in my_data
 
     request = paste(base, method, sep="/")
-    out <- GET(request, session)
+    out <- GET(request, config(token=session))
     parsed <- content(out, as = "parsed", type="application/json")
     parsed$items
 
