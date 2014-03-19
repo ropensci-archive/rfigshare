@@ -17,7 +17,7 @@ Suggests:
 Depends:
     R (>= 2.15)
 Imports:
-    jsonlite,
+    RJSONIO,
     httr (>= 0.3),
     plyr,
     XML,

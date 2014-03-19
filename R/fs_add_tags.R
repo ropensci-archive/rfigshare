@@ -7,14 +7,14 @@
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import jsonlite
+#' @import RJSONIO
 #' @export
 #' @keywords internal
 #' @examples \dontrun{
 #'  fs_add_tag(138, "phylogenetics") 
 #' }
 fs_add_tags <- 
-  function(article_id, tag, session = fs_get_auth()){
+  function(article_id, tag, session = fs_get_auth(), verbose = FALSE){
     if(is.list(tag)){
       tag <- unlist(tag)
     }
@@ -27,6 +27,9 @@ fs_add_tags <-
                   add_headers("Content-Type" = "application/json"))
       
       post <- PUT(request, config = config, body = body)
+      if(verbose)
+        post
+      else
       invisible(post)
     }
   #  fs_tag_as_rfigshare(article_id)

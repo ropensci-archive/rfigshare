@@ -5,6 +5,7 @@
 #' @param  authors a list or character string of authors or author id numbers (or mixed).  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added). Not currently supported by the API(?)   
+#' @param verbose return the httr result visibly?  
 #' @return adds the requested authors to the given article
 #' @export
 #' @examples \dontrun{
@@ -15,12 +16,14 @@
 #'  fs_add_authors(138, 97306)
 #' } 
 fs_add_authors  <- function(article_id, authors, 
-                            session = fs_get_auth(), create_missing=FALSE){
+                            session = fs_get_auth(), 
+                            create_missing = FALSE,
+                            verbose = FALSE){
 
   # See if any authors have been given as numeric id numbers instead of names:
   already_numeric <- sapply(authors, function(author) suppressWarnings(!is.na(as.numeric(author))) )
   # Go ahead and add those authors
-  sapply(authors[already_numeric], function(author_id) fs_add_author(article_id, author_id, session))
+  results <- sapply(authors[already_numeric], function(author_id) fs_add_author(article_id, author_id, session))
   # Get the IDs of the authors given
   remaining_authors <- authors[!already_numeric]
   if(length(remaining_authors)>0){ # don't try if all authors were given as ID numbers already 
@@ -29,7 +32,7 @@ fs_add_authors  <- function(article_id, authors,
     missing_authors <- authors[absent]
     # Register an ID for any missing authors
     if(create_missing){
-      missing_ids <- sapply(, 
+      missing_ids <- sapply(missing_authors, 
            function(author) fs_create_author(author, session))
       ids[absent] <- missing_ids
     } else if(any(absent)) {
@@ -45,11 +48,16 @@ fs_add_authors  <- function(article_id, authors,
       warning(paste0("No matches found for authors", authors, collapse="\n"))
     }
     ## add the authors by ID number
-    sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
+    additional_results <- sapply(ids, function(author_id) fs_add_author(article_id, author_id, session))
+    results <- c(results, additional_results)
     invisible(ids)
   } else {
     invisible(authors)
   }
+  if(verbose)
+    results
+  else
+    invisible(results)
 }
 
 
@@ -94,7 +102,7 @@ fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
 #' @param article_id id number of an article on figshare 
 #' @param author_id the id number of a registered figshare user (see \code{\link{fs_author_search}})
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache.  
-#' @import jsonlite
+#' @import RJSONIO
 #' @keywords internal
 fs_add_author <- function(article_id, author_id, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"

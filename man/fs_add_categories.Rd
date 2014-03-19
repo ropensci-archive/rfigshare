@@ -2,7 +2,8 @@
 \alias{fs_add_categories}
 \title{Add a category to article}
 \usage{
-fs_add_categories(article_id, category_id, session = fs_get_auth())
+fs_add_categories(article_id, category_id, session = fs_get_auth(),
+  verbose = FALSE)
 }
 \arguments{
   \item{article_id}{the id number of the article}
@@ -14,6 +15,8 @@ fs_add_categories(article_id, category_id, session = fs_get_auth())
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as figshare_auth has been
   run.}
+
+  \item{verbose}{return PUT results visibly?}
 }
 \value{
 output of PUT request (invisibly)

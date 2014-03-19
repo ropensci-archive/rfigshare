@@ -16,7 +16,7 @@
 #' @return article id 
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_categories}}, \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}}, \code{\link{fs_add_links}}
 #' @references \url{http://api.figshare.com}
-#' @import jsonlite
+#' @import RJSONIO
 #' @export
 #' @examples \dontrun{
 #' write.csv(mtcars, "mtcars.csv")
@@ -38,8 +38,10 @@ fs_new_article <- function(title, description, type =
          visibility = c("draft", "private", "public"),
          session = fs_get_auth()){
 
-  article_id <- fs_create(title=title, description=description, 
-              type=type, session=session)
+  article_id <- fs_create(title = title, 
+                          description = description, 
+                          type = type, 
+                          session = session)
   visibility <- match.arg(visibility)
   if(!is.na(authors))
     fs_add_authors(article_id, authors, session)

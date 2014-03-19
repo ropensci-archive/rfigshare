@@ -2,7 +2,8 @@
 \alias{fs_delete}
 \title{Delete article (private or drafts only) or attached file}
 \usage{
-fs_delete(article_id, file_id = NULL, session = fs_get_auth())
+fs_delete(article_id, file_id = NULL, session = fs_get_auth(),
+  verbose = FALSE)
 }
 \arguments{
   \item{article_id}{the id number of the article}
@@ -15,6 +16,8 @@ fs_delete(article_id, file_id = NULL, session = fs_get_auth())
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as figshare_auth has been
   run.}
+
+  \item{verbose}{display return value of request?}
 }
 \value{
 output of DELETE request (invisibly)

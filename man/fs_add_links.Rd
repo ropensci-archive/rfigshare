@@ -2,7 +2,7 @@
 \alias{fs_add_links}
 \title{Add link to article}
 \usage{
-fs_add_links(article_id, link, session = fs_get_auth())
+fs_add_links(article_id, link, session = fs_get_auth(), verbose = FALSE)
 }
 \arguments{
   \item{link}{the url you wish to add (can be list of
@@ -14,6 +14,9 @@ fs_add_links(article_id, link, session = fs_get_auth())
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as authentication has been
   run.}
+
+  \item{verbose}{logical, should function return details of
+  PUT request?}
 }
 \value{
 output of PUT request (invisibly)

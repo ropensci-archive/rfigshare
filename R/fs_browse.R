@@ -19,21 +19,23 @@
 #' @examples \dontrun{
 #' fs_browse(mine=TRUE) 
 #' } 
-fs_browse <- function(mine=FALSE, public_only=FALSE, private_only=FALSE, drafts_only=FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1", query=NA){
+fs_browse <- function(mine = FALSE, public_only = FALSE, private_only = FALSE,
+                      drafts_only = FALSE, session = fs_get_auth(), 
+                      base = "http://api.figshare.com/v1", query=NA){
 
     method <- "articles"
     if(mine)
       method <- "my_data/articles"
     if(public_only)
-      method <- paste(method, "/public", sep="")  # visibility only works in my_data
+      method <- paste(method, "/public", sep = "")  # visibility only works in my_data
     if(private_only)
-      method <- paste(method, "/private", sep="") # visibility only works in my_data
+      method <- paste(method, "/private", sep = "") # visibility only works in my_data
     if(drafts_only)
-      method <- paste(method, "/drafts", sep="")  # visibility only works in my_data
+      method <- paste(method, "/drafts", sep = "")  # visibility only works in my_data
 
-    request = paste(base, method, sep="/")
-    out <- GET(request, config(token=session))
-    parsed <- content(out, as = "parsed", type="application/json")
+    request = paste(base, method, sep = "/")
+    out <- GET(request, config(token = session))
+    parsed <- content(out, as = "parsed", type = "application/json")
     parsed$items
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.  

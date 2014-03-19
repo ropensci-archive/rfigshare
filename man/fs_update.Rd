@@ -3,7 +3,7 @@
 \title{Update article title, description, or type}
 \usage{
 fs_update(article_id, title = NA, description = NA, type = NA,
-  mine = TRUE, session = fs_get_auth())
+  mine = TRUE, session = fs_get_auth(), verbose = FALSE)
 }
 \arguments{
   \item{article_id}{the id number of the article}
@@ -21,6 +21,8 @@ fs_update(article_id, title = NA, description = NA, type = NA,
 
   \item{session}{(optional) the authentication credentials
   from \code{\link{fs_auth}}.}
+
+  \item{verbose}{return httr PUT request visibly?}
 }
 \value{
 output of PUT request (invisibly)

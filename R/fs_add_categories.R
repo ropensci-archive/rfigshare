@@ -4,15 +4,18 @@
 #' @param article_id the id number of the article 
 #' @param category_id is a vector of integers corresponding to categories or a vector of category names  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
+#' @param verbose return PUT results visibly?
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import jsonlite httr
+#' @import RJSONIO httr
 #' @export
 #' @examples \dontrun{
 #' fs_add_categories(138, "Ecology")
 #' }
-fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
+fs_add_categories <- function(article_id, category_id, 
+                              session = fs_get_auth(), 
+                              verbose = FALSE){
   
   if(is.list(category_id)){
     category_id <- unlist(category_id)
@@ -28,11 +31,14 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
   
   for(i in 1:length(category_id)){
     body <- toJSON(list("category_id" = category_id[i]))
-    config <- c(config(token=session), 
+    config <- c(config(token = session), 
                 add_headers("Content-Type" = "application/json"))
     
     post <- PUT(request, config = config, body = body)
-    invisible(post)
+    if(verbose)
+      post
+    else
+      invisible(post)
   }
 }
 
@@ -44,7 +50,7 @@ fs_add_categories <- function(article_id, category_id, session = fs_get_auth()){
 #' @param category_id Must be a valid category string, regardless of case 
 #' @return a vector of integers corresponding to valid figshare categories
 #' @references \url{http://api.figshare.com}
-#' @import jsonlite httr plyr
+#' @import RJSONIO httr plyr
 fs_cat_to_id <- function(category_id){
   if(!exists("cat_names")) 
     cat_names <- content(GET("http://api.figshare.com/v1/categories"), as = "parsed", type="application/json")

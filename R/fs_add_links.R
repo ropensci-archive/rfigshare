@@ -4,17 +4,18 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param link the url you wish to add (can be list of urls)
 #' @param article_id the id number of the article 
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as authentication has been run.  
+#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as authentication has been run. 
+#' @param verbose logical, should function return details of PUT request?
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import jsonlite httr
+#' @import RJSONIO httr
 #' @export
 #' @examples \dontrun{
 #' fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 
 #' }
 fs_add_links <- 
-function(article_id, link, session = fs_get_auth()){
+function(article_id, link, session = fs_get_auth(), verbose = FALSE){
   
   if(is.list(link)){
     link <- unlist(link)
@@ -30,7 +31,10 @@ function(article_id, link, session = fs_get_auth()){
                 add_headers("Content-Type" = "application/json"))
      post <- PUT(request, config = config, body = body)
   }
-  invisible(post)
+  if(verbose)
+    post
+  else
+    invisible(post)
 }
 
 

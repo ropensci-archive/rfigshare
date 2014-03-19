@@ -2,7 +2,7 @@
 \alias{fs_create_author}
 \title{Creates a figshare author}
 \usage{
-fs_create_author(full_name, session = fs_get_auth())
+fs_create_author(full_name, session = fs_get_auth(), verbose = FALSE)
 }
 \arguments{
   \item{full_name}{full name of the author to create}
@@ -11,6 +11,8 @@ fs_create_author(full_name, session = fs_get_auth())
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as figshare_auth has been
   run.}
+
+  \item{verbose}{return PUT request visibly?}
 }
 \value{
 author ID numbers
