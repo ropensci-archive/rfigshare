@@ -1,7 +1,16 @@
 
+v0.2-9
+-----
+* Greatly streamlined authentication to avoid having to provide tokens. ([#72](https://github.com/ropensci/rfigshare/issues/72))
+* Updated unit tests, and now run as part of check [#67](https://github.com/ropensci/rfigshare/pull/67)
+* Consistent with latest changes to httr ([#70](https://github.com/ropensci/rfigshare/issues/70))
+* Includes travis continuous testing integration ([#69](https://github.com/ropensci/rfigshare/issues/69))
+* Displays a yaml-based summary from `fs_details`
+
+
 v0.2-8
 -----
-* Minor bugfix. Replaced text_content with content()
+* Minor bugfix: avoids the `text_content` warning ([#59](https://github.com/ropensci/rfigshare/pull/59))
 * Improved documentation and added ggplot2 to Imports list
 
 
