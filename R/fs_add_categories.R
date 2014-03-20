@@ -53,7 +53,7 @@ fs_add_categories <- function(article_id, category_id,
 #' @import RJSONIO httr plyr
 fs_cat_to_id <- function(category_id){
   if(!exists("cat_names")) 
-    cat_names <- RJSONIO::fromJSON(content(GET("http://api.figshare.com/v1/categories"), "text")
+    cat_names <- RJSONIO::fromJSON(content(GET("http://api.figshare.com/v1/categories"), "text"))
   name_db <- ldply(cat_names$items, data.frame)  
   name_db$name <- tolower(name_db$name)
   my_matches <- match(tolower(category_id), name_db$name)
