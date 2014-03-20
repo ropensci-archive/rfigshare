@@ -41,7 +41,6 @@ function(title, description, type =
   post <- POST(request, config = config, body = meta)
 
   p <- RJSONIO::fromJSON(content(post, "text"))
-#  p <- content(post, as = "parsed", type = "application/json")
   article_id <- p$article_id
 
 

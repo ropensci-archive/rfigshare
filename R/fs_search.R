@@ -66,7 +66,7 @@ fs_search <-
     request = paste(base, method, sep="/")
     out <- GET(request, config(token = session))
 
-    parsed <- content(out, as = "parsed", type="application/json")
+    parsed <- fromJSON(content(out, "text"))
     if(is.null(parsed$count))
       parsed$count <- parsed$items_found
     if(is.null(parsed$count))

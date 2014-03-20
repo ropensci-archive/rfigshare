@@ -35,7 +35,7 @@ fs_browse <- function(mine = FALSE, public_only = FALSE, private_only = FALSE,
 
     request = paste(base, method, sep = "/")
     out <- GET(request, config(token = session))
-    parsed <- content(out, as = "parsed", type = "application/json")
+    parsed <- RJSONIO::fromJSON(content(out, as = "text"))
     parsed$items
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.  

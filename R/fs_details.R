@@ -31,9 +31,6 @@ fs_details <-
       method <- paste(method, version, sep = "/")
     request = paste(base, method, sep = "/")
     out <- GET(request, config(token = session))
-
-    #parsed_out <- content(out, as = "parsed", type = "application/json")
-
     parsed_out <- RJSONIO::fromJSON(content(out, "text"))
 
     output <- parsed_out$items[[1]]

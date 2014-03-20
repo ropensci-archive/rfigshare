@@ -19,7 +19,7 @@ fs_author_search <-
     request <- paste(base, method, sep = "/")
     request <- build_url(parse_url(request)) # perform % encoding
     output <- GET(request, config(token = session))
-    x <- content(output, as = "parsed", type = "application/json")
+    x <- RJSONIO::fromJSON(content(output, "text"))
     return(x$items)
   }
 
