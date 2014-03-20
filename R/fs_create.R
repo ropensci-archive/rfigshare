@@ -40,7 +40,7 @@ function(title, description, type =
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config = config, body = meta)
 
-  p <- RJSONIO::fromJSON(content(req, "text"))
+  p <- RJSONIO::fromJSON(content(post, "text"))
 #  p <- content(post, as = "parsed", type = "application/json")
   article_id <- p$article_id
 

@@ -34,7 +34,7 @@ fs_details <-
 
     #parsed_out <- content(out, as = "parsed", type = "application/json")
 
-    parsed_out <- RJSONIO::fromJSON(content(req, "text"))
+    parsed_out <- RJSONIO::fromJSON(content(out, "text"))
 
     output <- parsed_out$items[[1]]
     class(output) <- "fs_object"
