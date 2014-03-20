@@ -31,9 +31,10 @@ fs_details <-
       method <- paste(method, version, sep = "/")
     request = paste(base, method, sep = "/")
     out <- GET(request, config(token = session))
-    ## TODO: add class for info and pretty print summary 
-    parsed_out <- content(out, as = "parsed", type = "application/json")
 
+    #parsed_out <- content(out, as = "parsed", type = "application/json")
+
+    parsed_out <- RJSONIO::fromJSON(content(req, "text"))
 
     output <- parsed_out$items[[1]]
     class(output) <- "fs_object"
