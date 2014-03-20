@@ -15,7 +15,8 @@ Suggests:
     knitr,
     testthat
 Depends:
-    R (>= 3.0)
+    R (>= 3.0),
+    methods
 Imports:
     RJSONIO,
     httr (>= 0.3),

@@ -1,3 +1,5 @@
+library(rfigshare)
+
 
 context("Authentication, creating authors, and content")
 
@@ -42,7 +44,7 @@ test_that("We are able to add metadata to existing objects", {
 	  data <- head(iris)
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 # fs_add_authors	  
-	  expect_that(fs_add_authors(new_fs_obj, list("Scott Chamberlain", "Karthik Ram")), shows_message("found ids for all authors"))
+	  expect_that(fs_add_authors(new_fs_obj, "Scott Chamberlain"), shows_message("found ids for all authors"))
 # fs_add_categories	  
 # difficult to write detailed tests for functions that return invisible output. 
 # only testing for bad calls. 	  
@@ -129,7 +131,7 @@ context("We can obtain summaries")
 # plot_to_filename
 # summary_fs_details
 test_that("We can obtain summaries", {
-    fs_auth()
+#    fs_auth() # needs interactive environment
 		my_article <- fs_details(138)
 		summary_fs_details(my_article)
 	  expect_that(summary_fs_details(my_article), prints_text("Article ID"))
