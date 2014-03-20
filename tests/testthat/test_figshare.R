@@ -128,8 +128,9 @@ test_that("We can make articles public", {
 context("We can obtain summaries")
 # plot_to_filename
 # summary_fs_details
-test_that("We can make articles public", {
-		my_article <- fs_details("138")
+test_that("We can obtain summaries", {
+    fs_auth()
+		my_article <- fs_details(138)
 		summary_fs_details(my_article)
 	  expect_that(summary_fs_details(my_article), prints_text("Article ID"))
 	 
