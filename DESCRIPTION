@@ -22,6 +22,5 @@ Imports:
     RJSONIO,
     httr (>= 0.3),
     plyr,
-    XML,
     yaml,
     ggplot2
