@@ -13,7 +13,8 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
 VignetteBuilder: knitr
 Suggests:
     knitr,
-    testthat
+    testthat,
+    jsonlite
 Depends:
     R (>= 3.0),
     methods
