@@ -25,6 +25,7 @@ test_that("Downloads work correctly", {
 	expect_that(data, is_a("data.frame"))
 
 	#downloading an Excel file
+  library(gdata)
 	excel_url <- fs_download(894949)
 	excel_data <- gdata::read.xls(excel_url)
 	expect_that(excel_data, is_a("data.frame"))
