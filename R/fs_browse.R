@@ -3,7 +3,7 @@
 #' Browse can be set to all public articles, the users own articles, 
 #' Browse can filter on matching timestamp, author, title, description, tag, category, and date range.    
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
-#' @param mine Logical, show only my (authenticated user's) articles. Defaults to FALSE, browse all public articles.  
+#' @param mine Logical, show only my (authenticated user's) articles. Defaults to TRUE.  
 #' @param public_only (for use with mine=TRUE only) browse only my public articles. default is FALSE
 #' @param private_only (for use with mine=TRUE only) browse only my private articles. default is FALSE
 #' @param drafts_only (for use with mine=TRUE only) browse only my draft articles. default is FALSE
@@ -17,11 +17,11 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_browse(mine=TRUE) 
+#' fs_browse() 
 #' }
 
 
-fs_browse <- function(mine = FALSE, public_only = FALSE, private_only = FALSE,
+fs_browse <- function(mine = TRUE, public_only = FALSE, private_only = FALSE,
                       drafts_only = FALSE, session = fs_get_auth(), 
                       base = "http://api.figshare.com/v1", query=NA,
                       debug = FALSE){
@@ -43,7 +43,10 @@ fs_browse <- function(mine = FALSE, public_only = FALSE, private_only = FALSE,
       out 
     else {
     parsed <- RJSONIO::fromJSON(content(out, as = "text"))
-    parsed$items
+    lapply(parsed$items, function(item){
+           class(item) <- "fs_object"
+           item 
+    })
     }
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.  

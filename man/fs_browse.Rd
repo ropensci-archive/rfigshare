@@ -2,13 +2,13 @@
 \alias{fs_browse}
 \title{Browse articles}
 \usage{
-fs_browse(mine = FALSE, public_only = FALSE, private_only = FALSE,
+fs_browse(mine = TRUE, public_only = FALSE, private_only = FALSE,
   drafts_only = FALSE, session = fs_get_auth(),
   base = "http://api.figshare.com/v1", query = NA, debug = FALSE)
 }
 \arguments{
   \item{mine}{Logical, show only my (authenticated user's)
-  articles. Defaults to FALSE, browse all public articles.}
+  articles. Defaults to TRUE.}
 
   \item{public_only}{(for use with mine=TRUE only) browse
   only my public articles. default is FALSE}
@@ -41,7 +41,7 @@ title, description, tag, category, and date range.
 }
 \examples{
 \dontrun{
-fs_browse(mine=TRUE)
+fs_browse()
 }
 }
 \author{
