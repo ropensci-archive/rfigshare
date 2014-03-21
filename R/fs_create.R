@@ -20,6 +20,8 @@
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_upload}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO
+#' @import methods
+#' @import httr
 #' @export
 #' @examples \dontrun{
 #' fs_create("My Title", "A description of the object", "dataset")

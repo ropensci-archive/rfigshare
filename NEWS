@@ -1,4 +1,13 @@
 
+v0.3
+----
+
+* More explicit error handling ([#75](https://github.com/ropensci/rfigshare/issues/75))
+* Handle the `mine` argument for `fs_details` automatically ([#76](https://github.com/ropensci/rfigshare/issues/76))
+* Fixes fs_search ([#64](https://github.com/ropensci/rfigshare/issues/64)) and thus fs_ids, [#66](https://github.com/ropensci/rfigshare/issues/66).
+* Fixes fs_browse (though API still limits to 10 results, [#77](https://github.com/ropensci/rfigshare/issues/77)).
+* Fixes fs_create_authors ([#78](https://github.com/ropensci/rfigshare/issues/78)).
+
 v0.2-9
 -----
 * Greatly streamlined authentication to avoid having to provide tokens. ([#72](https://github.com/ropensci/rfigshare/issues/72))
