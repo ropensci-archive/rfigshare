@@ -25,7 +25,11 @@ fs_author_search <-
     else {
       # FIXME check that we don't need to loop over pages for more than 10 authors 
       x <- RJSONIO::fromJSON(content(output, "text"))
-      return(x$items)
+      lapply(x$items, 
+             function(o){
+               class(o) <- "fs_object"
+               o
+             })
     }
   }
 

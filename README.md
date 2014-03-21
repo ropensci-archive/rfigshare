@@ -63,32 +63,15 @@ fs_author_search("Boettiger")
 
 ```
 ## [[1]]
-## [[1]]$id
-## [1] "96387"
-## 
-## [[1]]$fname
-## [1] "Carl"
-## 
-## [[1]]$lname
-## [1] "Boettiger"
-## 
-## [[1]]$full_name
-## [1] "Carl Boettiger"
-## 
-## [[1]]$job_title
-## [1] ""
-## 
-## [[1]]$description
-## [1] ""
-## 
-## [[1]]$facebook
-## [1] ""
-## 
-## [[1]]$twitter
-## [1] ""
-## 
-## [[1]]$active
-## [1] 1
+## id: '96387'
+## fname: Carl
+## lname: Boettiger
+## full_name: Carl Boettiger
+## job_title: ''
+## description: ''
+## facebook: ''
+## twitter: ''
+## active: 1.0
 ```
 
 
@@ -103,7 +86,7 @@ id <- fs_create("Test title", "description of test")
 ```
 
 ```
-## Your article has been created! Your id number is 969754
+## Your article has been created! Your id number is 969786
 ```
 
 
@@ -316,7 +299,7 @@ fs_make_private(id)
 ```
 
 ```
-## Response [http://api.figshare.com/v1/my_data/articles/969754/action/make_private]
+## Response [http://api.figshare.com/v1/my_data/articles/969786/action/make_private]
 ##   Status: 200
 ##   Content-type: application/json; charset=UTF-8
 ## {"success": "Article status changed to Private"}
@@ -333,19 +316,20 @@ The `rfigshare` package will let you create a new figshare article with addition
 
 
 ```coffee
+data(mtcars)
+write.csv(mtcars, "mtcars.csv")
 id <- fs_new_article(title = "A Test of rfigshare", description = "This is a test", 
-    type = "figure", authors = c("Karthik Ram", "Scott Chamberlain"), tags = c("ecology", 
+    type = "dataset", authors = c("Karthik Ram", "Scott Chamberlain"), tags = c("ecology", 
         "openscience"), categories = "Ecology", links = "http://ropensci.org", 
-    files = "figure/rfigshare.png", visibility = "private")
+    files = "mtcars.csv", visibility = "private")
 ```
 
 ```
-## Your article has been created! Your id number is 969755
+## Your article has been created! Your id number is 969787
 ```
 
-```
-## Error: specified file does not exist: figure/rfigshare.png.  You must
-## specify a valid file name or provide the contents to send.
+```coffee
+unlink("mtcars.csv")  # clean up
 ```
 
 
@@ -361,62 +345,16 @@ fs_details(id)
 ```
 
 ```
-## article_id: 9.6975e+05
-## title: Test title
+## article_id: 9.6979e+05
+## title: A Test of rfigshare
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 08:29, Mar 21, 2014
-## description: description of test
-## description_nohtml: description of test
-## total_size: 1.70 KB
-## authors:
-## - first_name: Ropensci
-##   last_name: Demo
-##   id: 4.5307e+05
-##   full_name: ROpenSci Demo
-## tags:
-## - id: 1.5681e+04
-##   name: demo
-## - id: 1.9539e+05
-##   name: Published using rfigshare
-## categories:
-## - id: 23.0
-##   name: Software Engineering
-## - id: 129.0
-##   name: Education
-## files:
-## - size: 2 KB
-##   thumb: ~
-##   id: 1.4299e+06
-##   mime_type: text/plain
-##   name: mtcars.csv
-## links: []
-```
-
-
-You can see all of the files you have (Currently only up to 10):
-
-
-
-```coffee
-mine <- fs_browse()
-mine[1:2]
-```
-
-```
-## [[1]]
-## article_id: 9.6976e+05
-## title: A Test of rfigshare
-## master_publisher_id: 0.0e+00
-## defined_type: figure
-## status: Drafts
-## version: 1.0
-## published_date: 08:29, Mar 21, 2014
+## published_date: 08:32, Mar 21, 2014
 ## description: This is a test
 ## description_nohtml: This is a test
-## total_size: no
+## total_size: 1.70 KB
 ## authors:
 ## - first_name: Ropensci
 ##   last_name: Demo
@@ -431,6 +369,8 @@ mine[1:2]
 ##   id: 9.6554e+04
 ##   full_name: Scott Chamberlain
 ## tags:
+## - id: 1.9539e+05
+##   name: Published using rfigshare
 ## - id: 4.7864e+04
 ##   name: openscience
 ## - id: 1.1917e+04
@@ -438,19 +378,80 @@ mine[1:2]
 ## categories:
 ## - id: 39.0
 ##   name: Ecology
-## files: []
+## files:
+## - size: 2 KB
+##   thumb: ~
+##   id: 1.4299e+06
+##   mime_type: text/plain
+##   name: mtcars.csv
+## links:
+## - link: http://ropensci.org
+##   id: 673.0
+```
+
+
+You can see all of the files you have (Currently only up to 10):
+
+
+
+```coffee
+mine <- fs_browse()
+mine[1:2]
+```
+
+```
+## [[1]]
+## article_id: 9.6979e+05
+## title: A Test of rfigshare
+## master_publisher_id: 0.0e+00
+## defined_type: dataset
+## status: Private
+## version: 1.0
+## published_date: 08:32, Mar 21, 2014
+## description: This is a test
+## description_nohtml: This is a test
+## total_size: 1.70 KB
+## authors:
+## - first_name: Ropensci
+##   last_name: Demo
+##   id: 4.5307e+05
+##   full_name: ROpenSci Demo
+## - first_name: Karthik
+##   last_name: Ram
+##   id: 9.7306e+04
+##   full_name: Karthik Ram
+## - first_name: Scott
+##   last_name: Chamberlain
+##   id: 9.6554e+04
+##   full_name: Scott Chamberlain
+## tags:
+## - id: 1.9539e+05
+##   name: Published using rfigshare
+## - id: 4.7864e+04
+##   name: openscience
+## - id: 1.1917e+04
+##   name: ecology
+## categories:
+## - id: 39.0
+##   name: Ecology
+## files:
+## - size: 2 KB
+##   thumb: ~
+##   id: 1.4299e+06
+##   mime_type: text/plain
+##   name: mtcars.csv
 ## links:
 ## - link: http://ropensci.org
 ##   id: 673.0
 ## 
 ## [[2]]
-## article_id: 9.6975e+05
+## article_id: 9.6979e+05
 ## title: Test title
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 08:29, Mar 21, 2014
+## published_date: 08:32, Mar 21, 2014
 ## description: description of test
 ## description_nohtml: description of test
 ## total_size: 1.70 KB
@@ -489,7 +490,7 @@ fs_ids(mine)
 ```
 
 ```
-##  [1] 969755 969754 969753 969751 969748 969747 969745 969742 969741 969738
+##  [1] 969787 969786 969785 969784 969783 969779 969777 969776 969774 969772
 ```
 
 
@@ -509,7 +510,7 @@ fs_delete(id)
 ```
 
 
-To cite package ‘rfigshare’ in publications use:
+To cite package `rfigshare` in publications use:
 
 
 

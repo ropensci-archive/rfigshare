@@ -163,7 +163,7 @@ We can delete unwanted files that are not public with `fs_delete`:
 fs_delete(id)
 ```
 
-To cite package ‘rfigshare’ in publications use:
+To cite package `rfigshare` in publications use:
 
 
 ```{r}
