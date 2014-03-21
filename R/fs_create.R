@@ -39,7 +39,7 @@ function(title, description, type =
   config <- c(config(token = session), 
               add_headers("Content-Type" = "application/json"))
   post <- POST(request, config = config, body = meta)
-  if(debug | p$status_code != 200)
+  if(debug | post$status_code != 200)
     post
   else {
     p <- RJSONIO::fromJSON(content(post, "text"))
