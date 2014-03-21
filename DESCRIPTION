@@ -14,7 +14,8 @@ VignetteBuilder: knitr
 Suggests:
     knitr,
     testthat,
-    gdata
+    gdata,
+    uuid
 Depends:
     R (>= 3.0),
     methods

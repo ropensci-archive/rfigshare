@@ -22,7 +22,7 @@ Creates a figshare author
 }
 \examples{
 \dontrun{
-figshare_create_author("Benjamin Franklin")
+fs_create_author("Benjamin Franklin")
 }
 }
 \author{
