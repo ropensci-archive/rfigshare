@@ -15,6 +15,36 @@ test_that("We are able to create objects on figshare", {
 
 # ------------------------------------------------------------------
 
+
+context("Author creation")
+test_that("we can add new authors without accounts", {
+
+  # We need a unique name...
+  library(uuid)
+  full_name = paste("John", UUIDgenerate())
+
+  author_id <- fs_create_author(full_name)
+  expect_is(author_id, "numeric")
+
+  # If we try to create the same author, 
+  expect_warning(id <- fs_create_author(full_name))
+ # expect to get back the original id  ## NOT implemented in the figshare API yet! Emailed Mark 
+ # expect_equal(id, author_id)
+
+  MrX <- paste("John", UUIDgenerate())
+  id2 <- fs_new_article(title="title", description="description", 
+                 authors = c("Karthik Ram", MrX))
+  d <- fs_details(id2)
+
+  # Expect that Mr X is now the third author FIXME we seem to confuse the API sometimes here
+#  expect_match(sapply(d$authors, `[[`, "first_name")[[3]], strsplit(MrX, ' ')[[1]][1])
+
+
+
+})
+
+
+
 context("Data Retrieval")
 
 test_that("Downloads work correctly", {
@@ -39,22 +69,41 @@ context("Metadata to/from existing objects")
 
 
 
-# fs_add_tags
 # fs_update
 test_that("We are able to add metadata to existing objects", {
-	  data <- head(iris)
-	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
+ data <- head(iris)
+ new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 # fs_add_authors	  
-	  expect_that(fs_add_authors(new_fs_obj, "Scott Chamberlain"), shows_message("found ids for all authors"))
-# fs_add_categories	  
-# difficult to write detailed tests for functions that return invisible output. 
-# only testing for bad calls. 	  
-	  expect_error(fs_add_categories(new_fs_obj, ""))
-# fs_add_links
-# For now there is no test for add_links. See discussion at issue #63
-expect_error(fs_add_tags(new_fs_obj))
-# fs_update, again can't really test this.
-# fs_update(new_fs_obj, title = "This is now the new title")
+  fs_add_authors(new_fs_obj, "Scott Chamberlain")
+
+  fs_add_tags(new_fs_obj, "a random tag")
+      
+  fs_add_categories(new_fs_obj, "Ecology")
+  
+  fs_add_links(new_fs_obj, "http://ropensci.org")
+
+  d <- fs_details(new_fs_obj)
+
+  expect_equal(d$tags[[1]]$name, "a random tag")
+  expect_equal(d$categories[[1]]$name, "Ecology")
+  expect_equal(d$links[[1]]$link, "http://ropensci.org")
+  expect_equal(d$title, "Dummy data")
+   expect_equal(d$authors[[2]]$last_name, "Chamberlain")
+ 
+  fs_update(new_fs_obj, title = "This is now the new title")
+  d <- fs_details(new_fs_obj)
+  expect_equal(d$title, "This is now the new title")
+
+  # A blank category is undefined, but a blank tag is just ommitted 
+  expect_error(fs_add_categories(new_fs_obj, ""))
+
+  # A missing argument is an error
+  expect_error(fs_add_tags(new_fs_obj))
+
+
+
+
+
 })
 
 test_that("articles are tagged as 'Published using rfigshare'", {
@@ -85,14 +134,28 @@ test_that("We can browse our own files", {
 
 # ----------------------------------------------------------------
 context("Searching figshare")
-# fs_author_search
-# fs_search
-# fs_browse
-# fs_category_list
+test_that("fs_category_list works and debugs", {
+        expect_is(fs_category_list(), "table")
+
+        expect_is(fs_category_list(debug=TRUE), "response")
+
+          })
+test_that("We are able to perform browsing correctly", {
+          expect_is(fs_browse()[[1]], "fs_object")
+
+})
+
 test_that("We are able to perform search correctly", {
-	  # fs_search
-	  # skipping this for now because the search function is broken
-	  # expect_is(fs_author_search("Karthik Ram"), "list")
+          expect_is(fs_search("Boettiger")[[1]], "fs_object")
+
+          ids <- fs_ids(fs_search("Boettiger", category="Ecology"))
+          expect_is(ids, "numeric")
+
+})
+
+test_that("We are able to author perform search correctly", {
+     auth <-  fs_author_search("Karthik Ram")
+	   expect_equal(auth[[1]]$id, "97306")
 	  
 
 })
@@ -160,7 +223,7 @@ test_that("we can get the url of an image", {
   path <- fs_image_url(138)
   library(httr)
   resp <- GET(path)
-  expect_equals(resp$headers$`content-type`, "image/png")
+  expect_equal(resp$headers$`content-type`, "image/png")
 })
 
 # fs_ids

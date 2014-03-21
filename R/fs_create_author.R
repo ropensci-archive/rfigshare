@@ -10,22 +10,27 @@
 #' @import RJSONIO
 #' @export
 #' @examples \dontrun{
-#' figshare_create_author("Benjamin Franklin") 
+#' fs_create_author("Benjamin Franklin") 
 #' } 
 fs_create_author <- 
 function(full_name, session = fs_get_auth(), debug = FALSE){
   base <- "http://api.figshare.com/v1"
   method <- "my_data/authors"
   request <- paste(base, method, sep="/")
-  for(i in 1:length(full_name)){ 
-    body <- toJSON(list("full_name"=full_name[i]))
-    config <- c(config(token = session), 
-              add_headers("Content-Type" = "application/json"))
-    post <- PUT(request, config = config, body = body)
-    if(debug | post$status_code != 200)
-      post
-    else
-      invisible(post)
+  body <- toJSON(list("full_name"=full_name))
+  config <- c(config(token = session), 
+            add_headers("Content-Type" = "application/json"))
+  request <- build_url(parse_url(request)) # perform % encoding
+  post <- POST(request, config = config, body = body)
+  if(debug)
+    post
+  else if(post$status_code == 400){ # Return id if already registered 
+    warning(fromJSON(content(post, "text")))
+#    fs_author_search(full_name)[[1]]$id # not working at this time
+  }
+  else if(post$status_code == 201){
+    p <- RJSONIO::fromJSON(content(post, "text"))
+    p$id
   }
 }
 
