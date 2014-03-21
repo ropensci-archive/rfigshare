@@ -8,7 +8,7 @@
 #' @param description of the article (replaces original designation)
 #' @param type one of: dataset, figure, media, poster, or paper (replaces original designation)
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. 
-#' @param verbose return httr PUT request visibly?
+#' @param debug return httr PUT request visibly?
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_tags}}
 #' @references \url{http://api.figshare.com}
@@ -20,7 +20,7 @@
 #' }
 fs_update <- 
 function(article_id, title = NA, description = NA, type  =  NA, mine = TRUE,
-         session = fs_get_auth(), verbose = FALSE){
+         session = fs_get_auth(), debug = FALSE){
 
   ## grab the article details and use those as defaults
   details <- fs_details(article_id, mine = mine, 
@@ -41,7 +41,7 @@ function(article_id, title = NA, description = NA, type  =  NA, mine = TRUE,
   config <- c(config(token = session), 
               add_headers("Content-Type" = "application/json"))
   post <- PUT(request, config = config, body = meta)
-  if(verbose)
+  if(debug)
     post
   else
     invisible(post)

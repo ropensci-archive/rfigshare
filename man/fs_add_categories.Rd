@@ -3,7 +3,7 @@
 \title{Add a category to article}
 \usage{
 fs_add_categories(article_id, category_id, session = fs_get_auth(),
-  verbose = FALSE)
+  debug = FALSE)
 }
 \arguments{
   \item{article_id}{the id number of the article}
@@ -16,7 +16,7 @@ fs_add_categories(article_id, category_id, session = fs_get_auth(),
   to load from cache as long as figshare_auth has been
   run.}
 
-  \item{verbose}{return PUT results visibly?}
+  \item{debug}{return PUT results visibly?}
 }
 \value{
 output of PUT request (invisibly)

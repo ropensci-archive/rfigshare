@@ -3,7 +3,7 @@
 \title{Add author to an article}
 \usage{
 fs_add_authors(article_id, authors, session = fs_get_auth(),
-  create_missing = FALSE, verbose = FALSE)
+  create_missing = FALSE, debug = FALSE)
 }
 \arguments{
   \item{article_id}{id number of an article on figshare}
@@ -21,7 +21,7 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
   such authors will not be added). Not currently supported
   by the API(?)}
 
-  \item{verbose}{return the httr result visibly?}
+  \item{debug}{return the httr result visibly?}
 }
 \value{
 adds the requested authors to the given article

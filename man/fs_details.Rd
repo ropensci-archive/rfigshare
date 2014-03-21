@@ -2,8 +2,8 @@
 \alias{fs_details}
 \title{Get details for an article}
 \usage{
-fs_details(article_id, mine = FALSE, session = fs_get_auth(),
-  show_versions = FALSE, version = NULL)
+fs_details(article_id, mine = is_mine(article_id), session = fs_get_auth(),
+  show_versions = FALSE, version = NULL, debug = FALSE)
 }
 \arguments{
   \item{article_id}{number}
@@ -18,6 +18,8 @@ fs_details(article_id, mine = FALSE, session = fs_get_auth(),
   available}
 
   \item{version}{show a given version number}
+
+  \item{debug}{logical, enable debugging mode?}
 }
 \description{
 Get details for an article

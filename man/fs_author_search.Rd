@@ -2,7 +2,7 @@
 \alias{fs_author_search}
 \title{Search for an author}
 \usage{
-fs_author_search(author, session = fs_get_auth())
+fs_author_search(author, session = fs_get_auth(), debug = FALSE)
 }
 \arguments{
   \item{author}{a string to search for (name, can include
@@ -12,6 +12,8 @@ fs_author_search(author, session = fs_get_auth())
   from \code{\link{fs_auth}}. If not provided, will attempt
   to load from cache as long as figshare_auth has been
   run.}
+
+  \item{debug}{toggle debugging mode}
 }
 \value{
 output of PUT request (invisibly)

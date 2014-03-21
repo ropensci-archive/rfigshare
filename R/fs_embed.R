@@ -3,17 +3,23 @@
 #' 
 #' get image url
 #' @param id a (public) figshare figure id number 
+#' @param debug logical, enable debugging mode?
 #' @return a url to the image file
 #' @details this is currently an unstable hack of html parsing
 #' @import XML httr
 #' @export 
-fs_image_url <- function(id) {
+fs_image_url <- function(id, debug = FALSE) {
   a <- fs_details(id)
   b <- GET(a$doi)
-  b_parsed <- htmlParse(content(b, as = "text"))
-  path <- xpathSApply("//div[@class='filesdownload' and @id='download_all']/a/@href", xmlValue)[[1]]
-  # FIXME do some check to verify this is actually the URL to an image
-  path
+  if(debug | b$status_code != 200)
+    b
+  else {
+    doc <- htmlParse(content(b, as = "text"))
+    path <- xpathSApply(doc, "//div[@class='filesdownload' and @id='download_all']/a/@href")[[1]]
+#  resp <- GET(path)
+#  if(resp$headers$`content-type` != "image/png")
+    path
+  }
 }
 
 

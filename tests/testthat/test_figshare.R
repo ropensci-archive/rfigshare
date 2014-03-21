@@ -155,6 +155,14 @@ test_that("We can save plots to disk while uploading", {
 
 # miscellaneous functions
 # fs_embed
+
+test_that("we can get the url of an image", {
+  path <- fs_image_url(138)
+  library(httr)
+  resp <- GET(path)
+  expect_equals(resp$headers$`content-type`, "image/png")
+})
+
 # fs_ids
 # Can't test because it's broken
 # also missing tests for fs_embed

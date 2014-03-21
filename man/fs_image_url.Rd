@@ -2,10 +2,12 @@
 \alias{fs_image_url}
 \title{get image url}
 \usage{
-fs_image_url(id)
+fs_image_url(id, debug = FALSE)
 }
 \arguments{
   \item{id}{a (public) figshare figure id number}
+
+  \item{debug}{logical, enable debugging mode?}
 }
 \value{
 a url to the image file

@@ -1,4 +1,4 @@
-#' Advanced Search 
+#' Advanced Search.  
 #'
 #' Search function that will filter on matching timestamp, author, title, description, tag, category, and date range.  Query searches against matches in any metadata field.  Full-text searches coming soon.  
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
@@ -20,9 +20,9 @@
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com/docs/howto.html#q-search}
 #' @import httr
-#' @export
 #' @examples \dontrun{
-#' fs_search("Fish", category = "Ecology") 
+#' fs_search("Boettiger") 
+#' fs_search("Boettiger", category = "Ecology") 
 #' } 
 fs_search <- 
   function(query, author = NA, title = NA, description = NA, tag = NA, category = NA, from_date = NA, to_date = NA, mine = FALSE, public_only = FALSE, private_only = FALSE, drafts_only = FALSE, session = fs_get_auth(), base = "http://api.figshare.com/v1") {
@@ -86,9 +86,13 @@ fs_search <-
       })
       out <- unlist(all, recursive = FALSE)
     }
-    class(out) <- "fs_object"
+    out <- lapply(out, function(o){
+           class(o) <- "fs_object"
+           o 
+      })
     out
   }
 
+## response <- GET("http://api.figshare.com/v1/articles/search?search_for=Boettiger", config(token = fs_auth())) 
 
 

@@ -3,7 +3,7 @@
 \title{Create a FigShare article (draft)}
 \usage{
 fs_create(title, description, type = c("dataset", "figure", "media", "poster",
-  "paper", "fileset"), session = fs_get_auth(), verbose = FALSE)
+  "paper", "fileset"), session = fs_get_auth(), debug = FALSE)
 }
 \arguments{
   \item{title}{for the article}
@@ -17,7 +17,7 @@ fs_create(title, description, type = c("dataset", "figure", "media", "poster",
   \item{session}{the authentication credentials from
   \code{\link{fs_auth}}}
 
-  \item{verbose}{print full post call return}
+  \item{debug}{print full post call return}
 }
 \value{
 article id

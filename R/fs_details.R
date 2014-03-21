@@ -7,6 +7,7 @@
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
+#' @param debug logical, enable debugging mode?
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @import httr
@@ -15,8 +16,11 @@
 #' fs_details(138)
 #' }
 fs_details <- 
-  function(article_id, mine = FALSE, session = fs_get_auth(),
-         show_versions = FALSE, version = NULL){
+  function(article_id, mine = is_mine(article_id), 
+           session = fs_get_auth(),
+           show_versions = FALSE, 
+           version = NULL,
+           debug = FALSE){
     base <- "http://api.figshare.com/v1"
 
     if(mine){
@@ -31,12 +35,20 @@ fs_details <-
       method <- paste(method, version, sep = "/")
     request = paste(base, method, sep = "/")
     out <- GET(request, config(token = session))
-    parsed_out <- RJSONIO::fromJSON(content(out, "text"))
-
-    output <- parsed_out$items[[1]]
-    class(output) <- "fs_object"
-    output
+    if(debug | out$status_code != 200)
+      out
+    else {
+      parsed_out <- RJSONIO::fromJSON(content(out, "text"))
+      output <- parsed_out$items[[1]]
+      class(output) <- "fs_object"
+      output
+    }
   }
 
+
+is_mine <- function(id){
+  a <- fs_browse(mine = TRUE)
+ !is.na(match(id, fs_ids(a)))
+}
 
 

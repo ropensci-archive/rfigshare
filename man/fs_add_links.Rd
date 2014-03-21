@@ -2,7 +2,7 @@
 \alias{fs_add_links}
 \title{Add link to article}
 \usage{
-fs_add_links(article_id, link, session = fs_get_auth(), verbose = FALSE)
+fs_add_links(article_id, link, session = fs_get_auth(), debug = FALSE)
 }
 \arguments{
   \item{link}{the url you wish to add (can be list of
@@ -15,7 +15,7 @@ fs_add_links(article_id, link, session = fs_get_auth(), verbose = FALSE)
   to load from cache as long as authentication has been
   run.}
 
-  \item{verbose}{logical, should function return details of
+  \item{debug}{logical, should function return details of
   PUT request?}
 }
 \value{

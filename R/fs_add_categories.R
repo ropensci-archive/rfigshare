@@ -4,7 +4,7 @@
 #' @param article_id the id number of the article 
 #' @param category_id is a vector of integers corresponding to categories or a vector of category names  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
-#' @param verbose return PUT results visibly?
+#' @param debug return PUT results visibly?
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
@@ -15,7 +15,7 @@
 #' }
 fs_add_categories <- function(article_id, category_id, 
                               session = fs_get_auth(), 
-                              verbose = FALSE){
+                              debug = FALSE){
   
   if(is.list(category_id)){
     category_id <- unlist(category_id)
@@ -35,7 +35,7 @@ fs_add_categories <- function(article_id, category_id,
                 add_headers("Content-Type" = "application/json"))
     
     post <- PUT(request, config = config, body = body)
-    if(verbose)
+    if(debug | post$status_code != 200)
       post
     else
       invisible(post)

@@ -14,7 +14,7 @@
 #'  fs_add_tag(138, "phylogenetics") 
 #' }
 fs_add_tags <- 
-  function(article_id, tag, session = fs_get_auth(), verbose = FALSE){
+  function(article_id, tag, session = fs_get_auth(), debug = FALSE){
     if(is.list(tag)){
       tag <- unlist(tag)
     }
@@ -27,7 +27,7 @@ fs_add_tags <-
                   add_headers("Content-Type" = "application/json"))
       
       post <- PUT(request, config = config, body = body)
-      if(verbose)
+      if(debug | post$status_code != 200)
         post
       else
       invisible(post)

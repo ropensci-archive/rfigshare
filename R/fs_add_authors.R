@@ -5,7 +5,7 @@
 #' @param  authors a list or character string of authors or author id numbers (or mixed).  
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @param create_missing (logical) Attempt to create authors not already registered on FigShare? (default is False and such authors will not be added). Not currently supported by the API(?)   
-#' @param verbose return the httr result visibly?  
+#' @param debug return the httr result visibly?  
 #' @return adds the requested authors to the given article
 #' @export
 #' @examples \dontrun{
@@ -18,7 +18,7 @@
 fs_add_authors  <- function(article_id, authors, 
                             session = fs_get_auth(), 
                             create_missing = FALSE,
-                            verbose = FALSE){
+                            debug = FALSE){
 
   # See if any authors have been given as numeric id numbers instead of names:
   already_numeric <- sapply(authors, function(author) suppressWarnings(!is.na(as.numeric(author))) )
@@ -54,7 +54,7 @@ fs_add_authors  <- function(article_id, authors,
   } else {
     invisible(authors)
   }
-  if(verbose)
+  if(debug)
     results
   else
     invisible(results)

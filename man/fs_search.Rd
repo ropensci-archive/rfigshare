@@ -1,6 +1,6 @@
 \name{fs_search}
 \alias{fs_search}
-\title{Advanced Search}
+\title{Advanced Search.}
 \usage{
 fs_search(query, author = NA, title = NA, description = NA, tag = NA,
   category = NA, from_date = NA, to_date = NA, mine = FALSE,
@@ -58,7 +58,8 @@ Full-text searches coming soon.
 }
 \examples{
 \dontrun{
-fs_search("Fish", category = "Ecology")
+fs_search("Boettiger")
+fs_search("Boettiger", category = "Ecology")
 }
 }
 \author{

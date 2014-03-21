@@ -2,7 +2,7 @@
 \alias{fs_add_tags}
 \title{Add a tag to an article}
 \usage{
-fs_add_tags(article_id, tag, session = fs_get_auth(), verbose = FALSE)
+fs_add_tags(article_id, tag, session = fs_get_auth(), debug = FALSE)
 }
 \arguments{
   \item{article_id}{the id number of the article to create}
