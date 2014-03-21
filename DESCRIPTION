@@ -24,4 +24,5 @@ Imports:
     httr (>= 0.3),
     plyr,
     yaml,
-    ggplot2
+    ggplot2,
+    XML
