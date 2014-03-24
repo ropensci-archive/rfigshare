@@ -2,6 +2,11 @@
 v0.3
 ----
 
+Major improvements to authentication.  First-time authentication no longer includes the tedious process
+of getting and storing keys and tokens. This is all handled automatically thanks to improvements in
+httr 0.3.  The use of explicitly passing tokens is still supported and used fo the internal/automated
+testing of the package.  
+
 * More explicit error handling ([#75](https://github.com/ropensci/rfigshare/issues/75))
 * Handle the `mine` argument for `fs_details` automatically ([#76](https://github.com/ropensci/rfigshare/issues/76))
 * Fixes fs_search ([#64](https://github.com/ropensci/rfigshare/issues/64)) and thus fs_ids, [#66](https://github.com/ropensci/rfigshare/issues/66).
