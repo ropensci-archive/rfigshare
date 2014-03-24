@@ -2,7 +2,21 @@
 \alias{fs_auth}
 \title{Figshare authentication via OAuth1.0 using httr}
 \usage{
-fs_auth()
+fs_auth(cKey = NULL, cSecret = NULL, token = NULL, token_secret = NULL)
+}
+\arguments{
+  \item{cKey}{optional argument for the consumer key.  See
+  details.}
+
+  \item{cSecret}{optional argument for the consumer secret
+  key. See details.}
+
+  \item{token}{optional argument for the user-specific
+  token.  See details.}
+
+  \item{token_secret}{Optional argument to provide a secret
+  token assigned to the user, rather than let fs_auth()
+  automatically handle authentication. See details.}
 }
 \value{
 OAuth credential (invisibly).  The credential is also
@@ -13,6 +27,29 @@ being explicitly passed in the function call.
 }
 \description{
 Figshare authentication via OAuth1.0 using httr
+}
+\details{
+Explicit calls to fs_auth() are usually not needed, as the
+function is called automatically by all other functions
+that need authentication.  As of version 0.3, no arguments
+are needed as authentication is done online, and fs_auth()
+will not attempt to load keys stored in options.
+
+By default, the function will use the application's
+consumer key and consumer secret key, rather than expecting
+the user to create their own application.  The
+user-specific tokens will then be generated and locally
+cached for use between sessions, if indicated by the
+interactive options. For details, see httr oauth1.0_token
+documentation.
+
+If for some reason a user would rather provide there token
+and secret token as before this is still supported using
+the same arguments.  Users wanting to have their own app
+can provide cKey and cSecret arguments too, but this is
+provided primarily for backwards compatibility with older
+versions.  It is expected that most users will leave the
+keys as NULL.
 }
 \examples{
 \dontrun{
