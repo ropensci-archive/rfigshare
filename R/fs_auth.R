@@ -2,6 +2,29 @@
 #' Figshare authentication via OAuth1.0 using httr
 #'
 #' Figshare authentication via OAuth1.0 using httr
+#' @param cKey optional argument for the consumer key.  See details.  
+#' @param cSecret optional argument for the consumer secret key. See details. 
+#' @param token optional argument for the user-specific token.  See details.  
+#' @param token_secret Optional argument to provide a secret token assigned
+#' to the user, rather than let fs_auth() automatically handle authentication. 
+#' See details.  
+#' @details Explicit calls to fs_auth() are usually not needed,
+#' as the function is called automatically by all other functions that
+#' need authentication.  As of version 0.3, no arguments are needed as
+#' authentication is done online, and fs_auth() will not attempt to load
+#' keys stored in options.  
+#' 
+#' By default, the function will use the application's consumer key and
+#' consumer secret key, rather than expecting the user to create their own
+#' application.  The user-specific tokens will then be generated and locally
+#' cached for use between sessions, if indicated by the interactive options. 
+#' For details, see httr oauth1.0_token documentation.  
+#'
+#' If for some reason a user would rather provide there token and secret token
+#' as before this is still supported using the same arguments.  Users wanting to
+#' have their own app can provide cKey and cSecret arguments too, but this
+#' is provided primarily for backwards compatibility with older versions.  It
+#' is expected that most users will leave the keys as NULL.  
 #' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
 #' @import httr
 #' @export
@@ -10,10 +33,13 @@
 #' @examples \dontrun{
 #' fs_auth()
 #' }
-
-# cKey = getOption("FigshareKey"); cSecret = getOption("FigsharePrivateKey")
 fs_auth <- 
-function(){
+function(cKey = NULL, cSecret = NULL, token = NULL, token_secret = NULL){
+
+  if(is.null(cKey))
+    cKey <- "Kazwg91wCdBB9ggypFVVJg"
+  if(is.null(cSecret))
+    cSecret <- "izgO06p1ymfgZTsdsZQbcA"
 
   endpoint <- 
     oauth_endpoint("request_token", 
@@ -21,11 +47,15 @@ function(){
                    "access_token", 
                    base_url = "http://api.figshare.com/v1/pbl/oauth")
   myapp <- oauth_app("rfigshare", 
-                     key = "Kazwg91wCdBB9ggypFVVJg", 
-                     secret = "izgO06p1ymfgZTsdsZQbcA")
-  oauth <- oauth1.0_token(endpoint, myapp)
+                     key = cKey, 
+                     secret = cSecret)
 
-#  oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
+  if(is.null(token) && is.null(token_secret))
+    oauth <- oauth1.0_token(endpoint, myapp)
+  else
+    oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)$token
+
+
   assign('oauth', oauth, envir=FigshareAuthCache)
 
   # Test that we have authenticated

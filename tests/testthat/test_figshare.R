@@ -1,5 +1,10 @@
 library(rfigshare)
 
+# This loads the rOpenSci figshare sandbox credentials, so that the example 
+# can run automatically during check and install.  Unlike normal figshare accounts,
+# data loaded to this testing sandbox is periodically purged.  
+
+fs_auth(token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q", token_secret = "4mdM3pfekNGO16X4hsvZdg")
 
 context("Authentication, creating authors, and content")
 

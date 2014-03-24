@@ -47,6 +47,10 @@ require(rfigshare)
 ```
 
 
+
+
+
+
 The first time you use an `rfigshare` function, it will ask you to authenticate online. Just log in and click okay to authenticate rfigshare.  R will allow you to cache your login credentials so that you won't be asked to authenticate again (even between R sessions), as long as you are using the same working directory in future.  
 
 Try a search for an author:
@@ -55,10 +59,6 @@ Try a search for an author:
 
 ```coffee
 fs_author_search("Boettiger")
-```
-
-```
-## Authentication successful
 ```
 
 ```
@@ -86,7 +86,7 @@ id <- fs_create("Test title", "description of test")
 ```
 
 ```
-## Your article has been created! Your id number is 969786
+## Your article has been created! Your id number is 971341
 ```
 
 
@@ -299,7 +299,7 @@ fs_make_private(id)
 ```
 
 ```
-## Response [http://api.figshare.com/v1/my_data/articles/969786/action/make_private]
+## Response [http://api.figshare.com/v1/my_data/articles/971341/action/make_private]
 ##   Status: 200
 ##   Content-type: application/json; charset=UTF-8
 ## {"success": "Article status changed to Private"}
@@ -325,7 +325,7 @@ id <- fs_new_article(title = "A Test of rfigshare", description = "This is a tes
 ```
 
 ```
-## Your article has been created! Your id number is 969787
+## Your article has been created! Your id number is 971342
 ```
 
 ```coffee
@@ -345,21 +345,21 @@ fs_details(id)
 ```
 
 ```
-## article_id: 9.6979e+05
+## article_id: 9.7134e+05
 ## title: A Test of rfigshare
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 08:32, Mar 21, 2014
+## published_date: 09:34, Mar 24, 2014
 ## description: This is a test
 ## description_nohtml: This is a test
 ## total_size: 1.70 KB
 ## authors:
 ## - first_name: Ropensci
-##   last_name: Demo
-##   id: 4.5307e+05
-##   full_name: ROpenSci Demo
+##   last_name: Testaccount
+##   id: 4.3142e+05
+##   full_name: Ropensci TestAccount
 ## - first_name: Karthik
 ##   last_name: Ram
 ##   id: 9.7306e+04
@@ -381,7 +381,7 @@ fs_details(id)
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4299e+06
+##   id: 1.4318e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links:
@@ -401,21 +401,21 @@ mine[1:2]
 
 ```
 ## [[1]]
-## article_id: 9.6979e+05
+## article_id: 9.7134e+05
 ## title: A Test of rfigshare
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 08:32, Mar 21, 2014
+## published_date: 09:34, Mar 24, 2014
 ## description: This is a test
 ## description_nohtml: This is a test
 ## total_size: 1.70 KB
 ## authors:
 ## - first_name: Ropensci
-##   last_name: Demo
-##   id: 4.5307e+05
-##   full_name: ROpenSci Demo
+##   last_name: Testaccount
+##   id: 4.3142e+05
+##   full_name: Ropensci TestAccount
 ## - first_name: Karthik
 ##   last_name: Ram
 ##   id: 9.7306e+04
@@ -437,7 +437,7 @@ mine[1:2]
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4299e+06
+##   id: 1.4318e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links:
@@ -445,21 +445,21 @@ mine[1:2]
 ##   id: 673.0
 ## 
 ## [[2]]
-## article_id: 9.6979e+05
+## article_id: 9.7134e+05
 ## title: Test title
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 08:32, Mar 21, 2014
+## published_date: 09:34, Mar 24, 2014
 ## description: description of test
 ## description_nohtml: description of test
 ## total_size: 1.70 KB
 ## authors:
 ## - first_name: Ropensci
-##   last_name: Demo
-##   id: 4.5307e+05
-##   full_name: ROpenSci Demo
+##   last_name: Testaccount
+##   id: 4.3142e+05
+##   full_name: Ropensci TestAccount
 ## tags:
 ## - id: 1.5681e+04
 ##   name: demo
@@ -473,7 +473,7 @@ mine[1:2]
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4299e+06
+##   id: 1.4318e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links: []
@@ -490,7 +490,7 @@ fs_ids(mine)
 ```
 
 ```
-##  [1] 969787 969786 969785 969784 969783 969779 969777 969776 969774 969772
+##  [1] 971342 971341 969627 967963 967962 967960 967886 967879 964940 963583
 ```
 
 
