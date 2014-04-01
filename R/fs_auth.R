@@ -34,7 +34,10 @@
 #' fs_auth()
 #' }
 fs_auth <- 
-function(cKey = NULL, cSecret = NULL, token = NULL, token_secret = NULL){
+  function(cKey = getOption("FigshareKey", NULL),
+           cSecret = getOption("FigsharePrivateKey", NULL),
+           token = getOption("FigshareToken", NULL),
+           token_secret = getOption("FigsharePrivateToken", NULL)){
 
   if(is.null(cKey))
     cKey <- "Kazwg91wCdBB9ggypFVVJg"
@@ -50,11 +53,12 @@ function(cKey = NULL, cSecret = NULL, token = NULL, token_secret = NULL){
                      key = cKey, 
                      secret = cSecret)
 
-  if(is.null(token) && is.null(token_secret))
+  if(is.null(token) && is.null(token_secret)) {
     oauth <- oauth1.0_token(endpoint, myapp)
-  else
-    oauth <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)$token
-
+  } else {
+    resp <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
+    oauth <- resp$token
+  }
 
   assign('oauth', oauth, envir=FigshareAuthCache)
 
