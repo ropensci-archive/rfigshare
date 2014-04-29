@@ -158,9 +158,9 @@ test_that("We are able to perform search correctly", {
 
 })
 
-test_that("We are able to author perform search correctly", {
+test_that("We are able to perform author search correctly", {
      auth <-  fs_author_search("Karthik Ram")
-	   expect_equal(auth[[1]]$id, "97306")
+	   expect_equal(auth[[1]]$id, 97306)
 	  
 
 })

@@ -1,3 +1,8 @@
+v0.3.1
+------
+
+* Minor bugfix -- API now returns author ids as integers instead of character strings, breaking test. Test now fixed. 
+
 
 v0.3
 ----
