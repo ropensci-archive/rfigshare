@@ -22,6 +22,7 @@ Depends:
 Imports:
     RJSONIO,
     httr (>= 0.3),
+    httpuv,
     plyr,
     yaml,
     ggplot2,

@@ -26,7 +26,7 @@
 #' is provided primarily for backwards compatibility with older versions.  It
 #' is expected that most users will leave the keys as NULL.  
 #' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
-#' @import httr
+#' @import httr httpuv
 #' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @references \url{http://api.figshare.com}
