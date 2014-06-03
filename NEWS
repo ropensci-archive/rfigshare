@@ -1,3 +1,9 @@
+v0.3.2
+------
+
+* Minor bugfix: include `httpuv` in imports (see [#82](https://github.com/ropensci/rfigshare/issues/82) and  [httr/110](https://github.com/hadley/httr/issues/110))
+
+
 v0.3.1
 ------
 
