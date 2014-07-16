@@ -1,4 +1,5 @@
-library(rfigshare)
+library("testthat")
+library("rfigshare")
 
 # This loads the rOpenSci figshare sandbox credentials, so that the example 
 # can run automatically during check and install.  Unlike normal figshare accounts,
@@ -176,9 +177,12 @@ test_that("We are able to change visibility of objects", {
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 	  write.csv(data, file = "iris_data.csv")
 	  fs_upload(new_fs_obj, "iris_data.csv")
-	  expect_that(fs_make_private(new_fs_obj)$status_code, 400)
+
+    response <- fs_make_private(new_fs_obj)
+    expect_is(response, "response")
+	  expect_equal(response$status_code, 400)
 	  fs_add_categories(new_fs_obj, "Ecology")
-	  expect_that(fs_make_private(new_fs_obj), prints_text("success"))
+	  expect_equal(fs_make_private(new_fs_obj)$status_code, 200)
 	  fs_delete(new_fs_obj)
 	  unlink("iris_data.csv")
 })
@@ -188,9 +192,9 @@ test_that("We can make articles public", {
 	  new_fs_obj <- fs_create("Dummy data", "Fisher's iris", "dataset")
 	  write.csv(data, file = "iris_data.csv")
 	  fs_upload(new_fs_obj, "iris_data.csv")
-	  expect_that(fs_make_public(new_fs_obj)$status_code, 400)
+	  expect_equal(fs_make_public(new_fs_obj)$status_code, 400)
 	  fs_add_categories(new_fs_obj, "Ecology")
-	  expect_that(fs_make_public(new_fs_obj), prints_text("success"))
+	  expect_equal(fs_make_public(new_fs_obj)$status_code, 200)
 	  fs_delete(new_fs_obj)
 	  unlink("iris_data.csv")
 
