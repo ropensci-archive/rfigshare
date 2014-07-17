@@ -25,7 +25,7 @@
 #' have their own app can provide cKey and cSecret arguments too, but this
 #' is provided primarily for backwards compatibility with older versions.  It
 #' is expected that most users will leave the keys as NULL.  
-#' @return OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.  
+#' @return OAuth credential (invisibly).  The credential is also written to the enivronment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call. If authentication fails, returns the failing GET response for debugging.   
 #' @import httr httpuv
 #' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
@@ -63,10 +63,14 @@ fs_auth <-
   assign('oauth', oauth, envir=FigshareAuthCache)
 
   # Test that we have authenticated
-  if(GET("http://api.figshare.com/v1/my_data/articles", 
+  response <- GET("http://api.figshare.com/v1/my_data/articles", 
          config(token = oauth)
-         )$status_code != 200){
-    stop("Authentication failed, please check your credentials")
+         )
+
+  if(response$status_code != 200){
+    warning(paste("Authentication failed, please check your credentials. Got code",
+                  response$status_code, "with response", content(response)))
+    oauth <- response
   } else {
     message("Authentication successful")
   }

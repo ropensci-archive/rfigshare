@@ -20,7 +20,7 @@ to the user, rather than let fs_auth() automatically handle authentication.
 See details.}
 }
 \value{
-OAuth credential (invisibly).  The credential is also written to the enivornment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call.
+OAuth credential (invisibly).  The credential is also written to the enivronment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call. If authentication fails, returns the failing GET response for debugging.
 }
 \description{
 Figshare authentication via OAuth1.0 using httr
