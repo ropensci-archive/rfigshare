@@ -30,25 +30,25 @@ if(!is(authenticated, "Token1.0")){
   test_that("we can add new authors without accounts", {
 
     # We need a unique name...
-    library(uuid)
-    full_name = paste("John", UUIDgenerate())
+    if(require(uuid)){
+      full_name = paste("John", UUIDgenerate())
 
-    author_id <- fs_create_author(full_name)
-    expect_is(author_id, "numeric")
+      author_id <- fs_create_author(full_name)
+      expect_is(author_id, "numeric")
 
-    # If we try to create the same author, 
-    expect_warning(id <- fs_create_author(full_name))
-   # expect to get back the original id  ## NOT implemented in the figshare API yet! Emailed Mark 
-   # expect_equal(id, author_id)
+      # If we try to create the same author, 
+      expect_warning(id <- fs_create_author(full_name))
+     # expect to get back the original id  ## NOT implemented in the figshare API yet! Emailed Mark 
+     # expect_equal(id, author_id)
 
-    MrX <- paste("John", UUIDgenerate())
-    id2 <- fs_new_article(title="title", description="description", 
-                   authors = c("Karthik Ram", MrX))
-    d <- fs_details(id2)
+      MrX <- paste("John", UUIDgenerate())
+      id2 <- fs_new_article(title="title", description="description", 
+                     authors = c("Karthik Ram", MrX))
+      d <- fs_details(id2)
 
-    # Expect that Mr X is now the third author FIXME we seem to confuse the API sometimes here
+      # Expect that Mr X is now the third author FIXME we seem to confuse the API sometimes here
 #  expect_match(sapply(d$authors, `[[`, "first_name")[[3]], strsplit(MrX, ' ')[[1]][1])
-
+    }
 
 
   })

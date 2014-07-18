@@ -1,3 +1,10 @@
+v0.3.5
+-----------
+
+Minor bugfix
+
+* Skip uuid test if uuid is not available (e.g. on Solaris machines, thanks CRAN maintainers). 
+
 v0.3.4
 -----------
 
