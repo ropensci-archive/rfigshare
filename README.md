@@ -1,3 +1,9 @@
+---
+title: rfigshare tutorial
+author: Carl Boettiger
+---
+
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{An Introduction to the rfigshare package}
@@ -22,11 +28,10 @@ Installation
 
 
 
-```coffee
+```r
 require(devtools)
 install_github("rfigshare", "ropensci")
 ```
-
 
 Getting Started
 ---------------
@@ -37,16 +42,9 @@ Getting Started
 
 
 
-```coffee
+```r
 require(rfigshare)
 ```
-
-```
-## Loading required package: rfigshare
-## Loading required package: methods
-```
-
-
 
 
 
@@ -57,23 +55,13 @@ Try a search for an author:
 
 
 
-```coffee
+```r
 fs_author_search("Boettiger")
 ```
 
 ```
-## [[1]]
-## id: '96387'
-## fname: Carl
-## lname: Boettiger
-## full_name: Carl Boettiger
-## job_title: ''
-## description: ''
-## facebook: ''
-## twitter: ''
-## active: 1.0
+## list()
 ```
-
 
 
 
@@ -81,36 +69,33 @@ Try creating your own content:
 
 
 
-```coffee
+```r
 id <- fs_create("Test title", "description of test")
 ```
 
 ```
-## Your article has been created! Your id number is 971341
+## Your article has been created! Your id number is 1126334
 ```
-
 
 
 This creates an article with the essential metadata information. We can now upload the dataset to this newly created figshare object using `fs_upload`.  For the purposes of this example, we'll just upload one of R's built-in datasets:
 
 
 
-```coffee
+```r
 data(mtcars)
 write.csv(mtcars, "mtcars.csv")
 fs_upload(id, "mtcars.csv")
 ```
 
 
-
 Not that we must pass the id number of our the newly created figshare object as the first argument.  Similar functions let us add additional authors, tags, categories, and links, e.g.
 
 
 
-```coffee
+```r
 fs_add_tags(id, "demo")
 ```
-
 
 
 
@@ -118,7 +103,7 @@ Minimal metadata includes title, description, type, and at least one tag and one
 
 
 
-```coffee
+```r
 fs_category_list()
 ```
 
@@ -278,15 +263,13 @@ fs_category_list()
 ```
 
 
-
 And we can add the category or categories we like,
 
 
 
-```coffee
+```r
 fs_add_categories(id, c("Education", "Software Engineering"))
 ```
-
 
 
 
@@ -294,17 +277,17 @@ The file we have created remains saved as a draft until we publish it, either pu
 
 
 
-```coffee
+```r
 fs_make_private(id)
 ```
 
 ```
-## Response [http://api.figshare.com/v1/my_data/articles/971341/action/make_private]
+## Response [http://api.figshare.com/v1/my_data/articles/1126334/action/make_private]
 ##   Status: 200
 ##   Content-type: application/json; charset=UTF-8
+##   Size: 48 B
 ## {"success": "Article status changed to Private"}
 ```
-
 
 
 We can now share the dataset with collaborators by way of the private url.  
@@ -315,23 +298,27 @@ The `rfigshare` package will let you create a new figshare article with addition
 
 
 
-```coffee
+```r
 data(mtcars)
-write.csv(mtcars, "mtcars.csv")
-id <- fs_new_article(title = "A Test of rfigshare", description = "This is a test", 
-    type = "dataset", authors = c("Karthik Ram", "Scott Chamberlain"), tags = c("ecology", 
-        "openscience"), categories = "Ecology", links = "http://ropensci.org", 
-    files = "mtcars.csv", visibility = "private")
+write.csv(mtcars,"mtcars.csv")
+id <- fs_new_article(title="A Test of rfigshare", 
+                     description="This is a test", 
+                     type="dataset", 
+                     authors=c("Karthik Ram", "Scott Chamberlain"), 
+                     tags=c("ecology", "openscience"), 
+                     categories="Ecology", 
+                     links="http://ropensci.org", 
+                     files="mtcars.csv",
+                     visibility="private")
 ```
 
 ```
-## Your article has been created! Your id number is 971342
+## Your article has been created! Your id number is 1126335
 ```
 
-```coffee
-unlink("mtcars.csv")  # clean up
+```r
+unlink("mtcars.csv") # clean up
 ```
-
 
 
 # Examining Data on Figshare
@@ -340,18 +327,18 @@ We can view all available metadata of a figshare object.
 
 
 
-```coffee
+```r
 fs_details(id)
 ```
 
 ```
-## article_id: 9.7134e+05
+## article_id: 1.1263e+06
 ## title: A Test of rfigshare
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 09:34, Mar 24, 2014
+## published_date: 06:25, Aug 03, 2014
 ## description: This is a test
 ## description_nohtml: This is a test
 ## total_size: 1.70 KB
@@ -381,7 +368,7 @@ fs_details(id)
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4318e+06
+##   id: 1.6204e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links:
@@ -389,25 +376,24 @@ fs_details(id)
 ##   id: 673.0
 ```
 
-
 You can see all of the files you have (Currently only up to 10):
 
 
 
-```coffee
+```r
 mine <- fs_browse()
 mine[1:2]
 ```
 
 ```
 ## [[1]]
-## article_id: 9.7134e+05
+## article_id: 1.1263e+06
 ## title: A Test of rfigshare
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 09:34, Mar 24, 2014
+## published_date: 06:25, Aug 03, 2014
 ## description: This is a test
 ## description_nohtml: This is a test
 ## total_size: 1.70 KB
@@ -437,7 +423,7 @@ mine[1:2]
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4318e+06
+##   id: 1.6204e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links:
@@ -445,13 +431,13 @@ mine[1:2]
 ##   id: 673.0
 ## 
 ## [[2]]
-## article_id: 9.7134e+05
+## article_id: 1.1263e+06
 ## title: Test title
 ## master_publisher_id: 0.0e+00
 ## defined_type: dataset
 ## status: Private
 ## version: 1.0
-## published_date: 09:34, Mar 24, 2014
+## published_date: 06:25, Aug 03, 2014
 ## description: description of test
 ## description_nohtml: description of test
 ## total_size: 1.70 KB
@@ -473,48 +459,40 @@ mine[1:2]
 ## files:
 ## - size: 2 KB
 ##   thumb: ~
-##   id: 1.4318e+06
+##   id: 1.6204e+06
 ##   mime_type: text/plain
 ##   name: mtcars.csv
 ## links: []
 ```
-
 
 Note that we can easily grab the ids with the wrapper function `fs_ids`:
 
 
 
 
-```coffee
+```r
 fs_ids(mine)
 ```
 
 ```
-##  [1] 971342 971341 969627 967963 967962 967960 967886 967879 964940 963583
+##  [1] 1126335 1126334 1126332 1126329 1126328 1126324 1126322 1126321
+##  [9] 1126318 1126317
 ```
-
-
-```
- [1] 105136 105135  97653  97500  97279  97218  96919  96916  95839    138
-```
-
-
 
 
 We can delete unwanted files that are not public with `fs_delete`:  
 
 
 
-```coffee
+```r
 fs_delete(id)
 ```
-
 
 To cite package `rfigshare` in publications use:
 
 
 
-```coffee
+```r
 citation("rfigshare")
 ```
 
@@ -523,20 +501,19 @@ citation("rfigshare")
 ## To cite package 'rfigshare' in publications use:
 ## 
 ##   Carl Boettiger, Scott Chamberlain, Karthik Ram and Edmund Hart
-##   (2012). rfigshare: an R interface to figshare.com.. R package
-##   version 0.3-0. https://github.com/ropensci/rfigshare
+##   (2014). rfigshare: an R interface to figshare.com.. R package
+##   version 0.3-1. http://CRAN.R-project.org/package=rfigshare
 ## 
 ## A BibTeX entry for LaTeX users is
 ## 
 ##   @Manual{,
 ##     title = {rfigshare: an R interface to figshare.com.},
 ##     author = {Carl Boettiger and Scott Chamberlain and Karthik Ram and Edmund Hart},
-##     year = {2012},
-##     note = {R package version 0.3-0},
-##     url = {https://github.com/ropensci/rfigshare},
+##     year = {2014},
+##     note = {R package version 0.3-1},
+##     url = {http://CRAN.R-project.org/package=rfigshare},
 ##   }
 ```
 
 
-
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci.org logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)\

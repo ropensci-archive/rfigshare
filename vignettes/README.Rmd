@@ -1,3 +1,9 @@
+---
+title: rfigshare tutorial
+author: Carl Boettiger
+---
+
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{An Introduction to the rfigshare package}
@@ -157,12 +163,6 @@ Note that we can easily grab the ids with the wrapper function `fs_ids`:
 fs_ids(mine)
 ```
 
-```
- [1] 105136 105135  97653  97500  97279  97218  96919  96916  95839    138
-```
-
-
-
 
 We can delete unwanted files that are not public with `fs_delete`:  
 
@@ -179,4 +179,4 @@ citation("rfigshare")
 ```
 
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci.org logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)\
