@@ -29,6 +29,12 @@ For more information on SemVer, please visit http://semver.org/.
 
 
 
+v0.3.6
+----------
+
+Minor bugfix
+
+* Make sure README.md (and HTML vignette) pass the W3C validator (at least when the markdown is rendered by pandoc)
 
 v0.3.5
 -----------
