@@ -114,10 +114,10 @@ fs_search <-
         })
         out <- unlist(all, recursive = FALSE)
       }
-      out <- lapply(out, function(o){
-             class(o) <- "fs_object"
-             o 
-        })
+#      out <- lapply(out, function(o){
+#             class(o) <- "fs_object"
+#             o 
+#        })
       out
     }
   }

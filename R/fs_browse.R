@@ -43,10 +43,11 @@ fs_browse <- function(mine = TRUE, public_only = FALSE, private_only = FALSE,
       out 
     else {
     parsed <- RJSONIO::fromJSON(content(out, as = "text"))
-    lapply(parsed$items, function(item){
-           class(item) <- "fs_object"
-           item 
-    })
+#    lapply(parsed$items, function(item){
+#           class(item) <- "fs_object"
+#           item 
+#    })
+    parsed$items
     }
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.  

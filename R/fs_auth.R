@@ -8,6 +8,8 @@
 #' @param token_secret Optional argument to provide a secret token assigned
 #' to the user, rather than let fs_auth() automatically handle authentication. 
 #' See details.  
+#' @param host the IP address of the host used by the oauth listener; must be 0.0.0.0 when run on a Rocker container
+#' @param port used for the oauth listener
 #' @details Explicit calls to fs_auth() are usually not needed,
 #' as the function is called automatically by all other functions that
 #' need authentication.  As of version 0.3, no arguments are needed as
@@ -37,7 +39,9 @@ fs_auth <-
   function(cKey = getOption("FigshareKey", NULL),
            cSecret = getOption("FigsharePrivateKey", NULL),
            token = getOption("FigshareToken", NULL),
-           token_secret = getOption("FigsharePrivateToken", NULL)){
+           token_secret = getOption("FigsharePrivateToken", NULL),
+           host = "0.0.0.0",
+           port = 1410){
 
   if(is.null(cKey))
     cKey <- "Kazwg91wCdBB9ggypFVVJg"
@@ -54,7 +58,7 @@ fs_auth <-
                      secret = cSecret)
 
   if(is.null(token) && is.null(token_secret)) {
-    oauth <- oauth1.0_token(endpoint, myapp)
+    oauth <- oauth1.0_token(endpoint, myapp, host = host, port = port)
   } else {
     resp <- sign_oauth1.0(myapp, token = token, token_secret = token_secret)
     oauth <- resp$token
