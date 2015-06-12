@@ -27,7 +27,10 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit http://semver.org/.
 
+v0.3.7
+------
 
+Compatibility with httr 1.0 release
 
 v0.3.6
 ----------

@@ -1,4 +1,5 @@
 .travis.yml
+README.Rmd
 inst/doc/Makefile
 inst/doc/cache
 inst/doc/vignettes/cache
