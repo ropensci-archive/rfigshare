@@ -1,4 +1,4 @@
-Pckage: rfigshare
+Package: rfigshare
 Title: An R Interface to 'figshare'
 Description: An R interface to figshare.
 Version: 0.3.7
