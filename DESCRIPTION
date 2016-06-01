@@ -23,5 +23,6 @@ Imports:
     plyr,
     yaml,
     ggplot2,
-    XML
+    XML,
+    digest
 RoxygenNote: 5.0.1
