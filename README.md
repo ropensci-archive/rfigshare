@@ -36,7 +36,18 @@ install_github("rfigshare", "ropensci")
 Getting Started
 ---------------
 
+## Get a Personal Access Token
 
+Also known as a PAT. Get it from your Figshare account at [figshare.com/account/applications](https://figshare.com/account/applications)
+
+Store the token as an env var in your `.Renviron` file like `RFIGSHARE_PAT=<your figshare PAT>`
+
+We'll look for this token while using this package. 
+
+You can optionally pass in this token to function calls, but we strongly discourage that because
+
+1. the token is long, making calls cumbersome while passing in as an argument
+2. passing your secret PAT as a parameter in R is insecure
 
 # Using rfigshare
 
