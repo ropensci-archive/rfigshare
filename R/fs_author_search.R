@@ -1,9 +1,9 @@
 #' Search for an author
 #'
-#' Function to search for authors 
+#' Function to search for authors
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param author a string to search for (name, can include spaces)
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run. 
+#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.
 #' @param debug toggle debugging mode
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
@@ -11,9 +11,9 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_author_search("Boettiger") 
-#' } 
-fs_author_search <- 
+#' fs_author_search("Boettiger")
+#' }
+fs_author_search <-
   function(author, session = fs_get_auth(), debug = FALSE){
     base <- "http://api.figshare.com/v1"
     method <- paste("my_data/authors?search_for=", author, sep = "")
@@ -23,9 +23,9 @@ fs_author_search <-
     if(debug | output$status_code != 200)
       output
     else {
-      # FIXME check that we don't need to loop over pages for more than 10 authors 
-      x <- RJSONIO::fromJSON(content(output, "text"))
-      lapply(x$items, 
+      # FIXME check that we don't need to loop over pages for more than 10 authors
+      x <- jsonlite::fromJSON(cont(output))
+      lapply(x$items,
              function(o){
                class(o) <- "fs_object"
                o

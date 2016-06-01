@@ -45,6 +45,10 @@ fs_search(query, author = NA, title = NA, description = NA, tag = NA,
 output of PUT request (invisibly)
 }
 \description{
+FIXME: working on figuring out what parameters can be passed to search,
+only using query, limit, offset, order_by, order for now.
+}
+\details{
 Search function that will filter on matching timestamp, author, title, description, tag, category, and date range.  Query searches against matches in any metadata field.  Full-text searches coming soon.
 }
 \examples{

@@ -15,10 +15,10 @@
 #' @examples \dontrun{
 #' fs_details(138)
 #' }
-fs_details <- 
-  function(article_id, mine = is_mine(article_id), 
+fs_details <-
+  function(article_id, mine = is_mine(article_id),
            session = fs_get_auth(),
-           show_versions = FALSE, 
+           show_versions = FALSE,
            version = NULL,
            debug = FALSE){
     base <- "http://api.figshare.com/v1"
@@ -38,7 +38,7 @@ fs_details <-
     if(debug | out$status_code != 200)
       out
     else {
-      parsed_out <- RJSONIO::fromJSON(content(out, "text"))
+      parsed_out <- jsonlite::fromJSON(cont(out))
       output <- parsed_out$items[[1]]
       class(output) <- "fs_object"
       output

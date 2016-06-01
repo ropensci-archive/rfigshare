@@ -29,12 +29,12 @@ fs_browse(mine = TRUE, public_only = FALSE, private_only = FALSE,
 output of PUT request (invisibly)
 }
 \description{
-Browse can be set to all public articles, the users own articles, 
+Browse can be set to all public articles, the users own articles,
 Browse can filter on matching timestamp, author, title, description, tag, category, and date range.
 }
 \examples{
 \dontrun{
-fs_browse() 
+fs_browse()
 }
 }
 \author{

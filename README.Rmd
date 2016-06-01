@@ -27,7 +27,18 @@ rfigshare
 Getting Started
 ---------------
 
+## Get a Personal Access Token
 
+Also known as a PAT. Get it from your Figshare account at [figshare.com/account/applications](https://figshare.com/account/applications)
+
+Store the token as an env var in your `.Renviron` file like `RFIGSHARE_PAT=<your figshare PAT>`
+
+We'll look for this token while using this package. 
+
+You can optionally pass in this token to function calls, but we strongly discourage that because
+
+1. the token is long, making calls cumbersome while passing in as an argument
+2. passing your secret PAT as a parameter in R is insecure
 
 # Using rfigshare
 
@@ -35,16 +46,6 @@ Getting Started
 ```{r}
 library("rfigshare")
 ```
-
-
-```{r include = FALSE}
-# This loads the rOpenSci figshare sandbox credentials, so that the example 
-# can run automatically during check and install.  Unlike normal figshare accounts,
-# data loaded to this testing sandbox is periodically purged.  
-fs_auth(token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q", token_secret = "4mdM3pfekNGO16X4hsvZdg")
-```
-
-The first time you use an `rfigshare` function, it will ask you to authenticate online. Just log in and click okay to authenticate rfigshare.  R will allow you to cache your login credentials so that you won't be asked to authenticate again (even between R sessions), as long as you are using the same working directory in future.  
 
 Try a search for an author:
 

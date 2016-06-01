@@ -33,7 +33,7 @@ Updates the title, description, and type of an article.
 }
 \examples{
 \dontrun{
-fs_update(138, title = "New title") 
+fs_update(138, title = "New title")
 }
 }
 \author{
