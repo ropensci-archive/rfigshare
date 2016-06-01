@@ -5,3 +5,5 @@ inst/doc/Makefile
 inst/doc/cache
 inst/doc/vignettes/cache
 ^\.httr-oauth$
+^.*\.Rproj$
+^\.Rproj\.user$
