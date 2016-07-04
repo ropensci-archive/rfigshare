@@ -6,7 +6,7 @@
 \usage{
 fs_browse(mine = TRUE, public_only = FALSE, private_only = FALSE,
   drafts_only = FALSE, session = fs_get_auth(),
-  base = "http://api.figshare.com/v1", query = NA, debug = FALSE)
+  base = "https://api.figshare.com/v2", query = NA, debug = FALSE)
 }
 \arguments{
 \item{mine}{Logical, show only my (authenticated user's) articles. Defaults to TRUE.}
@@ -35,6 +35,9 @@ Browse can filter on matching timestamp, author, title, description, tag, catego
 \examples{
 \dontrun{
 fs_browse()
+fs_browse(mine = FALSE)
+fs_browse(public_only = TRUE)
+fs_browse(mine = FALSE, public_only = FALSE)
 }
 }
 \author{

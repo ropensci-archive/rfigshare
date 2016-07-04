@@ -2,52 +2,31 @@
 % Please edit documentation in R/fs_auth.R
 \name{fs_auth}
 \alias{fs_auth}
-\title{Figshare authentication via OAuth1.0 using httr}
+\title{Figshare authentication}
 \usage{
-fs_auth(cKey = getOption("FigshareKey", NULL),
-  cSecret = getOption("FigsharePrivateKey", NULL),
-  token = getOption("FigshareToken", NULL),
-  token_secret = getOption("FigsharePrivateToken", NULL))
+fs_auth(token, force = FALSE)
 }
 \arguments{
-\item{cKey}{optional argument for the consumer key.  See details.}
-
-\item{cSecret}{optional argument for the consumer secret key. See details.}
-
-\item{token}{optional argument for the user-specific token.  See details.}
-
-\item{token_secret}{Optional argument to provide a secret token assigned
-to the user, rather than let fs_auth() automatically handle authentication. 
-See details.}
+\item{token}{(character) A Figshare personal access token. Required. See Details.}
 }
 \value{
-OAuth credential (invisibly).  The credential is also written to the enivronment "FigshareAuthCache", which is created when the package is loaded.  All functions needing authentication can then access the credential without it being explicitly passed in the function call. If authentication fails, returns the failing GET response for debugging.
+sets your token as an env variable for the current R session, returns nothing
 }
 \description{
-Figshare authentication via OAuth1.0 using httr
+Figshare authentication
 }
 \details{
-Explicit calls to fs_auth() are usually not needed,
-as the function is called automatically by all other functions that
-need authentication.  As of version 0.3, no arguments are needed as
-authentication is done online, and fs_auth() will not attempt to load
-keys stored in options.  
-
-By default, the function will use the application's consumer key and
-consumer secret key, rather than expecting the user to create their own
-application.  The user-specific tokens will then be generated and locally
-cached for use between sessions, if indicated by the interactive options. 
-For details, see httr oauth1.0_token documentation.  
-
-If for some reason a user would rather provide there token and secret token
-as before this is still supported using the same arguments.  Users wanting to
-have their own app can provide cKey and cSecret arguments too, but this
-is provided primarily for backwards compatibility with older versions.  It
-is expected that most users will leave the keys as NULL.
+Instructions:
+\itemize{
+ \item Log in
+ \item Go to "Applications" from the drop down menu in top right
+ \item Scroll to bottom, find "Personal Tokens" section
+ \item Click on "Create Personal Token"
+}
 }
 \examples{
 \dontrun{
-fs_auth()
+fs_auth("aasdfasfasdfasdfasfasfds")
 }
 }
 \author{

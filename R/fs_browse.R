@@ -18,17 +18,20 @@
 #' @export
 #' @examples \dontrun{
 #' fs_browse()
+#' fs_browse(mine = FALSE)
+#' fs_browse(public_only = TRUE)
+#' fs_browse(mine = FALSE, public_only = FALSE)
 #' }
 
 
 fs_browse <- function(mine = TRUE, public_only = FALSE, private_only = FALSE,
                       drafts_only = FALSE, session = fs_get_auth(),
-                      base = "http://api.figshare.com/v1", query=NA,
+                      base = "https://api.figshare.com/v2", query=NA,
                       debug = FALSE){
 
     method <- "articles"
     if(mine)
-      method <- "my_data/articles"
+      method <- "account/articles"
     if(public_only)
       method <- paste(method, "/public", sep = "")  # visibility only works in my_data
     if(private_only)
@@ -37,17 +40,12 @@ fs_browse <- function(mine = TRUE, public_only = FALSE, private_only = FALSE,
       method <- paste(method, "/drafts", sep = "")  # visibility only works in my_data
 
     request = paste(base, method, sep = "/")
-    out <- GET(request, config(token = session))
+    out <- GET(request, session)
 
-    if(debug | out$status_code != 200)
+    if (debug | out$status_code != 200) {
       out
-    else {
-    parsed <- jsonlite::fromJSON(cont(out))
-#    lapply(parsed$items, function(item){
-#           class(item) <- "fs_object"
-#           item
-#    })
-    parsed$items
+    } else {
+      jsonlite::fromJSON(cont(out))
     }
 
 # CURRENTLY BROWSE ONLY RETURNS most recent 10 hits.  Cannot even specify the page of results.
