@@ -17,7 +17,8 @@ fs_search(query, author = NA, title = NA, description = NA, tag = NA,
 
 \item{title}{Show only results matching or partially matching this title}
 
-\item{description}{Show only results matching or partially matching this description}
+\item{description}{Show only results matching or partially matching this
+description}
 
 \item{tag}{Show only results matching this tag}
 
@@ -27,15 +28,21 @@ fs_search(query, author = NA, title = NA, description = NA, tag = NA,
 
 \item{to_date}{Ending time window for search. Date format is YYYY-MM-DD}
 
-\item{mine}{Browse only articles owned by user. default is FALSE. Not functional. Use \code{\link{fs_browse}} instead.}
+\item{mine}{Browse only articles owned by user. default is \code{FALSE}
+Not functional. Use \code{\link{fs_browse}} instead.}
 
-\item{public_only}{(for use with mine=TRUE only) browse only my public articles. default is FALSE}
+\item{public_only}{(for use with mine=TRUE only) browse only my public
+articles. default is \code{FALSE}}
 
-\item{private_only}{(for use with mine=TRUE only) browse only my private articles. default is FALSE}
+\item{private_only}{(for use with mine=TRUE only) browse only my private
+articles. default is \code{FALSE}}
 
-\item{drafts_only}{(for use with mine=TRUE only) browse only my draft articles. default is FALSE}
+\item{drafts_only}{(for use with mine=TRUE only) browse only my draft
+articles. default is \code{FALSE}}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache
+as long as figshare_auth has been run.}
 
 \item{base}{the API access url}
 
@@ -49,7 +56,9 @@ FIXME: working on figuring out what parameters can be passed to search,
 only using query, limit, offset, order_by, order for now.
 }
 \details{
-Search function that will filter on matching timestamp, author, title, description, tag, category, and date range.  Query searches against matches in any metadata field.  Full-text searches coming soon.
+Search function that will filter on matching timestamp, author, title,
+description, tag, category, and date range.  Query searches against matches
+in any metadata field.  Full-text searches coming soon.
 }
 \examples{
 \dontrun{
@@ -63,6 +72,7 @@ fs_search("Boettiger", author = "Carl", from="2014-01-01",
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \references{
 \url{http://api.figshare.com/docs/howto.html#q-search}

@@ -13,18 +13,18 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' fs_details(138)
+#' fs_details(article_id = 1097652)
 #' }
 fs_details <-
   function(article_id, mine = is_mine(article_id),
            session = fs_get_auth(),
            show_versions = FALSE,
            version = NULL,
-           debug = FALSE){
-    base <- "http://api.figshare.com/v1"
+           debug = FALSE, ...){
+    base <- "https://api.figshare.com/v2"
 
     if(mine){
-      method <- paste("my_data/articles", article_id, sep = "/")
+      method <- paste("account/articles", article_id, sep = "/")
     } else if(!mine) {
       method <- paste("articles", article_id, sep = "/")
     }
@@ -34,21 +34,21 @@ fs_details <-
     if(!is.null(version))
       method <- paste(method, version, sep = "/")
     request = paste(base, method, sep = "/")
-    out <- GET(request, config(token = session))
+    out <- GET(request, session, ...)
     if(debug | out$status_code != 200)
       out
     else {
-      parsed_out <- jsonlite::fromJSON(cont(out))
-      output <- parsed_out$items[[1]]
-      class(output) <- "fs_object"
-      output
+      jsonlite::fromJSON(cont(out))
+      #output <- parsed_out$items[[1]]
+      #class(out) <- "fs_object"
+      #out
     }
   }
 
 
 is_mine <- function(id){
   a <- fs_browse(mine = TRUE)
- !is.na(match(id, fs_ids(a)))
+ !is.na(match(id, a$id))
 }
 
 

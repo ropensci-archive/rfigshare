@@ -5,7 +5,7 @@
 \title{Get details for an article}
 \usage{
 fs_details(article_id, mine = is_mine(article_id), session = fs_get_auth(),
-  show_versions = FALSE, version = NULL, debug = FALSE)
+  show_versions = FALSE, version = NULL, debug = FALSE, ...)
 }
 \arguments{
 \item{article_id}{number}
@@ -25,7 +25,7 @@ Get details for an article
 }
 \examples{
 \dontrun{
-fs_details(138)
+fs_details(article_id = 1097652)
 }
 }
 \author{
