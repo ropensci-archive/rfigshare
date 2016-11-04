@@ -5,18 +5,21 @@
 \title{Create a FigShare article (draft)}
 \usage{
 fs_create(title, description, type = c("dataset", "figure", "media", "poster",
-  "paper", "fileset"), session = NULL, debug = FALSE)
+  "paper", "fileset"), session = fs_get_auth(), debug = FALSE, ...)
 }
 \arguments{
 \item{title}{for the article}
 
 \item{description}{of the article}
 
-\item{type}{one of: dataset, figure, media, poster, paper or fileset. (Only filesets can have multiple uploaded files attached).}
+\item{type}{one of: dataset, figure, media, poster, paper or fileset.
+(Only filesets can have multiple uploaded files attached).}
 
 \item{session}{the authentication credentials from \code{\link{fs_auth}}}
 
 \item{debug}{print full post call return}
+
+\item{...}{curl options passed on to \code{\link[httr]{POST}}}
 }
 \value{
 article id
@@ -36,8 +39,13 @@ Before creating the article, you must authenticate using
 }
 \examples{
 \dontrun{
-fs_create(title = "My Title", description="A description of the object", type="dataset")
-fs_create(title = "My other title", description="Apples and bananas", type="dataset")
+# set your auth token, see ?fs_auth for more info
+# fs_auth("your token")
+
+fs_create(title = "My Title", description="A description of the object",
+  type="dataset")
+fs_create(title = "My other title", description="Apples and bananas",
+  type="dataset")
 }
 }
 \references{

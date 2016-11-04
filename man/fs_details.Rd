@@ -19,12 +19,17 @@ fs_details(article_id, mine = is_mine(article_id), session = fs_get_auth(),
 \item{version}{show a given version number}
 
 \item{debug}{logical, enable debugging mode?}
+
+\item{...}{curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Get details for an article
 }
 \examples{
 \dontrun{
+# set your auth token, see ?fs_auth for more info
+# fs_auth("your token")
+
 fs_details(article_id = 1097652)
 }
 }

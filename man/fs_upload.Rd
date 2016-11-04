@@ -4,27 +4,38 @@
 \alias{fs_upload}
 \title{Upload file to an article}
 \usage{
-fs_upload(article_id, file, session = NULL)
+fs_upload(article_id, file, session = fs_get_auth(), ...)
 }
 \arguments{
-\item{article_id}{an article id number or a character string (or list) of numbers}
+\item{article_id}{an article id number or a character string (or list)
+of numbers}
 
-\item{file}{path to file to upload, or character string (or list) of files (paths)}
+\item{file}{path to file to upload, or character string (or list) of files
+(paths)}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}} (optional)}
+\item{session}{the authentication credentials from \code{\link{fs_auth}}
+(optional)}
+
+\item{...}{curl options passed on to \code{\link[httr]{POST}}}
 }
 \description{
 Upload file to an article
 }
 \details{
-Article must be a draft, i.e. created by \code{\link{fs_create}} and not yet made public or private. Only articles of type "fileset" can have multiple files uploaded.
+Article must be a draft, i.e. created by \code{\link{fs_create}}
+and not yet made public or private. Only articles of type "fileset" can
+have multiple files uploaded.
 
-If only a single id number is given but a character string of files is given,
-then be sure that the id corresponds to an object of type "fileset".  If article_id list
-has more than one id, then there must be a corresponding file path for each id.
+If only a single id number is given but a character string of
+files is given, then be sure that the id corresponds to an object of type
+"fileset".  If article_id list has more than one id, then there must be a
+corresponding file path for each id.
 }
 \examples{
 \dontrun{
+# set your auth token, see ?fs_auth for more info
+# fs_auth("your token")
+
 id <- fs_create("Title", "description", "figure")
 f <- system.file("examples", "file.png", package = "rfigshare")
 fs_upload(id, f)

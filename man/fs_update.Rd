@@ -5,7 +5,7 @@
 \title{Update article title, description, or type}
 \usage{
 fs_update(article_id, title = NA, description = NA, type = NA,
-  mine = TRUE, session = fs_get_auth(), debug = FALSE)
+  mine = TRUE, session = fs_get_auth(), debug = FALSE, ...)
 }
 \arguments{
 \item{article_id}{the id number of the article}
@@ -14,11 +14,13 @@ fs_update(article_id, title = NA, description = NA, type = NA,
 
 \item{description}{of the article (replaces original designation)}
 
-\item{type}{one of: dataset, figure, media, poster, or paper (replaces original designation)}
+\item{type}{one of: dataset, figure, media, poster, or paper (replaces
+original designation)}
 
 \item{mine}{Set to \code{TRUE} if it refers to an item on your own account}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}.}
 
 \item{debug}{return httr PUT request visibly?}
 }
@@ -26,13 +28,17 @@ fs_update(article_id, title = NA, description = NA, type = NA,
 output of PUT request (invisibly)
 }
 \description{
-Updates the article title, description or type. If any is not specified, it will remain unchanged.
+Updates the article title, description or type. If any is not specified,
+it will remain unchanged.
 }
 \details{
 Updates the title, description, and type of an article.
 }
 \examples{
 \dontrun{
+# set your auth token, see ?fs_auth for more info
+# fs_auth("your token")
+
 fs_update(138, title = "New title")
 }
 }

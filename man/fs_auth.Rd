@@ -7,10 +7,12 @@
 fs_auth(token, force = FALSE)
 }
 \arguments{
-\item{token}{(character) A Figshare personal access token. Required. See Details.}
+\item{token}{(character) A Figshare personal access token. Required.
+See Details.}
 }
 \value{
-sets your token as an env variable for the current R session, returns nothing
+sets your token as an env variable for the current R session,
+returns nothing
 }
 \description{
 Figshare authentication

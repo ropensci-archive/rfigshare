@@ -31,12 +31,16 @@
 #' as long as figshare_auth has been run.
 #' @param base the API access url
 #' @param debug logical, enable debugging mode
+#' @param ... curl options passed on to \code{\link[httr]{POST}}
 #' @return output of PUT request (invisibly)
 #' @seealso \\code{\link{fs_auth}} \code{\link{fs_browse}}
 #' @references \url{http://api.figshare.com/docs/howto.html#q-search}
 #' @import httr jsonlite
 #' @export
 #' @examples \dontrun{
+#' # set your auth token, see ?fs_auth for more info
+#' # fs_auth("your token")
+#'
 #' fs_search(query = "Boettiger")
 #' fs_search("Boettiger", author = "Carl")
 #' fs_search("Boettiger", author = "Carl", from="2014-01-01")
@@ -56,7 +60,7 @@ fs_search <- function(query,
            public_only = FALSE,
            private_only = FALSE,
            drafts_only = FALSE,
-           session = NULL,
+           session = fs_get_auth(),
            limit = 10,
            offset = 0,
            order_by = NULL,
@@ -100,12 +104,12 @@ fs_search <- function(query,
     #     if(!is.na(to_date))
     #       method <- paste(method, "&to_date=", to_date, sep="")
 
-    request <- paste(base, method, sep="/")
+    request <- paste(base, method, sep = "/")
     body <- comp(list(search_for = query, limit = limit, offset = offset,
                       order = order_by, order_direction = order))
     #request <- build_url(parse_url(request)) # perform % encoding
 
-    out <- httr::POST(request, fs_get_auth(session), body = body, encode = "json", ...)
+    out <- httr::POST(request, session, body = body, encode = "json", ...)
     jsonlite::fromJSON(cont(out))
     #     if (debug | out$status_code != 200) {
     #       return(out)

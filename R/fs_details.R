@@ -1,6 +1,6 @@
-
 #' Get details for an article
 #'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
 #' @param mine logical (default FALSE). Set to true to see article details for your own non-public articles
@@ -8,11 +8,13 @@
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
 #' @param debug logical, enable debugging mode?
+#' @param ... curl options passed on to \code{\link[httr]{GET}}
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
-#' @import httr
-#' @export
 #' @examples \dontrun{
+#' # set your auth token, see ?fs_auth for more info
+#' # fs_auth("your token")
+#'
 #' fs_details(article_id = 1097652)
 #' }
 fs_details <-

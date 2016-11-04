@@ -7,7 +7,7 @@
 fs_search(query, author = NA, title = NA, description = NA, tag = NA,
   category = NA, from_date = NA, to_date = NA, mine = FALSE,
   public_only = FALSE, private_only = FALSE, drafts_only = FALSE,
-  session = NULL, limit = 10, offset = 0, order_by = NULL,
+  session = fs_get_auth(), limit = 10, offset = 0, order_by = NULL,
   order = NULL, base = "https://api.figshare.com/v2", debug = FALSE, ...)
 }
 \arguments{
@@ -47,6 +47,8 @@ as long as figshare_auth has been run.}
 \item{base}{the API access url}
 
 \item{debug}{logical, enable debugging mode}
+
+\item{...}{curl options passed on to \code{\link[httr]{POST}}}
 }
 \value{
 output of PUT request (invisibly)
@@ -62,6 +64,9 @@ in any metadata field.  Full-text searches coming soon.
 }
 \examples{
 \dontrun{
+# set your auth token, see ?fs_auth for more info
+# fs_auth("your token")
+
 fs_search(query = "Boettiger")
 fs_search("Boettiger", author = "Carl")
 fs_search("Boettiger", author = "Carl", from="2014-01-01")

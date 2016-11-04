@@ -6,31 +6,40 @@
 \usage{
 fs_browse(mine = TRUE, public_only = FALSE, private_only = FALSE,
   drafts_only = FALSE, session = fs_get_auth(),
-  base = "https://api.figshare.com/v2", query = NA, debug = FALSE)
+  base = "https://api.figshare.com/v2", query = NA, debug = FALSE, ...)
 }
 \arguments{
-\item{mine}{Logical, show only my (authenticated user's) articles. Defaults to TRUE.}
+\item{mine}{Logical, show only my (authenticated user's) articles.
+Defaults to TRUE.}
 
-\item{public_only}{(for use with mine=TRUE only) browse only my public articles. default is FALSE}
+\item{public_only}{(for use with mine=TRUE only) browse only my public
+articles. default is FALSE}
 
-\item{private_only}{(for use with mine=TRUE only) browse only my private articles. default is FALSE}
+\item{private_only}{(for use with mine=TRUE only) browse only my private
+articles. default is FALSE}
 
-\item{drafts_only}{(for use with mine=TRUE only) browse only my draft articles. default is FALSE}
+\item{drafts_only}{(for use with mine=TRUE only) browse only my draft
+articles. default is FALSE}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+long as figshare_auth has been run.}
 
 \item{base}{the API access url}
 
 \item{query}{a search query term (equivalent to calling fs_search)}
 
 \item{debug}{enable debugging mode}
+
+\item{...}{curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 output of PUT request (invisibly)
 }
 \description{
 Browse can be set to all public articles, the users own articles,
-Browse can filter on matching timestamp, author, title, description, tag, category, and date range.
+Browse can filter on matching timestamp, author, title, description, tag,
+category, and date range.
 }
 \examples{
 \dontrun{

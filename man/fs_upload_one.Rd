@@ -4,20 +4,23 @@
 \alias{fs_upload_one}
 \title{Upload file to an article}
 \usage{
-fs_upload_one(article_id, file, session = NULL)
+fs_upload_one(article_id, file, session = fs_get_auth(), ...)
 }
 \arguments{
 \item{article_id}{number}
 
 \item{file}{path to file to upload}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}} (optional)}
+\item{session}{the authentication credentials from \code{\link{fs_auth}}
+(optional)}
 }
 \description{
 Upload file to an article
 }
 \details{
-Article must be a draft, i.e. created by \code{\link{fs_create}} and not yet made public or private. Only articles of type "fileset" can have multiple files uploaded.
+Article must be a draft, i.e. created by \code{\link{fs_create}}
+and not yet made public or private. Only articles of type "fileset" can
+have multiple files uploaded.
 }
 \examples{
 \dontrun{
