@@ -11,7 +11,8 @@
 #' @param tags list of tags, see \code{\link{fs_add_tags}} for details.   
 #' @param links list of links to add, see \code{\link{fs_add_links}} for details
 #' @param files path to the files to add, see \code{\link{fs_upload}} for details
-#' @param visibility one of "draft", "private" or "public".  A draft document can still be edited and modified.  A public document is visible to everyone and cannot be deleted (though additional authors to the work can still "claim" their authorship).  
+#' @param visibility one of "draft", "private" or "public".  A draft document can still be edited and modified.  
+#'     A public document is visible to everyone and cannot be deleted (though additional authors to the work can still "claim" their authorship).  
 #' @param session (optional) credentials, see \code{link{fs_auth}}
 #' @return article id 
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_categories}}, \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}}, \code{\link{fs_add_links}}
@@ -21,7 +22,8 @@
 #' @examples \dontrun{
 #' write.csv(mtcars, "mtcars.csv")
 #' id <- fs_new_article(title="A Test of rfigshare", 
-#'                     description="This is a test of the fs_new_article function and related methods", 
+#'                     description="This is a test of the fs_new_article function and related 
+#'                     methods", 
 #'                     type="dataset", 
 #'                     authors=c("Karthik Ram", "Scott Chamberlain"), 
 #'                     tags=c("ecology", "openscience"), 
