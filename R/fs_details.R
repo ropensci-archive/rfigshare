@@ -1,4 +1,3 @@
-
 #' Get details for an article
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
@@ -21,25 +20,35 @@ fs_details <-
            show_versions = FALSE, 
            version = NULL,
            debug = FALSE){
-    base <- "http://api.figshare.com/v1"
-
     if(mine){
+      # v2 account/articles/{id} fails to authenticate
+      base <- "http://api.figshare.com/v1"
       method <- paste("my_data/articles", article_id, sep = "/")
     } else if(!mine) {
+      # v1 did not provide version info
+      base <- "http://api.figshare.com/v2"
       method <- paste("articles", article_id, sep = "/")
     }
 
     if(show_versions)
       method <- paste(method, "versions", sep = "/")
     if(!is.null(version))
-      method <- paste(method, version, sep = "/")
+      method <- paste(method, "versions", version, sep = "/")
     request = paste(base, method, sep = "/")
     out <- GET(request, config(token = session))
+    
     if(debug | out$status_code != 200)
       out
     else {
       parsed_out <- RJSONIO::fromJSON(content(out, "text"))
-      output <- parsed_out$items[[1]]
+      output <- parsed_out
+      
+      if(mine){
+        # mine uses v1 api
+        output <- parsed_out$items[[1]]
+      } else {
+        output <- parsed_out
+      }
       class(output) <- "fs_object"
       output
     }
