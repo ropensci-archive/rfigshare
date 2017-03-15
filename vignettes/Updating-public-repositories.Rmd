@@ -1,0 +1,74 @@
+---
+title: "Updating public repositories"
+author: "Martin John Hadley, @martinjhnhadley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The process for updating an existing public repository with new versions of existing files requires multiple steps:
+
+1. Delete existing copies of files
+2. Upload new copies of the files
+3. Make your changes public
+
+Note that the example below is for a specific repository, as you are not the author of the article you will not be able to run the code without errors.
+
+## Delete existing copies of files
+
+Obtain the article_id of the deposit, this is the numeric component of the DOI after figshare e.g. https://doi.org/10.6084/m9.figshare.3761562
+
+```{r, eval=FALSE, echo=TRUE}
+library(rfigshare)
+article_id <- 3761562
+deposit_details <- fs_details(article_id)
+deposit_details$title
+```
+
+Several files in this deposit are updated nightly, for instance:
+
+```{r, eval=FALSE, echo=TRUE}
+"OLIdata_YYYY-MM-DD.txt"
+```
+
+To delete this file, the file_id must be found. It is simplest to convert the lists to a `data_frame` such that they may be operated on with `dplyr`.
+
+```{r, eval=FALSE, echo=TRUE}
+library(dplyr)
+deposit_files <- unlist(deposit_details$files)
+deposit_files <- data.frame(split(deposit_files, names(deposit_files)),stringsAsFactors = F)
+file_id <- deposit_files %>%
+  filter(grepl("^OLIdata_", name)) %>%
+  select(id) %>%
+  .[[1]]
+```
+
+Prepare the article for the new version of the file, by deleting the existant version with `fs_delete`
+
+```{r, eval=FALSE, echo=TRUE}
+fs_delete(article_id, file_id)
+```
+
+## Upload new version of the file
+
+The new file can be downloaded as follows:
+
+```{r, eval=FALSE, echo=TRUE}
+# This file does not exist in these training materials.
+fs_upload(article_id, paste0("OLIdata_", as.Date(Sys.time())))
+```
+
+## Make changes public
+
+The actions you have performed have been saved as draft changes, you must use `fs_make_public` to update the article and create a new version:
+
+```{r, eval=FALSE, echo=TRUE}
+fs_make_public(article_id)
+```
+
+
+
+
