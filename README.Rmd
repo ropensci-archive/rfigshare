@@ -26,6 +26,15 @@ rfigshare
 
 Getting Started
 ---------------
+Figshare is an online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and videos. It is free to upload content and free to access, in adherence to the principle of open data.
+
+Key Features:
+Showcase your institution's research with a customizable portal of all public research outputs using the reporting and statistics feature.
+Have full control of your institution's research outputs with private storage, public storage and collaborative spaces with the data management feature.
+Filter your institution's research by department, category or file type, and rank content by most viewed, downloaded or shared with the data dissemination feauture. 
+Manage the curation of files to be made public, control quotas, and administer rights with the user group administration feature. 
+
+
 
 
 
