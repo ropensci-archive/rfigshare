@@ -1,10 +1,12 @@
 #' Make an article public (for private or draft articles)
+#' 
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article 
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. 
 #' @return output of PUT request (invisibly)
-#' @details NOTE: Public articles are assigned DOIs and cannot be deleted or made private once declared public! Public articles do not count against your quota space.  
+#' @details This function will make a draft or private article public, assigning it a DOI and making it permanently available through Figshare. If you use \code{\link{fs_upload}} to add new files to an existing public deposit, you must then use \code{fs_make_public} for those changes to be made in the public version of the repository.
+#' @note NOTE: Public articles are assigned DOIs and cannot be deleted or made private once declared public! Public articles do not count against your quota space.  
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}
 #' @export
