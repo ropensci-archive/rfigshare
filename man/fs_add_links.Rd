@@ -23,11 +23,8 @@ Adds url links to the metadata of an article
 }
 \examples{
 \dontrun{
-fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 
+fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
 }
-}
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
 \url{http://api.figshare.com}
@@ -35,4 +32,6 @@ Carl Boettiger \email{cboettig@gmail.com}
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

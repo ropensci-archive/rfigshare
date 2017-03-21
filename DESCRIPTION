@@ -9,12 +9,6 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
     "cboettig@gmail.com"), person("Scott", "Chamberlain", role = "aut"),
     person("Karthik", "Ram", role = "aut"), person("Edmund", "Hart",
     role="ctb"))
-Suggests:
-    testthat,
-    gdata,
-    uuid,
-    knitr,
-    rmarkdown
 Depends:
     R (>= 3.0),
     methods
@@ -28,5 +22,12 @@ Imports:
     ggplot2,
     XML,
     digest
+Suggests:
+    roxygen2 (>= 6.0.1),
+    testthat,
+    gdata,
+    uuid,
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

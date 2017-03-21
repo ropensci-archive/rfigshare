@@ -20,4 +20,3 @@ get image url
 \details{
 this is currently an unstable hack of html parsing
 }
-

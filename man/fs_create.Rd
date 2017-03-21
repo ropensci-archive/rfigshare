@@ -54,4 +54,3 @@ fs_create(title = "My other title", description="Apples and bananas",
 \seealso{
 \code{\link{fs_auth}}, \code{\link{fs_upload}}
 }
-

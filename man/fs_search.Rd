@@ -67,6 +67,7 @@ in any metadata field.  Full-text searches coming soon.
 # set your auth token, see ?fs_auth for more info
 # fs_auth("your token")
 
+fs_search(query = "Boettiger")
 fs_search("Boettiger", author = "Carl")
 fs_search("Boettiger", author = "Carl", from="2014-01-01")
 fs_search("Boettiger", author = "Carl", from="2014-01-01",
@@ -74,14 +75,13 @@ fs_search("Boettiger", author = "Carl", from="2014-01-01",
 
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-Scott Chamberlain \email{myrmecocystus@gmail.com}
-}
 \references{
 \url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
 \\code{\link{fs_auth}} \code{\link{fs_browse}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
+}

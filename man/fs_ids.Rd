@@ -17,13 +17,15 @@ Get a list of article id numbers from a search return
 }
 \examples{
 \dontrun{
-figshare_category() 
+# figshare_category()
+
+articles <- fs_search("SciFund")
+fs_ids(articles)
 }
-}
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
 \url{http://api.figshare.com}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

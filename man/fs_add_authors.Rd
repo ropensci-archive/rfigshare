@@ -12,7 +12,7 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
 
 \item{authors}{a list or character string of authors or author id numbers (or mixed).}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. 
+\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}.
 If not provided, will attempt to load from cache as long as figshare_auth has been run.}
 
 \item{create_missing}{(logical) Attempt to create authors not already registered on FigShare?}
@@ -32,9 +32,8 @@ Add author to an article
  fs_add_authors("138", list("Scott Chamberlain", "97306"))
  fs_add_authors("138", list("Scott Chamberlain", 97306))
  fs_add_authors(138, 97306)
-} 
+}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}
 }
-

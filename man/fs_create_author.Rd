@@ -21,11 +21,8 @@ Creates a figshare author
 }
 \examples{
 \dontrun{
-fs_create_author("Benjamin Franklin") 
-} 
+fs_create_author("Benjamin Franklin")
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
 \url{http://api.figshare.com}
@@ -33,4 +30,6 @@ Carl Boettiger \email{cboettig@gmail.com}
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

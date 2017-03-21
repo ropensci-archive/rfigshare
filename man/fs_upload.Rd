@@ -22,11 +22,16 @@ of numbers}
 Upload file to an article
 }
 \details{
-Articles may be draft, private or public but all uploads are saved as draft changes - the canonical public version of the deposit is not updated. To update the public version of the repository, use \code{\link{fs_make_public}}. Only articles of type "fileset" can have multiple files uploaded.
+Articles may be draft, private or public but all uploads are
+saved as draft changes - the canonical public version of the deposit
+is not updated. To update the public version of the repository, use
+\code{\link{fs_make_public}}. Only articles of type "fileset" can have
+multiple files uploaded.
 
-If only a single id number is given but a character string of files is given,
-then be sure that the id corresponds to an object of type "fileset".  If article_id list
-has more than one id, then there must be a corresponding file path for each id.
+If only a single id number is given but a character string of
+files is given, then be sure that the id corresponds to an object of type
+"fileset".  If article_id list has more than one id, then there must be a
+corresponding file path for each id.
 }
 \examples{
 \dontrun{
@@ -38,13 +43,12 @@ f <- system.file("examples", "file.png", package = "rfigshare")
 fs_upload(id, f)
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
-\url{http://api.figshare.com}
+\url{https://docs.figshare.com/}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

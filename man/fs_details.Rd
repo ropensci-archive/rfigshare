@@ -33,13 +33,12 @@ Get details for an article
 fs_details(article_id = 1097652)
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
-\url{http://api.figshare.com}
+\url{https://docs.figshare.com/}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

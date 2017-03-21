@@ -27,13 +27,12 @@ Add a category to article
 fs_add_categories(138, "Ecology")
 }
 }
-\author{
-Edmund Hart \email{edmund.m.hart@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Edmund Hart \email{edmund.m.hart@gmail.com}
+}

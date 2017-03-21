@@ -21,11 +21,8 @@ Add a tag to an article
 }
 \examples{
 \dontrun{
- fs_add_tag(138, "phylogenetics") 
+ fs_add_tag(138, "phylogenetics")
 }
-}
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
 }
 \references{
 \url{http://api.figshare.com}
@@ -33,5 +30,7 @@ Carl Boettiger \email{cboettig@gmail.com}
 \seealso{
 \code{\link{fs_auth}}
 }
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}
 \keyword{internal}
-

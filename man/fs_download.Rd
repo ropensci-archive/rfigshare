@@ -8,12 +8,14 @@ fs_download(article_id, urls_only = TRUE, mine = is_mine(article_id),
   session = fs_get_auth(), show_versions = FALSE, version = NULL, ...)
 }
 \arguments{
-\item{article_id}{number}
+\item{article_id}{(numeric) a Figshare object ID}
 
-\item{urls_only}{logical (default TRUE) to only return the URLs to the 
-downloadable objects but do not call download.file.  If FALSE, will download files}
+\item{urls_only}{(logical) to only return the URLs to the
+downloadable objects but do not call download.file.  If FALSE, will download
+files. Default: TRUE}
 
-\item{mine}{logical (default FALSE). Set to true to see article details for your own non-public articles}
+\item{mine}{(logical) Set to true to see article details for
+your own non-public articles. Default: FALSE}
 
 \item{session}{the authentication credentials from \code{\link{fs_auth}}}
 
@@ -21,27 +23,27 @@ downloadable objects but do not call download.file.  If FALSE, will download fil
 
 \item{version}{show a given version number}
 
-\item{...}{additional arguments to \code{\link{download.file}}}
+\item{...}{additional arguments to \code{\link[curl]{curl_download}}}
 }
 \description{
 Get details for an article
 }
 \examples{
 \dontrun{
-url <- fs_download(90818)
+url <- fs_download(article_id = 90818)
 data <- read.csv(url)
 articles <- fs_search("SciFund")
 ids <- fs_ids(articles)
 fs_download(ids, urls_only=FALSE)
 }
 }
+\references{
+\url{https://docs.figshare.com/}
+\url{https://github.com/ropensci/rfigshare}
+}
+\seealso{
+\code{\link{fs_auth}} \code{\link[curl]{curl_download}}
+}
 \author{
 Carl Boettiger \email{cboettig@gmail.com}
 }
-\references{
-\url{http://api.figshare.com} \url{https://github.com/ropensci/rfigshare}
-}
-\seealso{
-\code{\link{fs_auth}} \code{\link{download.file}}
-}
-

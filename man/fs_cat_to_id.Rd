@@ -15,10 +15,9 @@ a vector of integers corresponding to valid figshare categories
 \description{
 Helper function that matches string categories to id's
 }
-\author{
-Edmund Hart \email{edmund.m.hart@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
-
+\author{
+Edmund Hart \email{edmund.m.hart@gmail.com}
+}
