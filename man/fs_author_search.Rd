@@ -9,7 +9,9 @@ fs_author_search(author, session = fs_get_auth(), debug = FALSE)
 \arguments{
 \item{author}{a string to search for (name, can include spaces)}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+long as figshare_auth has been run.}
 
 \item{debug}{toggle debugging mode}
 }

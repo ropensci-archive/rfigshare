@@ -2,9 +2,12 @@
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article
-#' @param file_id the id number of the file, if removing an attached file from a fileset.
-#'   file_id defaults to NULL, removing the entire draft or private article.
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.
+#' @param file_id the id number of the file, if removing an attached file
+#' from a fileset. file_id defaults to NULL, removing the entire draft or
+#' private article.
+#' @param session (optional) the authentication credentials from
+#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+#' long as figshare_auth has been run.
 #' @param debug display return value of request?
 #' @return output of DELETE request (invisibly)
 #' @seealso \code{\link{fs_auth}}

@@ -10,12 +10,15 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
 \arguments{
 \item{article_id}{id number of an article on figshare}
 
-\item{authors}{a list or character string of authors or author id numbers (or mixed).}
+\item{authors}{a list or character string of authors or author id numbers
+(or mixed).}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}.
-If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+long as figshare_auth has been run.}
 
-\item{create_missing}{(logical) Attempt to create authors not already registered on FigShare?}
+\item{create_missing}{(logical) Attempt to create authors not already
+registered on FigShare?}
 
 \item{debug}{return the httr result visibly?}
 }

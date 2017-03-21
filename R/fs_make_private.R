@@ -1,8 +1,10 @@
 #' Make an article private (draft only?)
-#' 
+#'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
-#' @param article_id the id number of the article 
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as \code{\link{fs_auth}} has been run.  
+#' @param article_id the id number of the article
+#' @param session (optional) the authentication credentials from
+#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+#' long as \code{\link{fs_auth}} has been run.
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
 #' @references \url{http://api.figshare.com}

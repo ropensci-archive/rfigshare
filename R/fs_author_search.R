@@ -3,7 +3,9 @@
 #' Function to search for authors
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param author a string to search for (name, can include spaces)
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.
+#' @param session (optional) the authentication credentials from
+#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+#' long as figshare_auth has been run.
 #' @param debug toggle debugging mode
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
@@ -23,7 +25,8 @@ fs_author_search <-
     if(debug | output$status_code != 200)
       output
     else {
-      # FIXME check that we don't need to loop over pages for more than 10 authors
+      # FIXME check that we don't need to loop over pages for more
+      # than 10 authors
       x <- jsonlite::fromJSON(cont(output))
       lapply(x$items,
              function(o){

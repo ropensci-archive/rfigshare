@@ -10,9 +10,12 @@ fs_add_categories(article_id, category_id, session = fs_get_auth(),
 \arguments{
 \item{article_id}{the id number of the article}
 
-\item{category_id}{is a vector of integers corresponding to categories or a vector of category names}
+\item{category_id}{is a vector of integers corresponding to categories
+or a vector of category names}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache
+as long as figshare_auth has been run.}
 
 \item{debug}{return PUT results visibly?}
 }

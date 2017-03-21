@@ -2,8 +2,11 @@
 #'
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param article_id the id number of the article
-#' @param category_id is a vector of integers corresponding to categories or a vector of category names
-#' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.
+#' @param category_id is a vector of integers corresponding to categories
+#' or a vector of category names
+#' @param session (optional) the authentication credentials from
+#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache
+#' as long as figshare_auth has been run.
 #' @param debug return PUT results visibly?
 #' @return output of PUT request (invisibly)
 #' @seealso \code{\link{fs_auth}}
@@ -52,8 +55,11 @@ fs_add_categories <- function(article_id, category_id,
 #' @references \url{http://api.figshare.com}
 #' @import httr plyr
 fs_cat_to_id <- function(category_id){
-  if(!exists("cat_names"))
-    cat_names <- jsonlite::fromJSON(cont(GET("http://api.figshare.com/v1/categories")))
+  if(!exists("cat_names")) {
+    cat_names <- jsonlite::fromJSON(
+      cont(GET("http://api.figshare.com/v1/categories"))
+    )
+  }
   name_db <- ldply(cat_names$items, data.frame)
   name_db$name <- tolower(name_db$name)
   my_matches <- match(tolower(category_id), name_db$name)

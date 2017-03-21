@@ -20,11 +20,12 @@ A file name, to use in fs_upload
 Convienence function to save a ggplot2 plot, and return its filename.
 }
 \examples{
-\dontrun{ 
+\dontrun{
 # include in your fs_upload call
 library(ggplot2)
 p <- qplot(mpg, wt, data=mtcars)
-plott <- fs_create(title="my title", description="some description", type="figure")
+plott <- fs_create(title="my title", description="some description",
+  type="figure")
 fs_add_categories(plott, "Ecology")
 fs_upload(plott, plot_to_filename(p, "myfilename", "~"))
 }

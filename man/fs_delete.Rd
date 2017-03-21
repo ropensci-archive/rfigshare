@@ -9,10 +9,13 @@ fs_delete(article_id, file_id = NULL, session = NULL, debug = FALSE)
 \arguments{
 \item{article_id}{the id number of the article}
 
-\item{file_id}{the id number of the file, if removing an attached file from a fileset.
-file_id defaults to NULL, removing the entire draft or private article.}
+\item{file_id}{the id number of the file, if removing an attached file
+from a fileset. file_id defaults to NULL, removing the entire draft or
+private article.}
 
-\item{session}{(optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.}
+\item{session}{(optional) the authentication credentials from
+\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+long as figshare_auth has been run.}
 
 \item{debug}{display return value of request?}
 }

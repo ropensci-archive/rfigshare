@@ -3,7 +3,8 @@
 #' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
-#' @param mine logical (default FALSE). Set to true to see article details for your own non-public articles
+#' @param mine logical (default FALSE). Set to true to see article details
+#' for your own non-public articles
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
