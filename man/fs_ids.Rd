@@ -17,7 +17,7 @@ Get a list of article id numbers from a search return
 }
 \examples{
 \dontrun{
-figshare_category()
+figshare_category() 
 }
 }
 \author{

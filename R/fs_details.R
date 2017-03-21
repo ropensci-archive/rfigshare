@@ -28,22 +28,41 @@ fs_details <-
     if(mine){
       method <- paste("account/articles", article_id, sep = "/")
     } else if(!mine) {
+      # v1 did not provide version info
+      base <- "http://api.figshare.com/v2"
       method <- paste("articles", article_id, sep = "/")
     }
 
     if(show_versions)
       method <- paste(method, "versions", sep = "/")
     if(!is.null(version))
-      method <- paste(method, version, sep = "/")
+      method <- paste(method, "versions", version, sep = "/")
     request = paste(base, method, sep = "/")
+
     out <- GET(request, session, ...)
-    if(debug | out$status_code != 200)
+    if(debug | out$status_code != 200) {
       out
-    else {
+    } else {
       jsonlite::fromJSON(cont(out))
       #output <- parsed_out$items[[1]]
       #class(out) <- "fs_object"
       #out
+    # out <- GET(request, config(token = session))
+
+    # if(debug | out$status_code != 200)
+    #   out
+    # else {
+    #   parsed_out <- RJSONIO::fromJSON(content(out, "text"))
+    #   output <- parsed_out
+
+    #   if(mine){
+    #     # mine uses v1 api
+    #     output <- parsed_out$items[[1]]
+    #   } else {
+    #     output <- parsed_out
+    #   }
+    #   class(output) <- "fs_object"
+    #   output
     }
   }
 

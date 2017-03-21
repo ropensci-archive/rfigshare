@@ -67,7 +67,6 @@ in any metadata field.  Full-text searches coming soon.
 # set your auth token, see ?fs_auth for more info
 # fs_auth("your token")
 
-fs_search(query = "Boettiger")
 fs_search("Boettiger", author = "Carl")
 fs_search("Boettiger", author = "Carl", from="2014-01-01")
 fs_search("Boettiger", author = "Carl", from="2014-01-01",

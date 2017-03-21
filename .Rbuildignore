@@ -7,3 +7,4 @@ inst/doc/vignettes/cache
 ^\.httr-oauth$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+.github

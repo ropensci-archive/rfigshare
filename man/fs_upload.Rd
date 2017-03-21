@@ -22,14 +22,11 @@ of numbers}
 Upload file to an article
 }
 \details{
-Article must be a draft, i.e. created by \code{\link{fs_create}}
-and not yet made public or private. Only articles of type "fileset" can
-have multiple files uploaded.
+Articles may be draft, private or public but all uploads are saved as draft changes - the canonical public version of the deposit is not updated. To update the public version of the repository, use \code{\link{fs_make_public}}. Only articles of type "fileset" can have multiple files uploaded.
 
-If only a single id number is given but a character string of
-files is given, then be sure that the id corresponds to an object of type
-"fileset".  If article_id list has more than one id, then there must be a
-corresponding file path for each id.
+If only a single id number is given but a character string of files is given,
+then be sure that the id corresponds to an object of type "fileset".  If article_id list
+has more than one id, then there must be a corresponding file path for each id.
 }
 \examples{
 \dontrun{

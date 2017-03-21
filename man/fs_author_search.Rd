@@ -21,8 +21,8 @@ Function to search for authors
 }
 \examples{
 \dontrun{
-fs_author_search("Boettiger")
-}
+fs_author_search("Boettiger") 
+} 
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

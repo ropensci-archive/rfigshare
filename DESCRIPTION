@@ -12,7 +12,9 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
 Suggests:
     testthat,
     gdata,
-    uuid
+    uuid,
+    knitr,
+    rmarkdown
 Depends:
     R (>= 3.0),
     methods
@@ -25,4 +27,5 @@ Imports:
     ggplot2,
     XML,
     digest
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1

@@ -23,7 +23,7 @@ Adds url links to the metadata of an article
 }
 \examples{
 \dontrun{
-fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
+fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 
 }
 }
 \author{

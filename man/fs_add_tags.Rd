@@ -21,7 +21,7 @@ Add a tag to an article
 }
 \examples{
 \dontrun{
- fs_add_tag(138, "phylogenetics")
+ fs_add_tag(138, "phylogenetics") 
 }
 }
 \author{

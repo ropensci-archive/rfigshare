@@ -37,6 +37,7 @@ long as figshare_auth has been run.}
 output of PUT request (invisibly)
 }
 \description{
+<<<<<<< HEAD
 Browse can be set to all public articles, the users own articles,
 Browse can filter on matching timestamp, author, title, description, tag,
 category, and date range.
@@ -47,6 +48,14 @@ fs_browse()
 fs_browse(mine = FALSE)
 fs_browse(public_only = TRUE)
 fs_browse(mine = FALSE, public_only = FALSE)
+=======
+Browse can be set to all public articles, the users own articles, 
+Browse can filter on matching timestamp, author, title, description, tag, category, and date range.
+}
+\examples{
+\dontrun{
+fs_browse() 
+>>>>>>> master
 }
 }
 \author{
