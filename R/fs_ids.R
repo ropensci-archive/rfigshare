@@ -7,10 +7,13 @@
 #' @import httr
 #' @export
 #' @examples \dontrun{
-#' figshare_category()
+#' # figshare_category()
+#'
+#' articles <- fs_search("SciFund")
+#' fs_ids(articles)
 #' }
-fs_ids <- function(object){
-#  a <- parsed_content(object)
-#  sapply(a$items, `[[`, "article_id")
-  sapply(object, `[[`,  "id")
+fs_ids <- function(object) {
+  assert(object, "data.frame")
+  stopifnot("id" %in% names(object))
+  object$id
 }

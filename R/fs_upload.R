@@ -1,4 +1,6 @@
-#'  Upload file to an article
+#' Upload file to an article
+#'
+#' @export
 #'
 #' @details Articles may be draft, private or public but all uploads are
 #' saved as draft changes - the canonical public version of the deposit
@@ -19,7 +21,7 @@
 #' "fileset".  If article_id list has more than one id, then there must be a
 #' corresponding file path for each id.
 #' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @references \url{https://docs.figshare.com/}
 #' @examples
 #' \dontrun{
 #' # set your auth token, see ?fs_auth for more info
@@ -29,7 +31,6 @@
 #' f <- system.file("examples", "file.png", package = "rfigshare")
 #' fs_upload(id, f)
 #' }
-#' @export
 fs_upload <- function(article_id, file, session = fs_get_auth(), ...) {
   # handle lists by converting to expected type.
   if (is(article_id, "list")) {
@@ -63,7 +64,7 @@ fs_upload <- function(article_id, file, session = fs_get_auth(), ...) {
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' (optional)
 #' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @references \url{https://docs.figshare.com/}
 #' @keywords internal
 #' @examples
 #' \dontrun{

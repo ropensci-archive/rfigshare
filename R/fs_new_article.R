@@ -14,7 +14,7 @@
 #' @param session (optional) credentials, see \code{link{fs_auth}}
 #' @return article id
 #' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_categories}}, \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}}, \code{\link{fs_add_links}}
-#' @references \url{http://api.figshare.com}
+#' @references \url{https://docs.figshare.com/}
 #' @export
 #' @examples \dontrun{
 #' write.csv(mtcars, "mtcars.csv")

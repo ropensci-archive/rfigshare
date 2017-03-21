@@ -10,7 +10,7 @@
 #' @param debug logical, enable debugging mode?
 #' @param ... curl options passed on to \code{\link[httr]{GET}}
 #' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @references \url{https://docs.figshare.com/}
 #' @examples \dontrun{
 #' # set your auth token, see ?fs_auth for more info
 #' # fs_auth("your token")
