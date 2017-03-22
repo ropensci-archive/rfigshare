@@ -10,8 +10,8 @@ fs_make_private(article_id, session = fs_get_auth())
 \item{article_id}{the id number of the article}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
-long as \code{\link{fs_auth}} has been run.}
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from cache as
+long as \code{\link[=fs_auth]{fs_auth()}} has been run.}
 }
 \value{
 output of PUT request (invisibly)
@@ -25,10 +25,10 @@ fs_make_private(123)
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

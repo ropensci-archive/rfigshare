@@ -3,11 +3,11 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
-#' long as \code{\link{fs_auth}} has been run.
+#' [fs_auth()]. If not provided, will attempt to load from cache as
+#' long as [fs_auth()] has been run.
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com
 #' @export
 #' @examples \dontrun{
 #' fs_make_private(123)

@@ -10,7 +10,7 @@ fs_author_search(author, session = fs_get_auth(), debug = FALSE)
 \item{author}{a string to search for (name, can include spaces)}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from cache as
 long as figshare_auth has been run.}
 
 \item{debug}{toggle debugging mode}
@@ -27,10 +27,10 @@ fs_author_search("Boettiger")
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

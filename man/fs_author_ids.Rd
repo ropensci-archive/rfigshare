@@ -10,7 +10,7 @@ fs_author_ids(authors, session = fs_get_auth(), graphics = FALSE)
 \item{authors}{a list/vector of authors (not a character string)}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from cache.}
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from cache.}
 
 \item{graphics}{logical (default False) use graphic input to disambiguate?}
 }

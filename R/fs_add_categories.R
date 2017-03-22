@@ -5,12 +5,12 @@
 #' @param category_id is a vector of integers corresponding to categories
 #' or a vector of category names
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache
+#' [fs_auth()]. If not provided, will attempt to load from cache
 #' as long as figshare_auth has been run.
 #' @param debug return PUT results visibly?
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com
 #' @import httr
 #' @export
 #' @examples \dontrun{

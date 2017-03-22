@@ -5,7 +5,7 @@
 #' @details Articles may be draft, private or public but all uploads are
 #' saved as draft changes - the canonical public version of the deposit
 #' is not updated. To update the public version of the repository, use
-#' \code{\link{fs_make_public}}. Only articles of type "fileset" can have
+#' [fs_make_public()]. Only articles of type "fileset" can have
 #' multiple files uploaded.
 #'
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
@@ -13,15 +13,15 @@
 #' of numbers
 #' @param file path to file to upload, or character string (or list) of files
 #' (paths)
-#' @param session the authentication credentials from \code{\link{fs_auth}}
+#' @param session the authentication credentials from [fs_auth()]
 #' (optional)
-#' @param ... curl options passed on to \code{\link[httr]{POST}}
+#' @param ... curl options passed on to [httr::POST()]
 #' @details If only a single id number is given but a character string of
 #' files is given, then be sure that the id corresponds to an object of type
 #' "fileset".  If article_id list has more than one id, then there must be a
 #' corresponding file path for each id.
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{https://docs.figshare.com/}
+#' @seealso [fs_auth()]
+#' @references https://docs.figshare.com/
 #' @examples
 #' \dontrun{
 #' # set your auth token, see ?fs_auth for more info

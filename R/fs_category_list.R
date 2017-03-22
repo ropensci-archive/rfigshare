@@ -2,7 +2,7 @@
 #' List all categories
 #'
 #' @return a table of all the categories
-#' @references \url{http://api.figshare.com}
+#' @references http://api.figshare.com
 #' @import httr
 #' @param debug enable debugging
 #' @export

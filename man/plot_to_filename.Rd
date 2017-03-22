@@ -31,5 +31,5 @@ fs_upload(plott, plot_to_filename(p, "myfilename", "~"))
 }
 }
 \seealso{
-\code{\link{fs_upload}}
+\code{\link[=fs_upload]{fs_upload()}}
 }

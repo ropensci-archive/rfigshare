@@ -10,8 +10,8 @@
 #' long as figshare_auth has been run.
 #' @param debug display return value of request?
 #' @return output of DELETE request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com
 
 #' @export
 #' @examples \dontrun{

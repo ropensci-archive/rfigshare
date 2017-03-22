@@ -18,10 +18,10 @@
 #' @param base the API access url
 #' @param query a search query term (equivalent to calling fs_search)
 #' @param debug enable debugging mode
-#' @param ... curl options passed on to \code{\link[httr]{GET}}
+#' @param ... curl options passed on to [httr::GET()]
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com/docs/howto.html#q-search}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com/docs/howto.html#q-search
 #' @import httr
 #' @export
 #' @examples \dontrun{

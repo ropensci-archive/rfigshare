@@ -24,7 +24,7 @@ fs_ids(articles)
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

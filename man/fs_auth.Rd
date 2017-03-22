@@ -9,6 +9,8 @@ fs_auth(token, force = FALSE)
 \arguments{
 \item{token}{(character) A Figshare personal access token. Required.
 See Details.}
+
+\item{force}{(logical) force resetting env var}
 }
 \value{
 sets your token as an env variable for the current R session,
@@ -20,10 +22,10 @@ Figshare authentication
 \details{
 Instructions:
 \itemize{
- \item Log in
- \item Go to "Applications" from the drop down menu in top right
- \item Scroll to bottom, find "Personal Tokens" section
- \item Click on "Create Personal Token"
+\item Log in
+\item Go to "Applications" from the drop down menu in top right
+\item Scroll to bottom, find "Personal Tokens" section
+\item Click on "Create Personal Token"
 }
 }
 \examples{
@@ -32,7 +34,7 @@ fs_auth("aasdfasfasdfasdfasfasfds")
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

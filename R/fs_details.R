@@ -3,15 +3,15 @@
 #' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id number
-#' @param mine logical (default FALSE). Set to true to see article details
+#' @param mine logical (default `FALSE`). Set to true to see article details
 #' for your own non-public articles
-#' @param session the authentication credentials from \code{\link{fs_auth}}
+#' @param session the authentication credentials from [fs_auth()]
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
 #' @param debug logical, enable debugging mode?
-#' @param ... curl options passed on to \code{\link[httr]{GET}}
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{https://docs.figshare.com/}
+#' @param ... curl options passed on to [httr::GET()]
+#' @seealso [fs_auth()]
+#' @references https://docs.figshare.com/
 #' @examples \dontrun{
 #' # set your auth token, see ?fs_auth for more info
 #' # fs_auth("your token")

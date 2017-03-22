@@ -12,7 +12,7 @@ fs_add_links(article_id, link, session = fs_get_auth(), debug = FALSE)
 \item{link}{the url you wish to add (can be list of urls)}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from
 cache as long as authentication has been run.}
 
 \item{debug}{logical, should function return details of PUT request?}
@@ -29,10 +29,10 @@ fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

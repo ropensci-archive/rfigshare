@@ -5,12 +5,12 @@
 #' @param link the url you wish to add (can be list of urls)
 #' @param article_id the id number of the article
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from
+#' [fs_auth()]. If not provided, will attempt to load from
 #' cache as long as authentication has been run.
 #' @param debug logical, should function return details of PUT request?
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com
 #' @import httr
 #' @export
 #' @examples \dontrun{

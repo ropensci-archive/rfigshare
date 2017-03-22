@@ -14,7 +14,7 @@ fs_add_authors(article_id, authors, session = fs_get_auth(),
 (or mixed).}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from cache as
 long as figshare_auth has been run.}
 
 \item{create_missing}{(logical) Attempt to create authors not already

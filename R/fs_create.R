@@ -1,16 +1,16 @@
 #' Create a FigShare article (draft)
 #'
-#' Articles must be created with \code{\link{fs_create}}
+#' Articles must be created with [fs_create()]
 #' with essential metadata.  Then you can add files with
-#' \code{\link{fs_upload}}, add categories, tags or authors
-#' with \code{\link{fs_add_categories}} or \code{\link{fs_add_tags}}
-#' \code{\link{fs_add_authors}}.  Authors not registered with a FigShare
-#' id can be created with \code{\link{fs_create_author}}.  You can
-#' edit the original metadata with \code{\link{fs_update}}.
+#' [fs_upload()], add categories, tags or authors
+#' with [fs_add_categories()] or [fs_add_tags()]
+#' [fs_add_authors()].  Authors not registered with a FigShare
+#' id can be created with [fs_create_author()].  You can
+#' edit the original metadata with [fs_update()].
 #' Finally, release the article as either private or public with
-#' \code{\link{fs_make_private}} or \code{\link{fs_make_public}}.
+#' [fs_make_private()] or [fs_make_public()].
 #' Before creating the article, you must authenticate using
-#' \code{\link{fs_auth}}.
+#' [fs_auth()].
 #'
 #' @export
 #' @import methods httr
@@ -18,12 +18,12 @@
 #' @param description of the article
 #' @param type one of: dataset, figure, media, poster, paper or fileset.
 #' (Only filesets can have multiple uploaded files attached).
-#' @param session the authentication credentials from \code{\link{fs_auth}}
+#' @param session the authentication credentials from [fs_auth()]
 #' @param debug print full post call return
-#' @param ... curl options passed on to \code{\link[httr]{POST}}
+#' @param ... curl options passed on to [httr::POST()]
 #' @return article id
-#' @seealso \code{\link{fs_auth}}, \code{\link{fs_upload}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()], [fs_upload()]
+#' @references http://api.figshare.com
 #' @examples \dontrun{
 #' # set your auth token, see ?fs_auth for more info
 #' # fs_auth("your token")

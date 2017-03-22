@@ -5,7 +5,7 @@
 #' @param path Path where you want to save the file.
 #' @return A file name, to use in fs_upload
 #' @importFrom ggplot2 ggsave
-#' @seealso \code{\link{fs_upload}}
+#' @seealso [fs_upload()]
 #' @examples \dontrun{
 #' # include in your fs_upload call
 #' library(ggplot2)

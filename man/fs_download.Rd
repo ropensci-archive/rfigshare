@@ -11,11 +11,11 @@ fs_download(article_id, urls_only = TRUE, mine = is_mine(article_id),
 \item{article_id}{(numeric) a Figshare object ID}
 
 \item{urls_only}{(logical) to only return the URLs to the
-downloadable objects but do not call download.file.  If FALSE, will download
-files. Default: TRUE}
+downloadable objects but do not call download.file.  If \code{FALSE}, will
+download files. Default: \code{TRUE}}
 
 \item{mine}{(logical) Set to true to see article details for
-your own non-public articles. Default: FALSE}
+your own non-public articles. Default: \code{FALSE}}
 
 \item{session}{the authentication credentials from \code{\link{fs_auth}}}
 
@@ -23,7 +23,7 @@ your own non-public articles. Default: FALSE}
 
 \item{version}{show a given version number}
 
-\item{...}{additional arguments to \code{\link[curl]{curl_download}}}
+\item{...}{additional arguments to \code{\link[curl:curl_download]{curl::curl_download()}}}
 }
 \description{
 Get details for an article
@@ -38,11 +38,10 @@ fs_download(ids, urls_only=FALSE)
 }
 }
 \references{
-\url{https://docs.figshare.com/}
-\url{https://github.com/ropensci/rfigshare}
+https://docs.figshare.com/, https://github.com/ropensci/rfigshare
 }
 \seealso{
-\code{\link{fs_auth}} \code{\link[curl]{curl_download}}
+\code{\link[=fs_auth]{fs_auth()}} \code{\link[curl:curl_download]{curl::curl_download()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

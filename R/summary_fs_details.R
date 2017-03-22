@@ -2,7 +2,7 @@
 #'
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param fs_details_obj object
-#' @references \url{http://api.figshare.com}
+#' @references http://api.figshare.com
 #' @export
 #' @examples \dontrun{
 #' fs_auth()

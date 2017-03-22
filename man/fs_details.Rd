@@ -10,10 +10,10 @@ fs_details(article_id, mine = is_mine(article_id), session = fs_get_auth(),
 \arguments{
 \item{article_id}{number}
 
-\item{mine}{logical (default FALSE). Set to true to see article details
+\item{mine}{logical (default \code{FALSE}). Set to true to see article details
 for your own non-public articles}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}}}
+\item{session}{the authentication credentials from \code{\link[=fs_auth]{fs_auth()}}}
 
 \item{show_versions}{logical, show what versions are available}
 
@@ -21,7 +21,7 @@ for your own non-public articles}
 
 \item{debug}{logical, enable debugging mode?}
 
-\item{...}{curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{curl options passed on to \code{\link[httr:GET]{httr::GET()}}}
 }
 \description{
 Get details for an article
@@ -35,10 +35,10 @@ fs_details(article_id = 1097652)
 }
 }
 \references{
-\url{https://docs.figshare.com/}
+https://docs.figshare.com/
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

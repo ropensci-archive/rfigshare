@@ -9,6 +9,7 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
     "cboettig@gmail.com"), person("Scott", "Chamberlain", role = "aut"),
     person("Karthik", "Ram", role = "aut"), person("Edmund", "Hart",
     role="ctb"))
+Roxygen: list(markdown = TRUE)
 Depends:
     R (>= 3.0),
     methods

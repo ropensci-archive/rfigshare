@@ -37,10 +37,10 @@ sapply(file_ids, function(id) fs_delete(article_id, id))
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

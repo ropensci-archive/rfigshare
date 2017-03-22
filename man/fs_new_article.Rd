@@ -10,25 +10,25 @@ fs_new_article(title, description, type = c("dataset", "figure", "media",
   session = fs_get_auth())
 }
 \arguments{
-\item{title}{for the article, see \code{\link{fs_create}} for details.}
+\item{title}{for the article, see \code{\link[=fs_create]{fs_create()}} for details.}
 
-\item{description}{of the article, see \code{\link{fs_create}} for details.}
+\item{description}{of the article, see \code{\link[=fs_create]{fs_create()}} for details.}
 
 \item{type}{one of: dataset, figure, media, poster, or paper, see
-\code{\link{fs_create}} for details.}
+\code{\link[=fs_create]{fs_create()}} for details.}
 
 \item{authors}{Orded list of authors for the article, see
-\code{\link{fs_add_authors}} for details}
+\code{\link[=fs_add_authors]{fs_add_authors()}} for details}
 
 \item{categories}{list of categories or category id numbers, see
-\code{\link{fs_add_categories}} for details.}
+\code{\link[=fs_add_categories]{fs_add_categories()}} for details.}
 
-\item{tags}{list of tags, see \code{\link{fs_add_tags}} for details.}
+\item{tags}{list of tags, see \code{\link[=fs_add_tags]{fs_add_tags()}} for details.}
 
-\item{links}{list of links to add, see \code{\link{fs_add_links}} for
+\item{links}{list of links to add, see \code{\link[=fs_add_links]{fs_add_links()}} for
 details}
 
-\item{files}{path to the files to add, see \code{\link{fs_upload}} for
+\item{files}{path to the files to add, see \code{\link[=fs_upload]{fs_upload()}} for
 details}
 
 \item{visibility}{one of "draft", "private" or "public".  A draft document
@@ -36,7 +36,7 @@ can still be edited and modified. A public document is visible to everyone
 and cannot be deleted (though additional authors to the work can still
 "claim" their authorship).}
 
-\item{session}{(optional) credentials, see \code{link{fs_auth}}}
+\item{session}{(optional) credentials, see \code{\link[=fs_auth]{fs_auth()}}}
 }
 \value{
 article id
@@ -63,10 +63,9 @@ id <- fs_new_article(
 }
 }
 \references{
-\url{https://docs.figshare.com/}
+https://docs.figshare.com/
 }
 \seealso{
-\code{\link{fs_auth}}, \code{\link{fs_add_categories}},
-\code{\link{fs_add_authors}}, \code{\link{fs_add_tags}},
-\code{\link{fs_add_links}}
+\code{\link[=fs_auth]{fs_auth()}}, \code{\link[=fs_add_categories]{fs_add_categories()}}, \code{\link[=fs_add_authors]{fs_add_authors()}},
+\code{\link[=fs_add_tags]{fs_add_tags()}}, \code{\link[=fs_add_links]{fs_add_links()}}
 }

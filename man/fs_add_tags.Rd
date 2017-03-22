@@ -11,7 +11,7 @@ fs_add_tags(article_id, tag, session = fs_get_auth(), debug = FALSE)
 
 \item{tag}{name of the tag to add (or list of tags)}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}}}
+\item{session}{the authentication credentials from \code{\link[=fs_auth]{fs_auth()}}}
 }
 \value{
 output of PUT request (invisibly)
@@ -25,10 +25,10 @@ Add a tag to an article
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

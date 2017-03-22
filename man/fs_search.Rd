@@ -29,7 +29,7 @@ description}
 \item{to_date}{Ending time window for search. Date format is YYYY-MM-DD}
 
 \item{mine}{Browse only articles owned by user. default is \code{FALSE}
-Not functional. Use \code{\link{fs_browse}} instead.}
+Not functional. Use \code{\link[=fs_browse]{fs_browse()}} instead.}
 
 \item{public_only}{(for use with mine=TRUE only) browse only my public
 articles. default is \code{FALSE}}
@@ -44,11 +44,19 @@ articles. default is \code{FALSE}}
 \code{\link{fs_auth}}. If not provided, will attempt to load from cache
 as long as figshare_auth has been run.}
 
+\item{limit}{(integer) number of results to return}
+
+\item{offset}{(integer) offset - record to start at}
+
+\item{order_by}{order by}
+
+\item{order}{order}
+
 \item{base}{the API access url}
 
 \item{debug}{logical, enable debugging mode}
 
-\item{...}{curl options passed on to \code{\link[httr]{POST}}}
+\item{...}{curl options passed on to \code{\link[httr:POST]{httr::POST()}}}
 }
 \value{
 output of PUT request (invisibly)
@@ -79,7 +87,7 @@ fs_search("Boettiger", author = "Carl", from="2014-01-01",
 \url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
-\\code{\link{fs_auth}} \code{\link{fs_browse}}
+\code{\link[=fs_auth]{fs_auth()}} \code{\link[=fs_browse]{fs_browse()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

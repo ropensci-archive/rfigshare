@@ -3,7 +3,7 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param object the output of a search
 #' @return a list of article id numbers
-#' @references \url{http://api.figshare.com}
+#' @references http://api.figshare.com
 #' @import httr
 #' @export
 #' @examples \dontrun{

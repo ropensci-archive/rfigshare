@@ -14,7 +14,7 @@ fs_add_categories(article_id, category_id, session = fs_get_auth(),
 or a vector of category names}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}. If not provided, will attempt to load from cache
+\code{\link[=fs_auth]{fs_auth()}}. If not provided, will attempt to load from cache
 as long as figshare_auth has been run.}
 
 \item{debug}{return PUT results visibly?}
@@ -31,10 +31,10 @@ fs_add_categories(138, "Ecology")
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Edmund Hart \email{edmund.m.hart@gmail.com}

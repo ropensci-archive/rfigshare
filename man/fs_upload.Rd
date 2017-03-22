@@ -13,10 +13,10 @@ of numbers}
 \item{file}{path to file to upload, or character string (or list) of files
 (paths)}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}}
+\item{session}{the authentication credentials from \code{\link[=fs_auth]{fs_auth()}}
 (optional)}
 
-\item{...}{curl options passed on to \code{\link[httr]{POST}}}
+\item{...}{curl options passed on to \code{\link[httr:POST]{httr::POST()}}}
 }
 \description{
 Upload file to an article
@@ -25,7 +25,7 @@ Upload file to an article
 Articles may be draft, private or public but all uploads are
 saved as draft changes - the canonical public version of the deposit
 is not updated. To update the public version of the repository, use
-\code{\link{fs_make_public}}. Only articles of type "fileset" can have
+\code{\link[=fs_make_public]{fs_make_public()}}. Only articles of type "fileset" can have
 multiple files uploaded.
 
 If only a single id number is given but a character string of
@@ -44,10 +44,10 @@ fs_upload(id, f)
 }
 }
 \references{
-\url{https://docs.figshare.com/}
+https://docs.figshare.com/
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

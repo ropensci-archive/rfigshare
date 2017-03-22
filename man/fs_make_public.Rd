@@ -10,7 +10,7 @@ fs_make_public(article_id, session = fs_get_auth())
 \item{article_id}{the id number of the article}
 
 \item{session}{(optional) the authentication credentials from
-\code{\link{fs_auth}}.}
+\code{\link[=fs_auth]{fs_auth()}}.}
 }
 \value{
 output of PUT request (invisibly)
@@ -21,7 +21,7 @@ Make an article public (for private or draft articles)
 \details{
 This function will make a draft or private article public,
 assigning it a DOI and making it permanently available through Figshare.
-If you use \code{\link{fs_upload}} to add new files to an existing public
+If you use \code{\link[=fs_upload]{fs_upload()}} to add new files to an existing public
 deposit, you must then use \code{fs_make_public} for those changes to be
 made in the public version of the repository.
 }
@@ -36,10 +36,10 @@ fs_make_public(123)
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

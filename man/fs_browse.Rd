@@ -31,7 +31,7 @@ long as figshare_auth has been run.}
 
 \item{debug}{enable debugging mode}
 
-\item{...}{curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{curl options passed on to \code{\link[httr:GET]{httr::GET()}}}
 }
 \value{
 output of PUT request (invisibly)
@@ -50,10 +50,10 @@ fs_browse(mine = FALSE, public_only = FALSE)
 }
 }
 \references{
-\url{http://api.figshare.com/docs/howto.html#q-search}
+http://api.figshare.com/docs/howto.html#q-search
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link[=fs_auth]{fs_auth()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

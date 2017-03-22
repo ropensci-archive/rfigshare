@@ -18,22 +18,26 @@
 #' @param category Show only results matching this category
 #' @param from_date Start time window for search. Date format is YYYY-MM-DD
 #' @param to_date Ending time window for search. Date format is YYYY-MM-DD
-#' @param mine Browse only articles owned by user. default is \code{FALSE}
-#' Not functional. Use \code{\link{fs_browse}} instead.
+#' @param mine Browse only articles owned by user. default is `FALSE`
+#' Not functional. Use [fs_browse()] instead.
 #' @param public_only (for use with mine=TRUE only) browse only my public
-#' articles. default is \code{FALSE}
+#' articles. default is `FALSE`
 #' @param private_only (for use with mine=TRUE only) browse only my private
-#' articles. default is \code{FALSE}
+#' articles. default is `FALSE`
 #' @param drafts_only (for use with mine=TRUE only) browse only my draft
-#' articles. default is \code{FALSE}
+#' articles. default is `FALSE`
 #' @param session (optional) the authentication credentials from
 #' \code{\link{fs_auth}}. If not provided, will attempt to load from cache
 #' as long as figshare_auth has been run.
 #' @param base the API access url
 #' @param debug logical, enable debugging mode
-#' @param ... curl options passed on to \code{\link[httr]{POST}}
+#' @param limit (integer) number of results to return
+#' @param offset (integer) offset - record to start at
+#' @param order_by order by
+#' @param order order
+#' @param ... curl options passed on to [httr::POST()]
 #' @return output of PUT request (invisibly)
-#' @seealso \\code{\link{fs_auth}} \code{\link{fs_browse}}
+#' @seealso [fs_auth()] [fs_browse()]
 #' @references \url{http://api.figshare.com/docs/howto.html#q-search}
 #' @import httr jsonlite
 #' @export

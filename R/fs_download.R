@@ -7,17 +7,16 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id (numeric) a Figshare object ID
 #' @param urls_only (logical) to only return the URLs to the
-#' downloadable objects but do not call download.file.  If FALSE, will download
-#' files. Default: TRUE
+#' downloadable objects but do not call download.file.  If `FALSE`, will
+#' download files. Default: `TRUE`
 #' @param mine (logical) Set to true to see article details for
-#' your own non-public articles. Default: FALSE
+#' your own non-public articles. Default: `FALSE`
 #' @param session the authentication credentials from \code{\link{fs_auth}}
 #' @param show_versions logical, show what versions are available
 #' @param version show a given version number
-#' @param ... additional arguments to \code{\link[curl]{curl_download}}
-#' @seealso \code{\link{fs_auth}} \code{\link[curl]{curl_download}}
-#' @references \url{https://docs.figshare.com/}
-#' \url{https://github.com/ropensci/rfigshare}
+#' @param ... additional arguments to [curl::curl_download()]
+#' @seealso [fs_auth()] [curl::curl_download()]
+#' @references https://docs.figshare.com/, https://github.com/ropensci/rfigshare
 #' @examples \dontrun{
 #' url <- fs_download(article_id = 90818)
 #' data <- read.csv(url)

@@ -7,16 +7,17 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id the id number of the article
 #' @param title for the article (to replace original title)
-#' @param mine Set to \code{TRUE} if it refers to an item on your own account
+#' @param mine Set to `TRUE` if it refers to an item on your own account
 #' @param description of the article (replaces original designation)
 #' @param type one of: dataset, figure, media, poster, or paper (replaces
 #' original designation)
 #' @param session (optional) the authentication credentials from
 #' \code{\link{fs_auth}}.
 #' @param debug return httr PUT request visibly?
+#' @param ... curl options
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_tags}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()], [fs_add_tags()]
+#' @references http://api.figshare.com
 #' @details Updates the title, description, and type of an article.
 #' @examples \dontrun{
 #' # set your auth token, see ?fs_auth for more info

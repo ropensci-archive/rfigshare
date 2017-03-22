@@ -5,7 +5,7 @@
 #' @param  authors a list or character string of authors or author id numbers
 #' (or mixed).
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+#' [fs_auth()]. If not provided, will attempt to load from cache as
 #' long as figshare_auth has been run.
 #' @param create_missing (logical) Attempt to create authors not already
 #' registered on FigShare?
@@ -77,7 +77,7 @@ fs_add_authors  <- function(article_id, authors,
 #' @param authors a list/vector of authors (not a character string)
 #' @param graphics logical (default False) use graphic input to disambiguate?
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache.
+#' [fs_auth()]. If not provided, will attempt to load from cache.
 #' @return a list of author id numbers, or NULLS where ids cannot be found.
 #' @keywords internal
 fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
@@ -111,9 +111,9 @@ fs_author_ids <- function(authors, session = fs_get_auth(), graphics=FALSE){
 #'
 #' @param article_id id number of an article on figshare
 #' @param author_id the id number of a registered figshare user (see
-#' \code{\link{fs_author_search}})
+#' [fs_author_search()])
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache.
+#' [fs_auth()]. If not provided, will attempt to load from cache.
 #' @keywords internal
 fs_add_author <- function(article_id, author_id, session = fs_get_auth()){
   base <- "http://api.figshare.com/v1"

@@ -23,6 +23,8 @@ original designation)}
 \code{\link{fs_auth}}.}
 
 \item{debug}{return httr PUT request visibly?}
+
+\item{...}{curl options}
 }
 \value{
 output of PUT request (invisibly)
@@ -43,10 +45,10 @@ fs_update(138, title = "New title")
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}, \code{\link{fs_add_tags}}
+\code{\link[=fs_auth]{fs_auth()}}, \code{\link[=fs_add_tags]{fs_add_tags()}}
 }
 \author{
 Carl Boettiger \email{cboettig@gmail.com}

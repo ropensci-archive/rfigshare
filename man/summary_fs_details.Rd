@@ -20,7 +20,7 @@ summary_fs_details(my_article)
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \author{
 Edmund Hart \email{edmund.m.hart@gmail.com}

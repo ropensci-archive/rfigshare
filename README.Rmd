@@ -29,7 +29,7 @@ Getting Started
 
 ## Get a Personal Access Token
 
-Also known as a PAT. Get it from your Figshare account at [figshare.com/account/applications](https://figshare.com/account/applications)
+Also known as a PAT. Get it from your Figshare account at https://figshare.com/account/applications
 
 Store the token as an env var in your `.Renviron` file like `RFIGSHARE_PAT=<your figshare PAT>`
 

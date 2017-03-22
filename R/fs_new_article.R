@@ -2,29 +2,28 @@
 #'
 #' fs_new_article is a wrapper around many other rfigshare commands to provide
 #' convenient posting.
-#' @param title for the article, see \code{\link{fs_create}} for details.
-#' @param description of the article, see \code{\link{fs_create}} for details.
+#' @param title for the article, see [fs_create()] for details.
+#' @param description of the article, see [fs_create()] for details.
 #' @param type one of: dataset, figure, media, poster, or paper, see
-#' \code{\link{fs_create}} for details.
+#' [fs_create()] for details.
 #' @param authors Orded list of authors for the article, see
-#' \code{\link{fs_add_authors}} for details
+#' [fs_add_authors()] for details
 #' @param categories list of categories or category id numbers, see
-#' \code{\link{fs_add_categories}} for details.
-#' @param tags list of tags, see \code{\link{fs_add_tags}} for details.
-#' @param links list of links to add, see \code{\link{fs_add_links}} for
+#' [fs_add_categories()] for details.
+#' @param tags list of tags, see [fs_add_tags()] for details.
+#' @param links list of links to add, see [fs_add_links()] for
 #' details
-#' @param files path to the files to add, see \code{\link{fs_upload}} for
+#' @param files path to the files to add, see [fs_upload()] for
 #' details
 #' @param visibility one of "draft", "private" or "public".  A draft document
 #' can still be edited and modified. A public document is visible to everyone
 #' and cannot be deleted (though additional authors to the work can still
 #' "claim" their authorship).
-#' @param session (optional) credentials, see \code{link{fs_auth}}
+#' @param session (optional) credentials, see [fs_auth()]
 #' @return article id
-#' @seealso \code{\link{fs_auth}}, \code{\link{fs_add_categories}},
-#' \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}},
-#' \code{\link{fs_add_links}}
-#' @references \url{https://docs.figshare.com/}
+#' @seealso [fs_auth()], [fs_add_categories()], [fs_add_authors()],
+#' [fs_add_tags()], [fs_add_links()]
+#' @references https://docs.figshare.com/
 #' @export
 #' @examples \dontrun{
 #' write.csv(mtcars, "mtcars.csv")

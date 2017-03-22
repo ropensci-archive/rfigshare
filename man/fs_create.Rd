@@ -15,27 +15,27 @@ fs_create(title, description, type = c("dataset", "figure", "media", "poster",
 \item{type}{one of: dataset, figure, media, poster, paper or fileset.
 (Only filesets can have multiple uploaded files attached).}
 
-\item{session}{the authentication credentials from \code{\link{fs_auth}}}
+\item{session}{the authentication credentials from \code{\link[=fs_auth]{fs_auth()}}}
 
 \item{debug}{print full post call return}
 
-\item{...}{curl options passed on to \code{\link[httr]{POST}}}
+\item{...}{curl options passed on to \code{\link[httr:POST]{httr::POST()}}}
 }
 \value{
 article id
 }
 \description{
-Articles must be created with \code{\link{fs_create}}
+Articles must be created with \code{\link[=fs_create]{fs_create()}}
 with essential metadata.  Then you can add files with
-\code{\link{fs_upload}}, add categories, tags or authors
-with \code{\link{fs_add_categories}} or \code{\link{fs_add_tags}}
-\code{\link{fs_add_authors}}.  Authors not registered with a FigShare
-id can be created with \code{\link{fs_create_author}}.  You can
-edit the original metadata with \code{\link{fs_update}}.
+\code{\link[=fs_upload]{fs_upload()}}, add categories, tags or authors
+with \code{\link[=fs_add_categories]{fs_add_categories()}} or \code{\link[=fs_add_tags]{fs_add_tags()}}
+\code{\link[=fs_add_authors]{fs_add_authors()}}.  Authors not registered with a FigShare
+id can be created with \code{\link[=fs_create_author]{fs_create_author()}}.  You can
+edit the original metadata with \code{\link[=fs_update]{fs_update()}}.
 Finally, release the article as either private or public with
-\code{\link{fs_make_private}} or \code{\link{fs_make_public}}.
+\code{\link[=fs_make_private]{fs_make_private()}} or \code{\link[=fs_make_public]{fs_make_public()}}.
 Before creating the article, you must authenticate using
-\code{\link{fs_auth}}.
+\code{\link[=fs_auth]{fs_auth()}}.
 }
 \examples{
 \dontrun{
@@ -49,8 +49,8 @@ fs_create(title = "My other title", description="Apples and bananas",
 }
 }
 \references{
-\url{http://api.figshare.com}
+http://api.figshare.com
 }
 \seealso{
-\code{\link{fs_auth}}, \code{\link{fs_upload}}
+\code{\link[=fs_auth]{fs_auth()}}, \code{\link[=fs_upload]{fs_upload()}}
 }

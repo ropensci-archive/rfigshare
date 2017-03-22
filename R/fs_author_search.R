@@ -4,12 +4,12 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param author a string to search for (name, can include spaces)
 #' @param session (optional) the authentication credentials from
-#' \code{\link{fs_auth}}. If not provided, will attempt to load from cache as
+#' [fs_auth()]. If not provided, will attempt to load from cache as
 #' long as figshare_auth has been run.
 #' @param debug toggle debugging mode
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
-#' @references \url{http://api.figshare.com}
+#' @seealso [fs_auth()]
+#' @references http://api.figshare.com
 #' @import httr
 #' @export
 #' @examples \dontrun{

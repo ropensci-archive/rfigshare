@@ -3,6 +3,7 @@
 #' @export
 #' @param token (character) A Figshare personal access token. Required.
 #' See Details.
+#' @param force (logical) force resetting env var
 #' @details Instructions:
 #' \itemize{
 #'  \item Log in
@@ -13,7 +14,7 @@
 #' @return sets your token as an env variable for the current R session,
 #' returns nothing
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
-#' @references \url{http://api.figshare.com}
+#' @references http://api.figshare.com
 #' @examples \dontrun{
 #' fs_auth("aasdfasfasdfasdfasfasfds")
 #' }
