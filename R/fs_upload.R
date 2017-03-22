@@ -33,10 +33,10 @@
 #' }
 fs_upload <- function(article_id, file, session = fs_get_auth(), ...) {
   # handle lists by converting to expected type.
-  if (is(article_id, "list")) {
+  if (inherits(article_id, "list")) {
     article_id <- as.character(article_id)
   }
-  if (is(file, "list")) {
+  if (inherits(file, "list")) {
     file <- as.character(file)
   }
 

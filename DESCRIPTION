@@ -11,15 +11,13 @@ Authors@R: c(person("Carl", "Boettiger", role = c("aut", "cre"), email =
     role="ctb"))
 Roxygen: list(markdown = TRUE)
 Depends:
-    R (>= 3.0),
-    methods
+    R (>= 3.0)
 Imports:
     jsonlite,
     httr (>= 1.2.1),
     curl (>= 2.3),
     httpuv,
     plyr,
-    yaml,
     ggplot2,
     XML,
     digest

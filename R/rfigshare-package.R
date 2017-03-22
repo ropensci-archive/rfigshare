@@ -4,12 +4,12 @@
 #' word and stuff ...
 #'
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom httr GET PUT POST add_headers content config build_url parse_url
+#' @importFrom httr GET PUT POST add_headers content config build_url
+#' parse_url DELETE accept_json upload_file
 #' @importFrom ggplot2 ggsave
 #' @importFrom utils download.file select.list
 #' @importFrom plyr ldply
 #' @importFrom XML htmlParse xpathSApply
-#' @import xml2 methods
 #' @name rfigshare-package
 #' @aliases rfigshare
 #' @docType package
