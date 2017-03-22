@@ -7,6 +7,7 @@
 #' description, tag, category, and date range.  Query searches against matches
 #' in any metadata field.  Full-text searches coming soon.
 #'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @param query the search query
@@ -39,8 +40,6 @@
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()] [fs_browse()]
 #' @references \url{http://api.figshare.com/docs/howto.html#q-search}
-#' @import httr jsonlite
-#' @export
 #' @examples \dontrun{
 #' # set your auth token, see ?fs_auth for more info
 #' # fs_auth("your token")

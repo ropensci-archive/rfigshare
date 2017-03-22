@@ -1,6 +1,8 @@
 #' Search for an author
 #'
 #' Function to search for authors
+#'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param author a string to search for (name, can include spaces)
 #' @param session (optional) the authentication credentials from
@@ -10,8 +12,6 @@
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()]
 #' @references http://api.figshare.com
-#' @import httr
-#' @export
 #' @examples \dontrun{
 #' fs_author_search("Boettiger")
 #' }

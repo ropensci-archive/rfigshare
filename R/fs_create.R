@@ -13,7 +13,6 @@
 #' [fs_auth()].
 #'
 #' @export
-#' @import methods httr
 #' @param title for the article
 #' @param description of the article
 #' @param type one of: dataset, figure, media, poster, paper or fileset.

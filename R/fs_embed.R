@@ -1,13 +1,10 @@
-
 #' get image url
 #'
-#' get image url
+#' @export
 #' @param id a (public) figshare figure id number
 #' @param debug logical, enable debugging mode?
 #' @return a url to the image file
 #' @details this is currently an unstable hack of html parsing
-#' @import XML httr
-#' @export
 fs_image_url <- function(id, debug = FALSE) {
   a <- fs_details(id)
   b <- GET(a$doi)
@@ -17,8 +14,6 @@ fs_image_url <- function(id, debug = FALSE) {
     doc <- htmlParse(content(b, as = "text"))
     path <- xpathSApply(
       doc, "//div[@class='filesdownload' and @id='download_all']/a/@href")[[1]]
-#  resp <- GET(path)
-#  if(resp$headers$`content-type` != "image/png")
     path
   }
 }
@@ -26,10 +21,10 @@ fs_image_url <- function(id, debug = FALSE) {
 
 #' Upload a figure to figshare and return the url
 #'
+#' @export
 #' @param file path to an image file
 #' @return a url to the image file
 #' @details use with opts_knit$set(upload.fn = fs_embed)
-#' @export
 fs_embed <- function(file) {
   ## Read in title, and details from an environment?  from chunk?
   title <- file
@@ -38,5 +33,3 @@ fs_embed <- function(file) {
                        visibility = "public")
   fs_image_url(id)
 }
-#
-#

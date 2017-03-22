@@ -1,11 +1,9 @@
-
 #' List all categories
 #'
+#' @export
 #' @return a table of all the categories
 #' @references http://api.figshare.com
-#' @import httr
 #' @param debug enable debugging
-#' @export
 #' @examples \dontrun{
 #' fs_categories_list()
 #' }

@@ -1,5 +1,6 @@
 #' Add a category to article
 #'
+#' @export
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param article_id the id number of the article
 #' @param category_id is a vector of integers corresponding to categories
@@ -11,8 +12,6 @@
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()]
 #' @references http://api.figshare.com
-#' @import httr
-#' @export
 #' @examples \dontrun{
 #' fs_add_categories(138, "Ecology")
 #' }
@@ -53,7 +52,6 @@ fs_add_categories <- function(article_id, category_id,
 #' @param category_id Must be a valid category string, regardless of case
 #' @return a vector of integers corresponding to valid figshare categories
 #' @references \url{http://api.figshare.com}
-#' @import httr plyr
 fs_cat_to_id <- function(category_id){
   if(!exists("cat_names")) {
     cat_names <- jsonlite::fromJSON(

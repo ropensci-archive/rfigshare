@@ -1,9 +1,6 @@
 #' Get details for an article
 #'
 #' @export
-#' @import httr
-#' @importFrom utils download.file
-#' @importFrom utils select.list
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id (numeric) a Figshare object ID
 #' @param urls_only (logical) to only return the URLs to the

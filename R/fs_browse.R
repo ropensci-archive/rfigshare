@@ -3,6 +3,8 @@
 #' Browse can be set to all public articles, the users own articles,
 #' Browse can filter on matching timestamp, author, title, description, tag,
 #' category, and date range.
+#'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param mine Logical, show only my (authenticated user's) articles.
 #' Defaults to TRUE.
@@ -22,8 +24,6 @@
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()]
 #' @references http://api.figshare.com/docs/howto.html#q-search
-#' @import httr
-#' @export
 #' @examples \dontrun{
 #' fs_browse()
 #' fs_browse(mine = FALSE)

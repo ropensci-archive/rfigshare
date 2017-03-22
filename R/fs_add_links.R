@@ -1,6 +1,8 @@
 #' Add link to article
 #'
 #' Adds url links to the metadata of an article
+#'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param link the url you wish to add (can be list of urls)
 #' @param article_id the id number of the article
@@ -11,8 +13,6 @@
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()]
 #' @references http://api.figshare.com
-#' @import httr
-#' @export
 #' @examples \dontrun{
 #' fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org"))
 #' }

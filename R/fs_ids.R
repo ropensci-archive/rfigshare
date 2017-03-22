@@ -1,11 +1,10 @@
 #' Get a list of article id numbers from a search return
 #'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param object the output of a search
 #' @return a list of article id numbers
 #' @references http://api.figshare.com
-#' @import httr
-#' @export
 #' @examples \dontrun{
 #' # figshare_category()
 #'

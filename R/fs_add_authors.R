@@ -1,5 +1,6 @@
 #' Add author to an article
 #'
+#' @export
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @param article_id id number of an article on figshare
 #' @param  authors a list or character string of authors or author id numbers
@@ -11,7 +12,6 @@
 #' registered on FigShare?
 #' @param debug return the httr result visibly?
 #' @return adds the requested authors to the given article
-#' @export
 #' @examples \dontrun{
 #'  fs_add_authors("138", list("Scott Chamberlain", "Karthik Ram"))
 #'  fs_add_authors("138", c("Scott Chamberlain", "Karthik Ram"))
