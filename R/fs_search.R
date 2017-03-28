@@ -45,25 +45,17 @@
 #' # fs_auth("your token")
 #'
 #' fs_search(query = "Boettiger")
-#' fs_search("Boettiger", author = "Carl")
+#' fs_search(author = "Boettiger")
 #' fs_search("Boettiger", author = "Carl", from="2014-01-01")
 #' fs_search("Boettiger", author = "Carl", from="2014-01-01",
 #'           category = "Evolutionary Biology")
 #'
 #' }
-fs_search <- function(query,
-           author = NA,
-           title = NA,
-           description = NA,
-           tag = NA,
-           category = NA,
-           from_date = NA,
-           to_date = NA,
-           mine = FALSE,
-           public_only = FALSE,
-           private_only = FALSE,
-           drafts_only = FALSE,
-           session = fs_get_auth(),
+fs_search <- function(query = NULL, author = NULL, title = NULL,
+                      description = NULL, tag = NULL, category = NULL,
+                      from_date = NULL, to_date = NULL, mine = FALSE,
+                      public_only = FALSE, private_only = FALSE,
+                      drafts_only = FALSE, session = fs_get_auth(),
            limit = 10,
            offset = 0,
            order_by = NULL,
@@ -76,68 +68,16 @@ fs_search <- function(query,
     the_title <- title
 
     method <- "articles/search"
-    if (mine)
-      method <- "account/articles/search"
-    # if (public_only)
-    #   method <- paste0(method, "/public")  # visibility only works in my_data
-    # if (private_only)
-    #   method <- paste0(method, "/private") # visibility only works in my_data
-    # if (drafts_only)
-    #   method <- paste0(method, "/drafts")  # visibility only works in my_data
-    # if(!is.na(query)) # Can search work in my_data ?
-    #   method <- paste(method, "/search?search_for=", query, sep="")
+    if (mine) method <- "account/articles/search"
 
-
-    #     if (!is.na(author)) { # NOT AN ID
-    #       method <- paste(method, "&has_author=", author, sep="")
-    #     }
-    #     if(!is.na(the_title))
-    #       method <- paste(method, "&has_title=", the_title, sep="")
-    #     if(!is.na(description))
-    #       method <- paste(method, "&has_description=", description, sep="")
-    #     if(!is.na(tag))
-    #       method <- paste(method, "&has_tag=", tag, sep="")
-    #     if(!is.na(category)){
-    # #      if(!is.numeric(category))
-    # #        category <- fs_cat_to_id(category)
-    #       method <- paste(method, "&has_category=", category, sep="")
-    #     }
-    #     if(!is.na(from_date))
-    #       method <- paste(method, "&from_date=", from_date, sep="")
-    #     if(!is.na(to_date))
-    #       method <- paste(method, "&to_date=", to_date, sep="")
+    if (!is.null(author)) author <- sprintf(":author: %s", author)
+    if (!is.null(title)) title <- sprintf(":title: %s", title)
+    if (!is.null(description)) description <- sprintf(":description: %s", description)
+    query <- paste0(comp(c(query, author, title, description)), collapse = " ")
 
     request <- paste(base, method, sep = "/")
     body <- comp(list(search_for = query, limit = limit, offset = offset,
                       order = order_by, order_direction = order))
-    #request <- build_url(parse_url(request)) # perform % encoding
-
-    out <- httr::POST(request, session, body = body, encode = "json", ...)
+    out <- httr::POST(request, session, body = body, encode = "json", verbose())
     jsonlite::fromJSON(cont(out))
-    #     if (debug | out$status_code != 200) {
-    #       return(out)
-    #     } else {
-    #       parsed <- jsonlite::fromJSON(cont(out))
-    #       if (is.null(parsed$count)) {
-    #         parsed$count <- parsed$items_found
-    #       }
-    #       if (is.null(parsed$count)) {
-    #         parsed$count <- length(parsed$items)
-    #       }
-    #       out <- parsed$items
-    #
-    #       if (parsed$count > 10) {
-    #         total_pages <- ceiling(parsed$count / 10)
-    #         all <- lapply(1:total_pages, function(i){
-    #           method_ <- paste0(method, "&page=", i)
-    #           request = paste(base, method_, sep = "/")
-    #           request <- build_url(parse_url(request)) # perform % encoding
-    #           out <- httr::POST(request, fs_get_auth(session))
-    #           parsed <- jsonlite::fromJSON(cont(out))
-    #           parsed$items
-    #         })
-    #         out <- unlist(all, recursive = FALSE)
-    #       }
-    #       out
-    #     }
 }

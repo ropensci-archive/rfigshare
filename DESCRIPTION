@@ -16,7 +16,6 @@ Imports:
     jsonlite,
     httr (>= 1.2.1),
     curl (>= 2.3),
-    httpuv,
     plyr,
     ggplot2,
     XML,

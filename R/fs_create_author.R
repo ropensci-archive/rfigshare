@@ -11,29 +11,27 @@
 #' @references http://api.figshare.com
 #' @export
 #' @examples \dontrun{
-#' fs_create_author("Benjamin Franklin")
+#' fs_create_author(full_name = "Benjamin Franklin")
 #' }
-fs_create_author <-
-function(full_name, session = fs_get_auth(), debug = FALSE){
-  base <- "http://api.figshare.com/v1"
-  method <- "my_data/authors"
-  request <- paste(base, method, sep="/")
-  body <- jsonlite::toJSON(list("full_name"=full_name))
+fs_create_author <- function(full_name, article_id, session = fs_get_auth(),
+                             debug = FALSE) {
+
+  base <- "https://api.figshare.com/v2"
+  method <- sprintf("account/articles/%s/authors", article_id)
+  request <- paste(base, method, sep = "/")
+  #body <- jsonlite::toJSON(list("full_name" = full_name), auto_unbox = TRUE)
+  body <- list("full_name" = full_name)
   config <- c(config(token = session),
             add_headers("Content-Type" = "application/json"))
-  request <- build_url(parse_url(request)) # perform % encoding
-  post <- POST(request, config = config, body = body)
-  if(debug)
+  url <- build_url(parse_url(request)) # perform % encoding
+  post <- POST(url, body = body, session, content_type_json(), encode = "json", verbose())
+  if (debug) {
     post
-  else if(post$status_code == 400){ # Return id if already registered
+  } else if (post$status_code == 400) { # Return id if already registered
     warning(jsonlite::fromJSON(cont(post)))
 #    fs_author_search(full_name)[[1]]$id # not working at this time
-  }
-  else if(post$status_code == 201){
+  } else if (post$status_code == 201) {
     p <- jsonlite::fromJSON(cont(post))
     p$id
   }
 }
-
-
-

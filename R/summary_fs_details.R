@@ -1,15 +1,15 @@
 #' Collect metadata from details call
 #'
+#' @export
 #' @author Edmund Hart \email{edmund.m.hart@@gmail.com}
 #' @param fs_details_obj object
 #' @references http://api.figshare.com
-#' @export
 #' @examples \dontrun{
 #' fs_auth()
 #' my_article <- fs_details("138")
 #' summary_fs_details(my_article)
 #' }
-summary_fs_details <- function(fs_details_obj){
+summary_fs_details <- function(fs_details_obj) {
   fs_details_vec <- unlist(fs_details_obj)
   fs_summary <- split(fs_details_vec,names(fs_details_vec))
    ### We can change these keys to print what we think is most salient
@@ -21,13 +21,9 @@ summary_fs_details <- function(fs_details_obj){
                    "Shares","Views","Downloads","Owner","Authors","Tags",
                    "Categories","File names","Links")
 
-  for(i in 1:length(print_keys)){
-    cat(print_names[i],":",paste(unname(fs_summary[[print_keys[i]]]),sep="",
-                                 collapse=", "))
+  for (i in 1:length(print_keys)) {
+    cat(print_names[i],":",paste(unname(fs_summary[[print_keys[i]]]), sep = "",
+                                 collapse = ", "))
     cat("\n")
   }
-
 }
-
-
-

@@ -44,11 +44,11 @@ fs_create <- function(title, description,
   request <- paste(base, method, sep = "/")
   meta <- jsonlite::toJSON(list("title" = title,
                       "description" = description,
-                      "defined_type" = type))
+                      "defined_type" = type), auto_unbox = TRUE)
   config <- c(session, add_headers("Content-Type" = "application/json"))
-  post <- httr::POST(request, config = config, body = meta, ...)
+  post <- httr::POST(request, config = config, body = meta, verbose())
   if (debug | post$status_code > 201) {
-    post
+    stop_for_status(post)
   } else {
     p <- jsonlite::fromJSON(cont(post))
     article_id <- as.numeric(strextract(p$location, "[0-9]+$"))

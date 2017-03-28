@@ -11,30 +11,28 @@
 #' @param debug toggle debugging mode
 #' @return output of PUT request (invisibly)
 #' @seealso [fs_auth()]
-#' @references http://api.figshare.com
+#' @references https://docs.figshare.com
 #' @examples \dontrun{
-#' fs_author_search("Boettiger")
+#' fs_author_search(author = "Boettiger")
 #' }
-fs_author_search <-
-  function(author, session = fs_get_auth(), debug = FALSE){
-    base <- "http://api.figshare.com/v1"
-    method <- paste("my_data/authors?search_for=", author, sep = "")
-    request <- paste(base, method, sep = "/")
-    request <- build_url(parse_url(request)) # perform % encoding
-    output <- GET(request, config(token = session))
-    if(debug | output$status_code != 200)
-      output
-    else {
-      # FIXME check that we don't need to loop over pages for more
-      # than 10 authors
-      x <- jsonlite::fromJSON(cont(output))
-      lapply(x$items,
-             function(o){
-               class(o) <- "fs_object"
-               o
-             })
-    }
-  }
+fs_author_search <- function(author, session = fs_get_auth(), debug = FALSE,
+                             ...) {
 
-
-
+  fs_search(query = author, session = session, debug = debug, ...)
+  # method <- paste("my_data/authors?search_for=", author, sep = "")
+  # request <- file.path(fs_base(), method)
+  # request <- build_url(parse_url(request)) # perform % encoding
+  # output <- GET(request, config(token = session))
+  # if (debug | output$status_code != 200) {
+  #   output
+  # } else {
+  #   # FIXME check that we don't need to loop over pages for more
+  #   # than 10 authors
+  #   x <- jsonlite::fromJSON(cont(output))
+  #   lapply(x$items,
+  #          function(o){
+  #            class(o) <- "fs_object"
+  #            o
+  #          })
+  # }
+}

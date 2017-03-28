@@ -2,6 +2,8 @@
 #'
 #' fs_new_article is a wrapper around many other rfigshare commands to provide
 #' convenient posting.
+#'
+#' @export
 #' @param title for the article, see [fs_create()] for details.
 #' @param description of the article, see [fs_create()] for details.
 #' @param type one of: dataset, figure, media, poster, or paper, see
@@ -24,7 +26,6 @@
 #' @seealso [fs_auth()], [fs_add_categories()], [fs_add_authors()],
 #' [fs_add_tags()], [fs_add_links()]
 #' @references https://docs.figshare.com/
-#' @export
 #' @examples \dontrun{
 #' write.csv(mtcars, "mtcars.csv")
 #' id <- fs_new_article(
@@ -40,7 +41,6 @@
 #'   visibility="private"
 #' )
 #' }
-
 fs_new_article <- function(title, description, type =
          c("dataset", "figure", "media", "poster", "paper", "fileset"),
          authors = NA, categories = NA, tags = NA,
@@ -73,4 +73,3 @@ fs_new_article <- function(title, description, type =
 }
 
 is.nas <- function(x) any(sapply(x, is.na))
-

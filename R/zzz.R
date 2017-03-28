@@ -20,3 +20,5 @@ assert <- function(x, y) {
     }
   }
 }
+
+fs_base <- function() "https://api.figshare.com/v2"
