@@ -35,6 +35,14 @@ install_github("rfigshare", "ropensci")
 
 Getting Started
 ---------------
+Figshare is an online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and videos. It is free to upload content and free to access, in adherence to the principle of open data.
+
+Key Features:
+- Showcase your institution's research with a customizable portal of all public research outputs using the reporting and statistics feature.
+- Have full control of your institution's research outputs with private storage, public storage and collaborative spaces with the data management feature.
+- Filter your institution's research by department, category or file type, and rank content by most viewed, downloaded or shared with the data dissemination feauture.
+- Manage the curation of files to be made public, control quotas, and administer rights with the user group administration feature.
+
 
 ## Get a Personal Access Token
 
@@ -42,7 +50,7 @@ Also known as a PAT. Get it from your Figshare account at https://figshare.com/a
 
 Store the token as an env var in your `.Renviron` file like `RFIGSHARE_PAT=<your figshare PAT>`
 
-We'll look for this token while using this package. 
+We'll look for this token while using this package.
 
 You can optionally pass in this token to function calls, but we strongly discourage that because
 
@@ -60,7 +68,7 @@ require(rfigshare)
 
 
 
-The first time you use an `rfigshare` function, it will ask you to authenticate online. Just log in and click okay to authenticate rfigshare.  R will allow you to cache your login credentials so that you won't be asked to authenticate again (even between R sessions), as long as you are using the same working directory in future.  
+The first time you use an `rfigshare` function, it will ask you to authenticate online. Just log in and click okay to authenticate rfigshare.  R will allow you to cache your login credentials so that you won't be asked to authenticate again (even between R sessions), as long as you are using the same working directory in future.
 
 Try a search for an author:
 
@@ -119,157 +127,157 @@ fs_category_list()
 ```
 
 ```
-##        id  name                                                      
-##   [1,] 1   Biophysics                                                
-##   [2,] 4   Biochemistry                                              
-##   [3,] 7   Medicine                                                  
-##   [4,] 8   Microbiology                                              
-##   [5,] 10  Anatomy                                                   
-##   [6,] 11  Behavioral Neuroscience                                   
-##   [7,] 12  Cell Biology                                              
-##   [8,] 13  Genetics                                                  
-##   [9,] 14  Molecular Biology                                         
-##  [10,] 15  Neuroscience                                              
-##  [11,] 16  Physiology                                                
-##  [12,] 17  Geography                                                 
-##  [13,] 19  Pharmacology                                              
-##  [14,] 20  Computer Engineering                                      
-##  [15,] 21  Biotechnology                                             
-##  [16,] 23  Software Engineering                                      
-##  [17,] 24  Evolutionary Biology                                      
-##  [18,] 25  Anthropology                                              
-##  [19,] 27  Economics                                                 
-##  [20,] 28  Paleontology                                              
-##  [21,] 29  Geology                                                   
-##  [22,] 31  Environmental Chemistry                                   
-##  [23,] 32  Geochemistry                                              
-##  [24,] 34  Environmental Science                                     
-##  [25,] 35  Limnology                                                 
-##  [26,] 36  Oceanography                                              
-##  [27,] 37  Organic Chemistry                                         
-##  [28,] 39  Ecology                                                   
-##  [29,] 42  Biological Engineering                                    
-##  [30,] 44  Toxicology                                                
-##  [31,] 45  Sociology                                                 
-##  [32,] 46  Immunology                                                
-##  [33,] 47  Stereochemistry                                           
-##  [34,] 54  Planetary Geology                                         
-##  [35,] 55  Stellar Astronomy                                         
-##  [36,] 56  Galactic Astronomy                                        
-##  [37,] 57  Cosmology                                                 
-##  [38,] 58  Astrophysics                                              
-##  [39,] 59  Planetary Science                                         
-##  [40,] 61  Developmental Biology                                     
-##  [41,] 62  Marine Biology                                            
-##  [42,] 63  Parasitology                                              
-##  [43,] 64  Cancer                                                    
-##  [44,] 65  Botany                                                    
-##  [45,] 66  Crystallography                                           
-##  [46,] 69  Inorganic Chemistry                                       
-##  [47,] 70  Molecular Physics                                         
-##  [48,] 71  Nuclear Chemistry                                         
-##  [49,] 73  Radiochemistry                                            
-##  [50,] 75  Supramolecular Chemistry                                  
-##  [51,] 76  Theoretical Computer Science                              
-##  [52,] 77  Applied Computer Science                                  
-##  [53,] 78  Atmospheric Sciences                                      
-##  [54,] 79  Geophysics                                                
-##  [55,] 80  Hydrology                                                 
-##  [56,] 82  Mineralogy                                                
-##  [57,] 84  Paleoclimatology                                          
-##  [58,] 85  Palynology                                                
-##  [59,] 86  Physical Geography                                        
-##  [60,] 87  Soil Science                                              
-##  [61,] 88  Agricultural Engineering                                  
-##  [62,] 89  Aerospace Engineering                                     
-##  [63,] 90  Genetic Engineering                                       
-##  [64,] 91  Mechanical Engineering                                    
-##  [65,] 92  Nuclear Engineering                                       
-##  [66,] 94  Art                                                       
-##  [67,] 95  Design                                                    
-##  [68,] 97  Law                                                       
-##  [69,] 98  Literature                                                
-##  [70,] 99  Performing Arts                                           
-##  [71,] 100 Philosophy                                                
-##  [72,] 102 Algebra                                                   
-##  [73,] 103 Geometry                                                  
-##  [74,] 104 Probability                                               
-##  [75,] 105 Statistics                                                
-##  [76,] 106 Science Policy                                            
-##  [77,] 107 Applied Physics                                           
-##  [78,] 108 Atomic Physics                                            
-##  [79,] 109 Computational Physics                                     
-##  [80,] 110 Condensed Matter Physics                                  
-##  [81,] 111 Mechanics                                                 
-##  [82,] 112 Particle Physics                                          
-##  [83,] 113 Plasma Physics                                            
-##  [84,] 114 Quantum Mechanics                                         
-##  [85,] 115 Solid Mechanics                                           
-##  [86,] 116 Thermodynamics                                            
-##  [87,] 117 Entropy                                                   
-##  [88,] 118 General Relativity                                        
-##  [89,] 119 M-Theory                                                  
-##  [90,] 120 Special Relativity                                        
-##  [91,] 122 Mental Health                                             
-##  [92,] 125 Bioinformatics                                            
-##  [93,] 126 History                                                   
-##  [94,] 127 Archaeology                                               
-##  [95,] 128 Hematology                                                
-##  [96,] 129 Education                                                 
-##  [97,] 130 Survey Results                                            
-##  [98,] 131 Anesthesiology                                            
-##  [99,] 132 Infectious Diseases                                       
-## [100,] 133 Plant Biology                                             
-## [101,] 134 Virology                                                  
-## [102,] 135 Computational  Biology                                    
-## [103,] 136 NMR Spectroscopy                                          
-## [104,] 137 Cheminformatics                                           
-## [105,] 138 Numerical Analysis                                        
-## [106,] 139 Pathology                                                 
-## [107,] 140 Cardiology                                                
-## [108,] 141 Computational Chemistry                                   
-## [109,] 143 Solid Earth Sciences                                      
-## [110,] 144 Climate Science                                           
-## [111,] 145 Solar System, Solar Physics, Planets and Exoplanets       
-## [112,] 146 Space Science                                             
-## [113,] 147 Stars, Variable Stars                                     
+##        id  name
+##   [1,] 1   Biophysics
+##   [2,] 4   Biochemistry
+##   [3,] 7   Medicine
+##   [4,] 8   Microbiology
+##   [5,] 10  Anatomy
+##   [6,] 11  Behavioral Neuroscience
+##   [7,] 12  Cell Biology
+##   [8,] 13  Genetics
+##   [9,] 14  Molecular Biology
+##  [10,] 15  Neuroscience
+##  [11,] 16  Physiology
+##  [12,] 17  Geography
+##  [13,] 19  Pharmacology
+##  [14,] 20  Computer Engineering
+##  [15,] 21  Biotechnology
+##  [16,] 23  Software Engineering
+##  [17,] 24  Evolutionary Biology
+##  [18,] 25  Anthropology
+##  [19,] 27  Economics
+##  [20,] 28  Paleontology
+##  [21,] 29  Geology
+##  [22,] 31  Environmental Chemistry
+##  [23,] 32  Geochemistry
+##  [24,] 34  Environmental Science
+##  [25,] 35  Limnology
+##  [26,] 36  Oceanography
+##  [27,] 37  Organic Chemistry
+##  [28,] 39  Ecology
+##  [29,] 42  Biological Engineering
+##  [30,] 44  Toxicology
+##  [31,] 45  Sociology
+##  [32,] 46  Immunology
+##  [33,] 47  Stereochemistry
+##  [34,] 54  Planetary Geology
+##  [35,] 55  Stellar Astronomy
+##  [36,] 56  Galactic Astronomy
+##  [37,] 57  Cosmology
+##  [38,] 58  Astrophysics
+##  [39,] 59  Planetary Science
+##  [40,] 61  Developmental Biology
+##  [41,] 62  Marine Biology
+##  [42,] 63  Parasitology
+##  [43,] 64  Cancer
+##  [44,] 65  Botany
+##  [45,] 66  Crystallography
+##  [46,] 69  Inorganic Chemistry
+##  [47,] 70  Molecular Physics
+##  [48,] 71  Nuclear Chemistry
+##  [49,] 73  Radiochemistry
+##  [50,] 75  Supramolecular Chemistry
+##  [51,] 76  Theoretical Computer Science
+##  [52,] 77  Applied Computer Science
+##  [53,] 78  Atmospheric Sciences
+##  [54,] 79  Geophysics
+##  [55,] 80  Hydrology
+##  [56,] 82  Mineralogy
+##  [57,] 84  Paleoclimatology
+##  [58,] 85  Palynology
+##  [59,] 86  Physical Geography
+##  [60,] 87  Soil Science
+##  [61,] 88  Agricultural Engineering
+##  [62,] 89  Aerospace Engineering
+##  [63,] 90  Genetic Engineering
+##  [64,] 91  Mechanical Engineering
+##  [65,] 92  Nuclear Engineering
+##  [66,] 94  Art
+##  [67,] 95  Design
+##  [68,] 97  Law
+##  [69,] 98  Literature
+##  [70,] 99  Performing Arts
+##  [71,] 100 Philosophy
+##  [72,] 102 Algebra
+##  [73,] 103 Geometry
+##  [74,] 104 Probability
+##  [75,] 105 Statistics
+##  [76,] 106 Science Policy
+##  [77,] 107 Applied Physics
+##  [78,] 108 Atomic Physics
+##  [79,] 109 Computational Physics
+##  [80,] 110 Condensed Matter Physics
+##  [81,] 111 Mechanics
+##  [82,] 112 Particle Physics
+##  [83,] 113 Plasma Physics
+##  [84,] 114 Quantum Mechanics
+##  [85,] 115 Solid Mechanics
+##  [86,] 116 Thermodynamics
+##  [87,] 117 Entropy
+##  [88,] 118 General Relativity
+##  [89,] 119 M-Theory
+##  [90,] 120 Special Relativity
+##  [91,] 122 Mental Health
+##  [92,] 125 Bioinformatics
+##  [93,] 126 History
+##  [94,] 127 Archaeology
+##  [95,] 128 Hematology
+##  [96,] 129 Education
+##  [97,] 130 Survey Results
+##  [98,] 131 Anesthesiology
+##  [99,] 132 Infectious Diseases
+## [100,] 133 Plant Biology
+## [101,] 134 Virology
+## [102,] 135 Computational  Biology
+## [103,] 136 NMR Spectroscopy
+## [104,] 137 Cheminformatics
+## [105,] 138 Numerical Analysis
+## [106,] 139 Pathology
+## [107,] 140 Cardiology
+## [108,] 141 Computational Chemistry
+## [109,] 143 Solid Earth Sciences
+## [110,] 144 Climate Science
+## [111,] 145 Solar System, Solar Physics, Planets and Exoplanets
+## [112,] 146 Space Science
+## [113,] 147 Stars, Variable Stars
 ## [114,] 148 Instrumentation, Techniques, and Astronomical Observations
-## [115,] 149 Interstellar and Intergalactic Matter                     
-## [116,] 150 Extragalactic Astronomy                                   
-## [117,] 151 Biomarkers                                                
-## [118,] 152 Pathogenesis                                              
-## [119,] 153 Health Care                                               
-## [120,] 154 Diseases                                                  
-## [121,] 155 Stem Cells                                                
-## [122,] 156 Systems Biology                                           
-## [123,] 157 Structural Biology                                        
-## [124,] 158 Biological Techniques                                     
-## [125,] 159 Zoology                                                   
-## [126,] 160 Digital Humanities                                        
-## [127,] 161 Disability Studies                                        
-## [128,] 162 Drama                                                     
-## [129,] 163 Entertainment                                             
-## [130,] 164 Environmental Humanities                                  
-## [131,] 165 Ethnic Studies                                            
-## [132,] 166 Gender studies                                            
-## [133,] 167 Language                                                  
-## [134,] 168 Linguistics                                               
-## [135,] 169 Media Studies                                             
-## [136,] 170 Museology                                                 
-## [137,] 171 Religious Studies                                         
-## [138,] 172 Rhetoric                                                  
-## [139,] 173 Applied Psychology                                        
-## [140,] 174 Clinical Psychology                                       
-## [141,] 175 Developmental and Educational Psychology                  
-## [142,] 176 Neuroscience and Physiological Psychology                 
-## [143,] 177 Organizational Behavioral Psychology                      
-## [144,] 178 Personality, Social and Criminal Psychology               
-## [145,] 179 Artificial Intelligence and Image Processing              
-## [146,] 180 Computation Theory and Mathematics                        
-## [147,] 181 Computer Software                                         
-## [148,] 182 Data Format                                               
-## [149,] 183 Distributed Computing                                     
-## [150,] 184 Information Systems                                       
+## [115,] 149 Interstellar and Intergalactic Matter
+## [116,] 150 Extragalactic Astronomy
+## [117,] 151 Biomarkers
+## [118,] 152 Pathogenesis
+## [119,] 153 Health Care
+## [120,] 154 Diseases
+## [121,] 155 Stem Cells
+## [122,] 156 Systems Biology
+## [123,] 157 Structural Biology
+## [124,] 158 Biological Techniques
+## [125,] 159 Zoology
+## [126,] 160 Digital Humanities
+## [127,] 161 Disability Studies
+## [128,] 162 Drama
+## [129,] 163 Entertainment
+## [130,] 164 Environmental Humanities
+## [131,] 165 Ethnic Studies
+## [132,] 166 Gender studies
+## [133,] 167 Language
+## [134,] 168 Linguistics
+## [135,] 169 Media Studies
+## [136,] 170 Museology
+## [137,] 171 Religious Studies
+## [138,] 172 Rhetoric
+## [139,] 173 Applied Psychology
+## [140,] 174 Clinical Psychology
+## [141,] 175 Developmental and Educational Psychology
+## [142,] 176 Neuroscience and Physiological Psychology
+## [143,] 177 Organizational Behavioral Psychology
+## [144,] 178 Personality, Social and Criminal Psychology
+## [145,] 179 Artificial Intelligence and Image Processing
+## [146,] 180 Computation Theory and Mathematics
+## [147,] 181 Computer Software
+## [148,] 182 Data Format
+## [149,] 183 Distributed Computing
+## [150,] 184 Information Systems
 ## [151,] 185 Library and Information Studies
 ```
 
@@ -301,24 +309,24 @@ fs_make_private(id)
 ```
 
 
-We can now share the dataset with collaborators by way of the private url.  
+We can now share the dataset with collaborators by way of the private url.
 
 ### The quick and easy way
 
-The `rfigshare` package will let you create a new figshare article with additional authors, tags, categories, etc in a single command usnig the `fs_new_article` function.  The essential metadata `title`, `description` and `type` are required, but any other information we omit at this stage can be added later.  If we set `visibility` to private or public, the article is published on figshare immediately.  
+The `rfigshare` package will let you create a new figshare article with additional authors, tags, categories, etc in a single command usnig the `fs_new_article` function.  The essential metadata `title`, `description` and `type` are required, but any other information we omit at this stage can be added later.  If we set `visibility` to private or public, the article is published on figshare immediately.
 
 
 
 ```r
 data(mtcars)
 write.csv(mtcars,"mtcars.csv")
-id <- fs_new_article(title="A Test of rfigshare", 
-                     description="This is a test", 
-                     type="dataset", 
-                     authors=c("Karthik Ram", "Scott Chamberlain"), 
-                     tags=c("ecology", "openscience"), 
-                     categories="Ecology", 
-                     links="http://ropensci.org", 
+id <- fs_new_article(title="A Test of rfigshare",
+                     description="This is a test",
+                     type="dataset",
+                     authors=c("Karthik Ram", "Scott Chamberlain"),
+                     tags=c("ecology", "openscience"),
+                     categories="Ecology",
+                     links="http://ropensci.org",
                      files="mtcars.csv",
                      visibility="private")
 ```
@@ -334,7 +342,7 @@ unlink("mtcars.csv") # clean up
 
 # Examining Data on Figshare
 
-We can view all available metadata of a figshare object. 
+We can view all available metadata of a figshare object.
 
 
 
@@ -440,7 +448,7 @@ mine[1:2]
 ## links:
 ## - link: http://ropensci.org
 ##   id: 673.0
-## 
+##
 ## [[2]]
 ## article_id: 1.1263e+06
 ## title: Test title
@@ -491,7 +499,7 @@ fs_ids(mine)
 ```
 
 
-We can delete unwanted files that are not public with `fs_delete`:  
+We can delete unwanted files that are not public with `fs_delete`:
 
 
 
@@ -508,15 +516,15 @@ citation("rfigshare")
 ```
 
 ```
-## 
+##
 ## To cite package 'rfigshare' in publications use:
-## 
+##
 ##   Carl Boettiger, Scott Chamberlain, Karthik Ram and Edmund Hart
 ##   (2014). rfigshare: an R interface to figshare.com.. R package
 ##   version 0.3-1. http://CRAN.R-project.org/package=rfigshare
-## 
+##
 ## A BibTeX entry for LaTeX users is
-## 
+##
 ##   @Manual{,
 ##     title = {rfigshare: an R interface to figshare.com.},
 ##     author = {Carl Boettiger and Scott Chamberlain and Karthik Ram and Edmund Hart},
