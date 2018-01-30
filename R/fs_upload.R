@@ -58,6 +58,6 @@ fs_upload_one  <- function(article_id, file, session = fs_get_auth()) {
   body <- list(filedata = upload_file(file))
   config <- c(config(token = session), add_headers("Content-Type" = "multipart/form-data"))
   out <- PUT(request, config = config, body = body)
-  fs_tag_as_rfigshare(article_id)
+  fs_tag_as_rfigshare(article_id, session = session)
   out
 }
