@@ -27,6 +27,12 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit http://semver.org/.
 
+v0.3.7.100
+----------
+
+- `fs_tag_as_rfigshare()` accepts and passes `session` object to support
+  unattended uploads [#105](https://github.com/ropensci/rfigshare/pull/105).
+
 v0.3.7
 ------
 
