@@ -82,7 +82,7 @@ fs_upload(id, "mtcars.csv")
 ```
 
 
-Not that we must pass the id number of our the newly created figshare object as the first argument.  Similar functions let us add additional authors, tags, categories, and links, e.g.
+Note that we must pass the id number of our the newly created figshare object as the first argument.  Similar functions let us add additional authors, tags, categories, and links, e.g.
 
 
 ```{r}
