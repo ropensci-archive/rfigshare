@@ -36,7 +36,7 @@ fs_download <-
     if(!urls_only)
       sapply(1:length(urls), function(i) 
              download.file(urls[i], destfile=filenames[i], 
-                           ..., method = "internal"))
+                           ...))
     urls
   }
 
