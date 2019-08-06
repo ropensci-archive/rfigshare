@@ -19,10 +19,9 @@ my_article <- fs_details("138")
 summary_fs_details(my_article)
 }
 }
-\author{
-Edmund Hart \email{edmund.m.hart@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
-
+\author{
+Edmund Hart \email{edmund.m.hart@gmail.com}
+}

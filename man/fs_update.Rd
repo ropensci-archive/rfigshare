@@ -36,13 +36,12 @@ Updates the title, description, and type of an article.
 fs_update(138, title = "New title") 
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}, \code{\link{fs_add_tags}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

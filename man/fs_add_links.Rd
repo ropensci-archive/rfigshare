@@ -26,13 +26,12 @@ Adds url links to the metadata of an article
 fs_add_links(138, list("http://carlboettiger.info", "http://ropensci.org")) 
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

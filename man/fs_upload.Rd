@@ -29,13 +29,12 @@ id <- fs_create("Title", "description", "figure")
 fs_upload(id, "file.png")
 } 
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

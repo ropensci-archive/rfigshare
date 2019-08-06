@@ -27,12 +27,11 @@ Imports:
     RJSONIO,
     httr (>= 0.3),
     httpuv,
-    plyr,
     yaml,
     ggplot2,
     XML
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1
 X-schema.org-applicationCategory: Data Publication
 X-schema.org-keywords: data, archiving, repository, doi
 X-schema.org-isPartOf: https://ropensci.org

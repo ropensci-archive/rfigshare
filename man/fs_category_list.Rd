@@ -23,4 +23,3 @@ fs_categories_list()
 \references{
 \url{http://api.figshare.com}
 }
-

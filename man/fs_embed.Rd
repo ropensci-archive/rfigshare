@@ -18,4 +18,3 @@ Upload a figure to figshare and return the url
 \details{
 use with opts_knit$set(upload.fn = fs_embed)
 }
-

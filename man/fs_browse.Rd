@@ -37,13 +37,12 @@ Browse can filter on matching timestamp, author, title, description, tag, catego
 fs_browse() 
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com/docs/howto.html#q-search}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

@@ -34,13 +34,12 @@ file_ids <- sapply(my_lib[[2]]$files, `[[`, "id")
 sapply(file_ids, function(id) fs_delete(article_id, id))
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

@@ -5,7 +5,8 @@
 \title{Get details for an article}
 \usage{
 fs_download(article_id, urls_only = TRUE, mine = is_mine(article_id),
-  session = fs_get_auth(), show_versions = FALSE, version = NULL, ...)
+  session = fs_get_auth(), show_versions = FALSE, version = NULL,
+  ...)
 }
 \arguments{
 \item{article_id}{number}
@@ -35,13 +36,12 @@ ids <- fs_ids(articles)
 fs_download(ids, urls_only=FALSE)
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com} \url{https://github.com/ropensci/rfigshare}
 }
 \seealso{
 \code{\link{fs_auth}} \code{\link{download.file}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

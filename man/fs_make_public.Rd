@@ -28,13 +28,12 @@ NOTE: Public articles are assigned DOIs and cannot be deleted or made private on
 fs_make_public(123)
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
 \seealso{
 \code{\link{fs_auth}}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

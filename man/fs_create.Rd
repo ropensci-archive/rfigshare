@@ -4,8 +4,9 @@
 \alias{fs_create}
 \title{Create a FigShare article (draft)}
 \usage{
-fs_create(title, description, type = c("dataset", "figure", "media", "poster",
-  "paper", "fileset"), session = fs_get_auth(), debug = FALSE)
+fs_create(title, description, type = c("dataset", "figure", "media",
+  "poster", "paper", "fileset"), session = fs_get_auth(),
+  debug = FALSE)
 }
 \arguments{
 \item{title}{for the article}
@@ -45,4 +46,3 @@ fs_create("My Title", "A description of the object", "dataset")
 \seealso{
 \code{\link{fs_auth}}, \code{\link{fs_upload}}
 }
-

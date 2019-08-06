@@ -20,10 +20,9 @@ Get a list of article id numbers from a search return
 figshare_category() 
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}
