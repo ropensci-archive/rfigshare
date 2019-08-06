@@ -37,4 +37,3 @@ Add author to an article
 \author{
 Carl Boettiger \email{cboettig@gmail.com}
 }
-

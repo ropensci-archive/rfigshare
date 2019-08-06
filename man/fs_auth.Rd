@@ -50,10 +50,9 @@ is expected that most users will leave the keys as NULL.
 fs_auth()
 }
 }
-\author{
-Carl Boettiger \email{cboettig@gmail.com}
-}
 \references{
 \url{http://api.figshare.com}
 }
-
+\author{
+Carl Boettiger \email{cboettig@gmail.com}
+}

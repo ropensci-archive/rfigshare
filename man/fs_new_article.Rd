@@ -5,9 +5,9 @@
 \title{Create a FigShare article.}
 \usage{
 fs_new_article(title, description, type = c("dataset", "figure", "media",
-  "poster", "paper", "fileset"), authors = NA, categories = NA, tags = NA,
-  links = NA, files = NA, visibility = c("draft", "private", "public"),
-  session = fs_get_auth())
+  "poster", "paper", "fileset"), authors = NA, categories = NA,
+  tags = NA, links = NA, files = NA, visibility = c("draft",
+  "private", "public"), session = fs_get_auth())
 }
 \arguments{
 \item{title}{for the article, see \code{\link{fs_create}} for details.}
@@ -58,4 +58,3 @@ id <- fs_new_article(title="A Test of rfigshare",
 \seealso{
 \code{\link{fs_auth}}, \code{\link{fs_add_categories}}, \code{\link{fs_add_authors}}, \code{\link{fs_add_tags}}, \code{\link{fs_add_links}}
 }
-

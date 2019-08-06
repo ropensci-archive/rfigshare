@@ -22,4 +22,3 @@ If no author is found, call fs_create_author and return the ID.
 If multiple matches are found, allow user to choose interactively
 }
 \keyword{internal}
-
