@@ -6,7 +6,7 @@
 #' @param session (optional) the authentication credentials from \code{\link{fs_auth}}. If not provided, will attempt to load from cache as long as figshare_auth has been run.  
 #' @param debug return PUT results visibly?
 #' @return output of PUT request (invisibly)
-#' @seealso \code{\link{fs_auth}}
+#' @seealso \code{\link{fs_auth}} \code{\link{fs_category_list}}
 #' @references \url{http://api.figshare.com}
 #' @import RJSONIO httr
 #' @export
