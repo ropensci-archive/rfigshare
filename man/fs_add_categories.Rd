@@ -4,8 +4,12 @@
 \alias{fs_add_categories}
 \title{Add a category to article}
 \usage{
-fs_add_categories(article_id, category_id, session = fs_get_auth(),
-  debug = FALSE)
+fs_add_categories(
+  article_id,
+  category_id,
+  session = fs_get_auth(),
+  debug = FALSE
+)
 }
 \arguments{
 \item{article_id}{the id number of the article}
@@ -31,7 +35,7 @@ fs_add_categories(138, "Ecology")
 \url{http://api.figshare.com}
 }
 \seealso{
-\code{\link{fs_auth}}
+\code{\link{fs_auth}} \code{\link{fs_category_list}}
 }
 \author{
 Edmund Hart \email{edmund.m.hart@gmail.com}

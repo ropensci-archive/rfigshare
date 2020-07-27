@@ -7,7 +7,7 @@
 #' @param debug enable debugging
 #' @export
 #' @examples \dontrun{
-#' fs_categories_list()
+#' as.data.frame(rbind(fs_category_list()))
 #' }
 fs_category_list <- function(debug = FALSE){
     response <- GET("http://api.figshare.com/v1/categories")
