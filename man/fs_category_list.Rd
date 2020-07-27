@@ -17,7 +17,7 @@ List all categories
 }
 \examples{
 \dontrun{
-fs_categories_list()
+as.data.frame(rbind(fs_category_list()))
 }
 }
 \references{
