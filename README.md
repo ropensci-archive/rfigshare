@@ -1,8 +1,8 @@
----
-title: rfigshare tutorial
-author: Carl Boettiger
----
 
+
+
+# rfigshare is deprecated 
+## Please consider using [deposits](https://github.com/ropenscilabs/deposits) instead
 
 <!--
 %\VignetteEngine{knitr::knitr}
@@ -11,11 +11,6 @@ author: Carl Boettiger
 
 [![Build Status](https://api.travis-ci.org/ropensci/rfigshare.png)](https://travis-ci.org/ropensci/rfigshare)
 
-
-
-
-rfigshare
-==========
 
 *An R interface to [FigShare](http://figshare.com)*
 
