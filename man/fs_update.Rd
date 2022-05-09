@@ -4,8 +4,15 @@
 \alias{fs_update}
 \title{Update article title, description, or type}
 \usage{
-fs_update(article_id, title = NA, description = NA, type = NA,
-  mine = TRUE, session = fs_get_auth(), debug = FALSE)
+fs_update(
+  article_id,
+  title = NA,
+  description = NA,
+  type = NA,
+  mine = TRUE,
+  session = fs_get_auth(),
+  debug = FALSE
+)
 }
 \arguments{
 \item{article_id}{the id number of the article}

@@ -4,9 +4,15 @@
 \alias{fs_download}
 \title{Get details for an article}
 \usage{
-fs_download(article_id, urls_only = TRUE, mine = is_mine(article_id),
-  session = fs_get_auth(), show_versions = FALSE, version = NULL,
-  ...)
+fs_download(
+  article_id,
+  urls_only = TRUE,
+  mine = is_mine(article_id),
+  session = fs_get_auth(),
+  show_versions = FALSE,
+  version = NULL,
+  ...
+)
 }
 \arguments{
 \item{article_id}{number}

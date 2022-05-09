@@ -4,10 +4,12 @@
 \alias{fs_auth}
 \title{Figshare authentication via OAuth1.0 using httr}
 \usage{
-fs_auth(cKey = getOption("FigshareKey", NULL),
+fs_auth(
+  cKey = getOption("FigshareKey", NULL),
   cSecret = getOption("FigsharePrivateKey", NULL),
   token = getOption("FigshareToken", NULL),
-  token_secret = getOption("FigsharePrivateToken", NULL))
+  token_secret = getOption("FigsharePrivateToken", NULL)
+)
 }
 \arguments{
 \item{cKey}{optional argument for the consumer key.  See details.}

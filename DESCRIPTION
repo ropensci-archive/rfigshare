@@ -1,7 +1,7 @@
 Package: rfigshare
 Title: An R Interface to 'figshare'
 Description: An R interface to figshare.
-Version: 0.3.7.100
+Version: 0.3.8
 License: CC0
 URL: https://docs.ropensci.org/rfigshare, https://github.com/ropensci/rfigshare
 BugReports: https://github.com/ropensci/rfigshare/issues
@@ -31,7 +31,7 @@ Imports:
     ggplot2,
     XML
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.2
 X-schema.org-applicationCategory: Data Publication
 X-schema.org-keywords: data, archiving, repository, doi
 X-schema.org-isPartOf: https://ropensci.org

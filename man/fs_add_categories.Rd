@@ -4,8 +4,12 @@
 \alias{fs_add_categories}
 \title{Add a category to article}
 \usage{
-fs_add_categories(article_id, category_id, session = fs_get_auth(),
-  debug = FALSE)
+fs_add_categories(
+  article_id,
+  category_id,
+  session = fs_get_auth(),
+  debug = FALSE
+)
 }
 \arguments{
 \item{article_id}{the id number of the article}
